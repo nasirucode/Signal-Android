@@ -43,6 +43,7 @@ import org.thoughtcrime.securesms.sms.MessageSender.PreUploadResult
 import org.thoughtcrime.securesms.stories.Stories
 import org.thoughtcrime.securesms.util.MessageUtil
 import java.util.Collections
+import java.util.Optional
 import java.util.concurrent.TimeUnit
 
 private val TAG = Log.tag(MediaSelectionRepository::class.java)
@@ -87,10 +88,13 @@ class MediaSelectionRepository(context: Context) {
       throw IllegalStateException("No selected media!")
     }
 
+    val isSendingToStories = singleContact?.isStory == true || contacts.any { it.isStory }
+    val sentMediaQuality = if (isSendingToStories) SentMediaQuality.STANDARD else quality
+
     return Maybe.create<MediaSendActivityResult> { emitter ->
       val trimmedBody: String = if (isViewOnce) "" else getTruncatedBody(message?.toString()?.trim()) ?: ""
       val trimmedMentions: List<Mention> = if (isViewOnce) emptyList() else mentions
-      val modelsToTransform: Map<Media, MediaTransform> = buildModelsToTransform(selectedMedia, stateMap, quality)
+      val modelsToTransform: Map<Media, MediaTransform> = buildModelsToTransform(selectedMedia, stateMap, sentMediaQuality)
       val oldToNewMediaMap: Map<Media, Media> = MediaRepository.transformMediaSync(context, selectedMedia, modelsToTransform)
       val updatedMedia = oldToNewMediaMap.values.toList()
 
@@ -127,7 +131,7 @@ class MediaSelectionRepository(context: Context) {
           )
         }
 
-        val clippedMediaForStories = if (singleContact?.isStory == true || contacts.any { it.isStory }) {
+        val clippedVideosForStories: List<Media> = if (isSendingToStories) {
           updatedMedia.filter {
             Stories.MediaTransform.getSendRequirements(it) == Stories.MediaTransform.SendRequirements.REQUIRES_CLIP
           }.map { media ->
@@ -140,7 +144,7 @@ class MediaSelectionRepository(context: Context) {
         uploadRepository.updateDisplayOrder(updatedMedia)
         uploadRepository.getPreUploadResults { uploadResults ->
           if (contacts.isNotEmpty()) {
-            sendMessages(contacts, splitBody, uploadResults, trimmedMentions, isViewOnce, clippedMediaForStories)
+            sendMessages(contacts, splitBody, uploadResults, trimmedMentions, isViewOnce, clippedVideosForStories)
             uploadRepository.deleteAbandonedAttachments()
             emitter.onComplete()
           } else if (uploadResults.isNotEmpty()) {
@@ -155,7 +159,7 @@ class MediaSelectionRepository(context: Context) {
   }
 
   private fun getTruncatedBody(body: String?): String? {
-    return if (body.isNullOrEmpty()) {
+    return if (!Stories.isFeatureEnabled() || body.isNullOrEmpty()) {
       body
     } else {
       val iterator = BreakIteratorCompat.getInstance()
@@ -229,7 +233,7 @@ class MediaSelectionRepository(context: Context) {
     val storyPreUploadMessages: MutableMap<PreUploadResult, MutableList<OutgoingSecureMediaMessage>> = mutableMapOf()
     val storyClipMessages: MutableList<OutgoingSecureMediaMessage> = ArrayList()
     val distributionListPreUploadSentTimestamps: MutableMap<PreUploadResult, Long> = mutableMapOf()
-    val distributionListStoryClipsSentTimestamps: MutableMap<Media, Long> = mutableMapOf()
+    val distributionListStoryClipsSentTimestamps: MutableMap<MediaKey, Long> = mutableMapOf()
 
     for (contact in contacts) {
       val recipient = Recipient.resolved(contact.recipientId)
@@ -296,7 +300,7 @@ class MediaSelectionRepository(context: Context) {
                 recipient,
                 body,
                 listOf(MediaUploadRepository.asAttachment(context, it)),
-                if (recipient.isDistributionList) distributionListStoryClipsSentTimestamps.getOrPut(it) { System.currentTimeMillis() } else System.currentTimeMillis(),
+                if (recipient.isDistributionList) distributionListStoryClipsSentTimestamps.getOrPut(it.asKey()) { System.currentTimeMillis() } else System.currentTimeMillis(),
                 -1,
                 TimeUnit.SECONDS.toMillis(recipient.expiresInSeconds.toLong()),
                 isViewOnce,
@@ -329,24 +333,31 @@ class MediaSelectionRepository(context: Context) {
     }
 
     if (nonStoryMessages.isNotEmpty()) {
-      Log.d(TAG, "Sending ${nonStoryMessages.size} non-story preupload messages")
+      Log.d(TAG, "Sending ${nonStoryMessages.size} preupload messages to chats")
       MessageSender.sendMediaBroadcast(
         context,
         nonStoryMessages,
-        preUploadResults
+        preUploadResults,
+        true
       )
     }
 
     if (storyPreUploadMessages.isNotEmpty()) {
       Log.d(TAG, "Sending ${storyPreUploadMessages.size} preload messages to stories")
       storyPreUploadMessages.forEach { (preUploadResult, messages) ->
-        MessageSender.sendMediaBroadcast(context, messages, Collections.singleton(preUploadResult))
+        MessageSender.sendMediaBroadcast(context, messages, Collections.singleton(preUploadResult), nonStoryMessages.isEmpty())
       }
     }
 
     if (storyClipMessages.isNotEmpty()) {
-      Log.d(TAG, "Sending ${storyClipMessages.size} clip messages to stories")
+      Log.d(TAG, "Sending ${storyClipMessages.size} video clip messages to stories")
       MessageSender.sendStories(context, storyClipMessages, null, null)
     }
   }
+
+  private fun Media.asKey(): MediaKey {
+    return MediaKey(this, this.transformProperties)
+  }
+
+  data class MediaKey(val media: Media, val mediaTransform: Optional<TransformProperties>)
 }

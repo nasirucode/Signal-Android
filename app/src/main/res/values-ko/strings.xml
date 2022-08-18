@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">결제 복구 문구 기록</string>
   <string name="ApplicationPreferencesActivity_record_phrase">녹음 문구</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">PIN을 사용 중지하기 전에 결제 계정을 복구할 수 있도록 결제 복구 문구를 기록해야 합니다.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">백스페이스</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="other">%d분</item>
@@ -172,17 +175,25 @@
   <string name="ContactsDatabase_message_s">%s에 메시지 보내기</string>
   <string name="ContactsDatabase_signal_call_s">%s에 Signal 전화</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">이름 수정</string>
   <string name="ContactNameEditActivity_given_name">이름</string>
   <string name="ContactNameEditActivity_family_name">성</string>
   <string name="ContactNameEditActivity_prefix">접두사</string>
   <string name="ContactNameEditActivity_suffix">접미사</string>
   <string name="ContactNameEditActivity_middle_name">중간 이름</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">연락처 보내기</string>
   <string name="ContactShareEditActivity_type_home">집</string>
   <string name="ContactShareEditActivity_type_mobile">휴대 전화</string>
   <string name="ContactShareEditActivity_type_work">직장</string>
   <string name="ContactShareEditActivity_type_missing">기타</string>
   <string name="ContactShareEditActivity_invalid_contact">선택한 연락처가 잘못됨</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">이름 수정</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">아바타</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">메시지가 보내지지 않았습니다. 탭하여 세부정보를 확인하세요.</string>
   <string name="ConversationItem_error_partially_not_delivered">일부만 전송됨, 탭하여 확인</string>
@@ -431,6 +442,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">백업을 복원하려면 Signal의 새 사본을 설치하세요. 앱을 열고 \'백업 복원\'을 탭한 후 백업 파일을 찾으세요. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">더 알아보기</string>
   <string name="BackupsPreferenceFragment__in_progress">진행 중…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">백업을 확인하는 중…</string>
   <string name="BackupsPreferenceFragment__d_so_far">지금까지 %1$d…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% 진행중…</string>
@@ -1438,6 +1451,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">수정</string>
   <string name="SubmitDebugLogActivity_done">확인</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">저장</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">저장에 실패함</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">저장 성공</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">줄을 탭하여 삭제하세요</string>
   <string name="SubmitDebugLogActivity_submit">제출</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">로그를 제출하는데 실패했습니다.</string>
@@ -1491,6 +1510,10 @@
   <string name="ThreadRecord__you_sent_a_gift">선물을 보냈습니다.</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">선물 배지를 사용했습니다.</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">내 스토리에 %1$s 이모지로 반응했습니다. </string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">상대 스토리에 %1$s 이모지로 반응했습니다.</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signal 업데이트</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">새 Signal 버전 출시, 탭하여 업데이트</string>
@@ -2619,10 +2642,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">백업 암호가 성공적으로 입력됨</string>
   <string name="BackupDialog_passphrase_was_not_correct">암호가 올바르지 않음</string>
   <string name="LocalBackupJob_creating_signal_backup">Signal 백업 만드는 중…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Signal 백업을 확인하는 중…</string>
   <string name="LocalBackupJobApi29_backup_failed">백업을 실패했습니다.</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">백업 경로가 삭제되었거나 이동했습니다.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">백업 파일이 너무 커서 이 볼륨에 저장할 수 없습니다.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">백업을 저장할 공간이 충분하지 않습니다.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">최신 백업을 만들고 확인하지 못했습니다. 새로운 백업을 만드세요.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">백업에 대용량 파일이 포함되어 있습니다. 이 파일을 삭제하고 새로운 백업을 만드세요.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">탭하여 백업을 관리하세요.</string>
   <string name="ProgressPreference_d_messages_so_far">현재 메시지 %d개 처리됨</string>
   <string name="RegistrationActivity_wrong_number">잘못된 번호</string>
@@ -2876,6 +2905,9 @@
   <string name="CallParticipant__you">나</string>
   <string name="CallParticipant__you_on_another_device">나(다른 기기에서)</string>
   <string name="CallParticipant__s_on_another_device">%1$s(다른 기기에서)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Wi-Fi 신호가 약합니다. 셀룰러 데이터로 전환하세요.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">계정을 삭제하면:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">전화번호를 입력하세요.</string>
@@ -3762,6 +3794,8 @@
   <string name="StoriesLandingItem__share">공유…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">채팅으로 이동</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">정보</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">보내는 중…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3805,6 +3839,7 @@
     <item quantity="other">답장 %1$d개</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">수신 확인 꺼짐</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -3818,7 +3853,17 @@
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">아직 아무도 조회 안 함</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">내 스토리를 본 사람을 확인하려면 수신 확인을 활성화하세요.</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">설정으로 이동</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">삭제</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">볼 수 있는 사람을 제거할까요?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s 님은 이 게시물은 계속 볼 수 있지만 앞으로 내가 %2$s에 공유하는 게시물은 볼 수 없게 됩니다.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">볼 수 있는 사람 제거</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">답장 없음</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4027,7 +4072,7 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">더 보기</string>
   <string name="StoriesLinkPopup__visit_link">링크 방문</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="other">%1$s · %2$d일</item>
   </plurals>
@@ -4090,6 +4135,7 @@
     <item quantity="other">그룹 스토리 · %1$d명 조회</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">볼 수 있는 사람을 선택하려면 탭하세요.</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">스토리 설정</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4131,36 +4177,68 @@
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">확인</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">바로 가기 메뉴 열기</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s · 확인됨</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">검증함</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">안전 번호 변경 내용</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">다음 사용자는 Signal을 다시 설치했거나 기기를 변경했을 수 있습니다. 받는 사람을 탭하여 새 안전 번호를 확인하세요. 이 작업은 선택 사항입니다.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">안전 번호 확인</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">안전 번호 확인 완료</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">모든 커넥션을 검토했습니다. 보내기를 탭하여 계속하세요.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Signal을 다시 설치했거나 기기를 변경했을 수 있는 커넥션이 %1$d개 있습니다. 스토리를 공유하기 전에 해당 사용자의 안전 번호를 검토하거나 스토리에서 이들을 제거하세요.</string>
   <!--Menu action to launch safety number verification screen-->
+  <string name="SafetyNumberBottomSheetFragment__verify_safety_number">안전 번호 확인</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">스토리에서 제거</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">그냥 보내기</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">커넥션 검토</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">표시할 받는 사람이 없습니다.</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">확인</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">안전 번호 변경 내용</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="other">받는 사람 %1$d명이 Signal을 다시 설치했거나 기기를 변경했을 수 있습니다. 받는 사람을 탭하여 새 안전 번호를 확인하세요. 이 작업은 선택 사항입니다.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">연락처</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">모두 제거</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">삭제</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">내 스토리 개인정보보호</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">내 스토리 게시물을 볼 수 있는 사람을 선택하세요. 설정에서 언제든지 변경할 수 있습니다.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">모든 Signal 커넥션</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">다음을 제외한 모든 Signal 커넥션…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">다음 사용자와만 공유…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">보낸 시간</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">받은 시간</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">파일 크기</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">보냄</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">받음</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">정보</string>
   <!--EOF-->
 </resources>

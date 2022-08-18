@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Registri la restarigan frazon pri pagoj</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Registri frazon</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Antaŭ ol vi povas malŝalti vian PIN-on, vi devas registri vian restarigan frazon pri pagoj por certigi, ke vi povos restarigi vian pagokonton.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Retropaŝo</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d minuto</item>
@@ -173,17 +176,22 @@
   <string name="ContactsDatabase_message_s">Mesaĝi al %s</string>
   <string name="ContactsDatabase_signal_call_s">Signal-alvoko %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
   <string name="ContactNameEditActivity_given_name">Persona nomo</string>
   <string name="ContactNameEditActivity_family_name">Familia nomo</string>
   <string name="ContactNameEditActivity_prefix">Prefikso</string>
   <string name="ContactNameEditActivity_suffix">Sufikso</string>
   <string name="ContactNameEditActivity_middle_name">Dua persona nomo</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
   <string name="ContactShareEditActivity_type_home">Hejmo</string>
   <string name="ContactShareEditActivity_type_mobile">Poŝtelefono</string>
   <string name="ContactShareEditActivity_type_work">Laboro</string>
   <string name="ContactShareEditActivity_type_missing">Alia</string>
   <string name="ContactShareEditActivity_invalid_contact">Elektita kontakto estis nevalida</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Avataro</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Ne sendita; tuŝetu por detaloj</string>
   <string name="ConversationItem_error_partially_not_delivered">Nekomplete sendita; tuŝetu por detaloj</string>
@@ -449,6 +457,7 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Por restaŭri savkopion, instalu novan Signal-on. Malfermu la aplikaĵon kaj tuŝetu „Restaŭri savkopion“, poste elektu dosieron de savkopi. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Scii pli</string>
   <string name="BackupsPreferenceFragment__in_progress">Savkopiado…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
   <string name="BackupsPreferenceFragment__d_so_far">%1$d ĝis nun…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s %% ĝis nun…</string>
@@ -1505,6 +1514,10 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Modifi</string>
   <string name="SubmitDebugLogActivity_done">Farita</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Konservi</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Tuŝetu linion por forigi ĝin</string>
   <string name="SubmitDebugLogActivity_submit">Sendi</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Malsukcesa sendo de la protokoloj</string>
@@ -1558,6 +1571,8 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <string name="ThreadRecord__you_sent_a_gift">Vi sendis donacon</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Vi uzis donacan insignon</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Ĝisdatigo de Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Nova versio de Signal disponeblas, tuŝetu por ĝisdatigi</string>
@@ -2697,10 +2712,13 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Vi sukcese entajpis vian savkopian pasfrazon</string>
   <string name="BackupDialog_passphrase_was_not_correct">La pasfrazo malĝustas</string>
   <string name="LocalBackupJob_creating_signal_backup">Kreo de Signal-savkopio…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
   <string name="LocalBackupJobApi29_backup_failed">Savkopiado malsukcesis</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Via savkopia dosierujo foriĝis aŭ moviĝis.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Via savkopi-dosiero tro grandas por konserviĝi en tiun portilon.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Ne plu estas sufiĉa spaco por konservi vian savkopion.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Tuŝeti por administri la savkopiadon.</string>
   <string name="ProgressPreference_d_messages_so_far">%d mesaĝoj ĝis nun</string>
   <string name="RegistrationActivity_wrong_number">Erara numero</string>
@@ -2956,6 +2974,8 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <string name="CallParticipant__you">Vi</string>
   <string name="CallParticipant__you_on_another_device">Vi (ĉe alia aparato)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (ĉe alia aparato)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Konsekvenco de la forviŝado de via konto:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Entajpu vian telefonnumeron</string>
@@ -3847,6 +3867,8 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <string name="StoriesLandingItem__share">Kunhavigi…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Iri al la interparolo</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Informo</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Sendo…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3905,6 +3927,11 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <string name="StoryViewsFragment__no_views_yet">Neniu vido</string>
   <!--Displayed when user has disabled receipts-->
   <!--Button label displayed when user has disabled receipts-->
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Forviŝi</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <!--Dialog message when removing a viewer from a story-->
+  <!--Story View context menu action to remove them from a story-->
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Neniu respondo</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4100,7 +4127,7 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Vidi pli</string>
   <string name="StoriesLinkPopup__visit_link">Aliri la ligilon</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <!--Tagline for gift row items-->
   <string name="GiftRowItem__send_a_gift_badge">Sendi insignon de donaco</string>
   <!--Headline text on start fragment for gifting a badge-->
@@ -4205,6 +4232,7 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <!--Message of safety number changes bottom sheet when showing individual records-->
   <!--Title of safety number changes bottom sheet when not showing individual records-->
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Kontroli sekurigan numeron</string>
@@ -4227,5 +4255,16 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Sendita</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Ricevita</string>
+  <!--Story info header file size heading-->
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Sendita al</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Sendita el</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Informo</string>
   <!--EOF-->
 </resources>

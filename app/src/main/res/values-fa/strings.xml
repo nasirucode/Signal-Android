@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">عبارت بازیابی پرداخت‌ها را ثبت کنید</string>
   <string name="ApplicationPreferencesActivity_record_phrase">ثبت عبارت</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">قبل از اینکه قادر به غیرفعال کردن پین خود باشید، باید عبارت بازیابی پرداخت‌های خود را ثبت کنید تا مطمئن شوید که می‌توانید حساب کاربری پرداخت‌های خود را بازیابی کنید.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d دقیقه</item>
@@ -173,17 +176,25 @@
   <string name="ContactsDatabase_message_s">ارسال پیام به  %s</string>
   <string name="ContactsDatabase_signal_call_s">تماس سیگنال با %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">ویرایش نام</string>
   <string name="ContactNameEditActivity_given_name">نام</string>
   <string name="ContactNameEditActivity_family_name">نام خانوادگی</string>
   <string name="ContactNameEditActivity_prefix">پیشوند</string>
   <string name="ContactNameEditActivity_suffix">پسوند</string>
   <string name="ContactNameEditActivity_middle_name">نام میانی</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">ارسال مخاطب</string>
   <string name="ContactShareEditActivity_type_home">خانه</string>
   <string name="ContactShareEditActivity_type_mobile">موبایل</string>
   <string name="ContactShareEditActivity_type_work">کار</string>
   <string name="ContactShareEditActivity_type_missing">سایر</string>
   <string name="ContactShareEditActivity_invalid_contact">مخاطب انتخاب شده نامعتبر بود</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">ویرایش نام</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">عکس</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">ارسال نشد، برای جزئیات ضربه بزنید</string>
   <string name="ConversationItem_error_partially_not_delivered">به صورت کامل ارسال نشد، برای جزئیات ضربه بزنید</string>
@@ -452,6 +463,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">برای بازگردانی یک پشتیبان، یک نسخهٔ جدید سیگنال را نصب کنید. برنامه را باز کرده و روی «بازگردانی پشتیبان» ضربه بزنید، سپس فایل پشتیبان را مشخص کنید. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">بیشتر یاد بگیرید</string>
   <string name="BackupsPreferenceFragment__in_progress">در حال پیشرفت…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">در حال تایید پشتیبان…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d تا بحال…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% تا کنون…</string>
@@ -1509,6 +1522,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">ویرایش</string>
   <string name="SubmitDebugLogActivity_done">انجام شد</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">ذخیره</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">ذخیره ناموفق بود</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">ذخیره کامل شد</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">برای حذف هر خط روی آن ضربه بزنید</string>
   <string name="SubmitDebugLogActivity_submit">ارسال</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">ارسال گزارش ناموفق بود</string>
@@ -1562,6 +1581,10 @@
   <string name="ThreadRecord__you_sent_a_gift">شما یک هدیه فرستادید</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">یک نشان هدیه آزادسازی کردید</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">با %1$s به استوری شما واکنش نشان داده شد</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">با %1$s به استوری او واکنش نشان داده شد</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">به‌روزرسانی سیگنال</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">یک نسخهٔ جدید از سیگنال موجود است، برای به‌روزرسانی ضربه بزنید</string>
@@ -2711,10 +2734,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">گذرواژهٔ پشتیبان با موفقیت وارد شد</string>
   <string name="BackupDialog_passphrase_was_not_correct">گذرواژه نادرست بود</string>
   <string name="LocalBackupJob_creating_signal_backup">در حال ایجاد پشتیبان سیگنال…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">در حال تایید پشتیبان Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">پشتیبان‌گیری ناموفق بود</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">آدرس ذخیره‌سازی پشتیبان شما حذف شده یا به جای دیگری انتقال یافته است.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">حجم فایل پشتیبان شما برای نگهداری در این محل زیاد است.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">فضای کافی برای نگهداری پشتیبان شما وجود ندارد.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">نسخه پشتیبان اخیر شما ایجاد و تأیید نشد. لطفا یک نسخه جدید ایجاد کنید.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">نسخه پشتیبان شما دارای یک فایل بسیار حجیم است که نمی‌توان از آن نسخه پشتیبان تهیه کرد. لطفا آن را حذف کنید و یک نسخه پشتیبان جدید ایجاد کنید.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">برای مدیریت پشتیبان‌ها ضربه بزنید.</string>
   <string name="ProgressPreference_d_messages_so_far">%d پیام تا به حال</string>
   <string name="RegistrationActivity_wrong_number">شمارهٔ اشتباه</string>
@@ -2970,6 +2999,9 @@
   <string name="CallParticipant__you">شما</string>
   <string name="CallParticipant__you_on_another_device">شما (روی دستگاه دیگر)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (روی دستگاه دیگر)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">وای‌فای ضعیف است. به داده تلفن همراه تغییر کرد.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">حذف حساب کاربری شما:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">شماره‌تلفن خود را وارد کنید</string>
@@ -3700,7 +3732,7 @@
   <!--Preset selectable name for a profile name, shown as list in edit/create screen-->
   <string name="EditNotificationProfileFragment__downtime">استراحت</string>
   <!--Preset selectable name for a profile name, shown as list in edit/create screen-->
-  <string name="EditNotificationProfileFragment__focus">تمرکز</string>
+  <string name="EditNotificationProfileFragment__focus">فوکوس</string>
   <!--Error message shown when attempting to next/save without a profile name-->
   <string name="EditNotificationProfileFragment__profile_must_have_a_name">باید یک نام داشته باشید</string>
   <!--Title for add recipients to notification profile screen in create flow-->
@@ -3864,6 +3896,8 @@
   <string name="StoriesLandingItem__share">اشتراک‌گذاری…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">به چت بروید</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">اطلاعات</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">در حال ارسال…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3927,6 +3961,14 @@
   <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">رسیدهای خوانده شدن را فعال کنید تا بتوانید ببینید چه کسی از استوری‌های شما بازدید کرده است.</string>
   <!--Button label displayed when user has disabled receipts-->
   <string name="StoryViewsFragment__go_to_settings">رفتن به تنظیمات </string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">حذف</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">بازدیدکننده حذف شود؟</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s همچنان قادر به مشاهده این پست خواهد بود، اما قادر به مشاهده پست‌هایی که در آینده در %2$s به اشتراک می‌گذارید نخواهد بود.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">حذف بازدیدکننده</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">هنوز پاسخی داده نشده است</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4138,7 +4180,7 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">مشاهدۀ بیشتر</string>
   <string name="StoriesLinkPopup__visit_link">بازدید از پیوند</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="one">%1$s · به مدت %2$d روز</item>
     <item quantity="other">%1$s · به مدت %2$d روز</item>
@@ -4251,7 +4293,7 @@
   <!--Content description for vertical context menu button in safety number sheet rows-->
   <string name="SafetyNumberRecipientRowItem__open_context_menu">باز کردن منوی زمینه</string>
   <!--Sub-line when a user is verified.-->
-  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s · تایید شده</string>
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s · تاییدشده</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">تأیید شده</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
@@ -4262,6 +4304,8 @@
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">بررسی شمارهٔ ایمنی</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">بررسی شمارهٔ ایمنی کامل شد</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">تمام آشنایان بررسی شده‌اند، برای ادامه روی ارسال ضربه بزنید.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">شما %1$d آشنا دارید که ممکن است سیگنال را دوباره نصب کرده باشند یا دستگاه خود را تغییر داده باشند. قبل از به اشتراک گذاشتن استوری خود با آنها، شماره ایمنی آنها را بررسی کنید یا آنها را از استوری خود حذف کنید.</string>
   <!--Menu action to launch safety number verification screen-->
@@ -4271,7 +4315,7 @@
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">در هر صورت ارسال کن</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
-  <string name="SafetyNumberBottomSheetFragment__review_connections">حذف آشنایان</string>
+  <string name="SafetyNumberBottomSheetFragment__review_connections">بررسی آشنایان</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
   <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">گیرندۀ دیگری برای نمایش وجود ندارد</string>
   <!--Done button on safety number review fragment-->
@@ -4279,7 +4323,10 @@
   <!--Title of safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">تغییرات شمارهٔ ایمنی</string>
   <!--Message of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">ممکن است %1$d گیرنده سیگنال را دوباره نصب کرده باشند یا دستگاه‌شان را تغییر داده باشند. برای تایید شمارهٔ ایمنی جدید روی یکی از گیرنده‌ها ضربه بزنید. انجام این کار انتخابی است.</string>
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">ممکن است %1$d گیرنده، سیگنال را دوباره نصب کرده باشد یا دستگاهش را تغییر داده باشد. برای تایید شمارهٔ ایمنی جدید روی یکی از گیرنده‌ها ضربه بزنید. انجام این کار انتخابی است.</item>
+    <item quantity="other">ممکن است %1$d گیرنده، سیگنال را دوباره نصب کرده باشند یا دستگاه‌شان را تغییر داده باشند. برای تایید شمارهٔ ایمنی جدید روی یکی از گیرنده‌ها ضربه بزنید. انجام این کار اختیاری است.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">مخاطبین</string>
   <!--Context menu label for distribution list headers in review fragment-->
@@ -4289,12 +4336,24 @@
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">حریم خصوصی استوری من</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">انتخاب کنید چه کسی می‌تواند پست‌های استوری من را ببیند. همیشه می‌توانید تغییراتی در تنظیمات ایجاد کنید.</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">انتخاب کنید چه کسی می‌تواند پست‌های استوری من را ببیند. همیشه می‌توانید تنظیمات مربوطه را تغییر دهید.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">تمام آشنایان در سیگنال</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">تمام آشنایان سیگنال به جز…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">تنها اشتراک‌گذاری شود با…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">ارسال شد</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">دریافت شد</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">حجم فایل</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">ارسال شد به</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">ارسال شد از</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">اطلاعات</string>
   <!--EOF-->
 </resources>

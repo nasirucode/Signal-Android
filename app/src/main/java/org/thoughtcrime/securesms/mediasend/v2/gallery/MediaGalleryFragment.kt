@@ -11,12 +11,13 @@ import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import org.signal.core.util.Stopwatch
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.components.recyclerview.GridDividerDecoration
 import org.thoughtcrime.securesms.mediasend.Media
 import org.thoughtcrime.securesms.mediasend.MediaRepository
 import org.thoughtcrime.securesms.mediasend.v2.MediaCountIndicatorButton
-import org.thoughtcrime.securesms.util.Stopwatch
+import org.thoughtcrime.securesms.util.Material3OnScrollHelper
 import org.thoughtcrime.securesms.util.ViewUtil
 import org.thoughtcrime.securesms.util.adapter.mapping.MappingAdapter
 import org.thoughtcrime.securesms.util.fragments.requireListener
@@ -75,6 +76,8 @@ class MediaGalleryFragment : Fragment(R.layout.v2_media_gallery_fragment) {
       onBack()
     }
 
+    Material3OnScrollHelper(requireActivity(), toolbar).attach(galleryRecycler)
+
     if (callbacks.isCameraEnabled()) {
       toolbar.setOnMenuItemClickListener { item ->
         if (item.itemId == R.id.action_camera) {
@@ -132,7 +135,7 @@ class MediaGalleryFragment : Fragment(R.layout.v2_media_gallery_fragment) {
     }
 
     viewModel.state.observe(viewLifecycleOwner) { state ->
-      toolbar.title = state.bucketTitle
+      toolbar.title = state.bucketTitle ?: requireContext().getString(R.string.AttachmentKeyboard_gallery)
     }
 
     val galleryItemsWithSelection = LiveDataUtil.combineLatest(
@@ -141,7 +144,7 @@ class MediaGalleryFragment : Fragment(R.layout.v2_media_gallery_fragment) {
     ) { galleryItems, selectedMedia ->
       galleryItems.map {
         if (it is MediaGallerySelectableItem.FileModel) {
-          it.copy(isSelected = selectedMedia.contains(it.media))
+          it.copy(isSelected = selectedMedia.contains(it.media), selectionOneBasedIndex = selectedMedia.indexOf(it.media) + 1)
         } else {
           it
         }

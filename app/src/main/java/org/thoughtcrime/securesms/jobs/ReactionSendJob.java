@@ -77,7 +77,7 @@ public class ReactionSendJob extends BaseJob {
     }
 
     RecipientId       selfId     = Recipient.self().getId();
-    List<RecipientId> recipients = conversationRecipient.isGroup() ? RecipientUtil.getEligibleForSending(conversationRecipient.getParticipants())
+    List<RecipientId> recipients = conversationRecipient.isGroup() ? RecipientUtil.getEligibleForSending(Recipient.resolvedList(conversationRecipient.getParticipantIds()))
                                                                                   .stream()
                                                                                   .map(Recipient::getId)
                                                                                   .filter(r -> !r.equals(selfId))
@@ -242,7 +242,8 @@ public class ReactionSendJob extends BaseJob {
                                                                                            false,
                                                                                            ContentHint.RESENDABLE,
                                                                                            messageId,
-                                                                                           dataMessage);
+                                                                                           dataMessage,
+                                                                                           true);
 
     if (includesSelf) {
       results.add(ApplicationDependencies.getSignalServiceMessageSender().sendSyncMessage(dataMessage));

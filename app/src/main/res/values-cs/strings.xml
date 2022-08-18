@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Záznam fráze pro obnovení plateb</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Záznam fráze</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Než budete moci deaktivovat svůj PIN, musíte si zaznamenat frázi pro obnovení plateb, abyste zajistili, že můžete obnovit svůj platební účet.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d minuta</item>
@@ -175,17 +178,25 @@
   <string name="ContactsDatabase_message_s">Zpráva %s</string>
   <string name="ContactsDatabase_signal_call_s">Signal volání %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Upravit jméno</string>
   <string name="ContactNameEditActivity_given_name">Křestní jméno</string>
   <string name="ContactNameEditActivity_family_name">Příjmení</string>
   <string name="ContactNameEditActivity_prefix">Titul před</string>
   <string name="ContactNameEditActivity_suffix">Titul za</string>
   <string name="ContactNameEditActivity_middle_name">Druhé jméno</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Poslat kontakt</string>
   <string name="ContactShareEditActivity_type_home">Domů</string>
   <string name="ContactShareEditActivity_type_mobile">Mobil</string>
   <string name="ContactShareEditActivity_type_work">Práce</string>
   <string name="ContactShareEditActivity_type_missing">Ostatní</string>
   <string name="ContactShareEditActivity_invalid_contact">Vybraný kontakt je neplatný</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Upravit jméno</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Avatar</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Neodesláno, klepněte pro zobrazení detailů</string>
   <string name="ConversationItem_error_partially_not_delivered">Odesláno částečně, klepněte pro zobrazení detailů</string>
@@ -494,6 +505,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Pro obnovení ze zálohy znovu nainstalujte aplikaci Signal. Spusťte aplikaci a klepněte na \"Obnovení ze zálohy\", pak najděte soubor se zálohou. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Zjistit více</string>
   <string name="BackupsPreferenceFragment__in_progress">Probíhá…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Ověřování zálohy…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d dosud…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">Zatím %1$s%%…</string>
@@ -1656,6 +1669,12 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Upravit</string>
   <string name="SubmitDebugLogActivity_done">Hotovo</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Uložit</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Nepodařilo se uložit</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Ukládání dokončeno</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Klepnutím na řádek jej smažete</string>
   <string name="SubmitDebugLogActivity_submit">Odeslat</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Odesílání logů selhalo</string>
@@ -1709,6 +1728,10 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <string name="ThreadRecord__you_sent_a_gift">Odeslali jste dárek</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Uplatnili jste dárkový odznak</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">Na váš příběh reagovali %1$s </string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">Na jeho/její příběh reagovali %1$s </string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Aktualizace Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Je k dispozici nová verze Signal, klikněte pro aktualizaci</string>
@@ -2900,10 +2923,16 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Úspěšně jste zadali přístupovou frázi pro vaši zálohu</string>
   <string name="BackupDialog_passphrase_was_not_correct">Přístupová fráze nebyla správná</string>
   <string name="LocalBackupJob_creating_signal_backup">Vytvářím zálohu Signalu…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Ověřování zálohy Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">Zálohování selhalo</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Adresář pro vaše zálohy byl smazán nebo přesunut.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Soubor s vaší zálohou je příliš velký pro uložení na tento disk.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Není dost místa pro uložení vaší zálohy.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Vaše nedávná záloha nemohla být vytvořena a ověřena. Vytvořte prosím novou.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Vaše záloha obsahuje příliš velký soubor, který nelze zálohovat. Smažte ho prosím a vytvořte novou zálohu.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Klepněte pro práci se zálohami</string>
   <string name="ProgressPreference_d_messages_so_far">%d zpráv zatím</string>
   <string name="RegistrationActivity_wrong_number">Chybné číslo</string>
@@ -3163,6 +3192,9 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <string name="CallParticipant__you">Vy</string>
   <string name="CallParticipant__you_on_another_device">Vy (na jiném zařízení)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (na jiném zařízení)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Slabá wi-fi. Přepnuto na mobilní data.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Vymazání vašeho účtu způsobí:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Zadejte vaše tel. číslo</string>
@@ -4073,6 +4105,8 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <string name="StoriesLandingItem__share">Sdílet…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Jít do konverzace</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Info</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Odesílání…</string>
   <!--Label when multiple stories are pending sending-->
@@ -4125,6 +4159,7 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
     <item quantity="other">%1$d odpovědí</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">Zobrazení vypnuta</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -4138,7 +4173,17 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">Zatím žádná zobrazení</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Povolte potvrzení o přečtení, abyste viděli, kdo si prohlížel vaše příběhy.</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">Přejít do nastavení</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Odebrat</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Odebrat sledujícího?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s bude stále moci zobrazit tento příspěvek, ale nebude moci zobrazit žádné budoucí příspěvky, které budete sdílet s: %2$s.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Odebrat sledujícího</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Zatím žádné odpovědi</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4356,12 +4401,12 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Zobrazit více</string>
   <string name="StoriesLinkPopup__visit_link">Navštívit odkaz</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
-    <item quantity="one">%1$s · %2$dden trvání</item>
-    <item quantity="few">%1$s · %2$ddny trvání</item>
-    <item quantity="many">%1$s · %2$ddní trvání</item>
-    <item quantity="other">%1$s · %2$ddní trvání</item>
+    <item quantity="one">%1$s · %2$d den trvání</item>
+    <item quantity="few">%1$s · %2$d dny trvání</item>
+    <item quantity="many">%1$s · %2$d dní trvání</item>
+    <item quantity="other">%1$s · %2$d dní trvání</item>
   </plurals>
   <!--Tagline for gift row items-->
   <string name="GiftRowItem__send_a_gift_badge">Odeslání dárkového odznaku</string>
@@ -4428,6 +4473,7 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
     <item quantity="other">Skupinový příběh · %1$d zobrazení</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">Klepnutím vyberte své sledující</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">Nastavení příběhu</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4478,37 +4524,71 @@ Obdržen požadavek na výměnu klíčů pro neplatnou verzi protokolu.
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">Rozumím</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">Otevření kontextové nabídky</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s ověřený</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">Ověřeno</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Změny bezpečnostního čísla</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">Následující osoby pravděpodobně přeinstalovaly aplikaci Signal nebo změnily zařízení. Klepnutím na příjemce potvrďte nové bezpečnostní číslo. Tato možnost je volitelná.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Kontrola bezpečnostního čísla</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Kontrola bezpečnostního čísla dokončena</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Všechna spojení byla zkontrolována, pokračujte klepnutím na tlačítko odeslat.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Máte %1$d spojení, která si pravděpodobně přeinstalovala aplikaci Signal nebo změnila zařízení. Předtím, než s nimi budete sdílet svůj příběh, zkontrolujte jejich bezpečnostní čísla nebo zvažte jejich odebrání z příběhu.</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Ověření bezpečnostního čísla</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">Odebrat z příběhu</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">Přesto poslat</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">Zkontrolovat spojení</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">Žádní další příjemci k zobrazení</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">Hotovo</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Změny bezpečnostního čísla</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$dpříjemce si pravděpodobně přeinstaloval aplikaci Signal nebo změnil zařízení. Klepnutím na příjemce potvrďte nové bezpečnostní číslo. Tato možnost je volitelná.</item>
+    <item quantity="few">%1$dpříjemci si pravděpodobně přeinstalovali aplikaci Signal nebo změnili zařízení. Klepnutím na příjemce potvrďte nové bezpečnostní číslo. Tato možnost je volitelná.</item>
+    <item quantity="many">%1$dpříjemců si pravděpodobně přeinstalovalo aplikaci Signal nebo změnilo zařízení. Klepnutím na příjemce potvrďte nové bezpečnostní číslo. Tato možnost je volitelná.</item>
+    <item quantity="other">%1$dpříjemci si pravděpodobně přeinstalovali aplikaci Signal nebo změnili zařízení. Klepnutím na příjemce potvrďte nové bezpečnostní číslo. Tato možnost je volitelná.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Kontakty</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">Odebrat všechny</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">Odebrat</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Soukromí mého příběhu</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Vyberte, kdo může vidět příspěvky k „Mému příběhu“</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Všechna spojení Signal</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Všechna spojení Signal kromě…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Sdílet jen s…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Odesláno</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Přijato</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Velikost souboru</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Odesláno pro</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Odesláno od</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Info</string>
   <!--EOF-->
 </resources>

@@ -57,19 +57,15 @@ class StorySlateView @JvmOverloads constructor(
       callback?.onStateChanged(State.HIDDEN, postId)
     }
 
-    if (this.state.isValidTransitionTo(state)) {
-      when (state) {
-        State.LOADING -> moveToProgressState(State.LOADING)
-        State.ERROR -> moveToErrorState()
-        State.RETRY -> moveToProgressState(State.RETRY)
-        State.NOT_FOUND -> moveToNotFoundState()
-        State.HIDDEN -> moveToHiddenState()
-      }
-
-      callback?.onStateChanged(state, postId)
-    } else {
-      Log.d(TAG, "Invalid state transfer: ${this.state} -> $state")
+    when (state) {
+      State.LOADING -> moveToProgressState(State.LOADING)
+      State.ERROR -> moveToErrorState()
+      State.RETRY -> moveToProgressState(State.RETRY)
+      State.NOT_FOUND -> moveToNotFoundState()
+      State.HIDDEN -> moveToHiddenState()
     }
+
+    callback?.onStateChanged(state, postId)
   }
 
   fun setBackground(blur: BlurHash?) {
@@ -154,30 +150,12 @@ class StorySlateView @JvmOverloads constructor(
     fun onStateChanged(state: State, postId: Long)
   }
 
-  enum class State(val code: Int) {
-    LOADING(0),
-    ERROR(1),
-    RETRY(2),
-    NOT_FOUND(3),
-    HIDDEN(4);
-
-    fun isValidTransitionTo(newState: State): Boolean {
-      if (newState in listOf(HIDDEN, NOT_FOUND)) {
-        return true
-      }
-
-      if (newState == this) {
-        return true
-      }
-
-      return when (this) {
-        LOADING -> newState == ERROR
-        ERROR -> newState == RETRY
-        RETRY -> newState == ERROR
-        HIDDEN -> newState == LOADING
-        else -> false
-      }
-    }
+  enum class State(val code: Int, val hasClickableContent: Boolean) {
+    LOADING(0, false),
+    ERROR(1, true),
+    RETRY(2, true),
+    NOT_FOUND(3, false),
+    HIDDEN(4, false);
 
     companion object {
       fun fromCode(code: Int): State {

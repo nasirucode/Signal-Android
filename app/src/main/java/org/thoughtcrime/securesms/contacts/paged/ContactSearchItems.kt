@@ -101,7 +101,7 @@ object ContactSearchItems {
       number.visible = true
 
       val count = if (model.story.recipient.isGroup) {
-        model.story.recipient.participants.size
+        model.story.recipient.participantIds.size
       } else {
         model.story.viewerCount
       }
@@ -116,6 +116,14 @@ object ContactSearchItems {
         }
 
         number.text = context.resources.getQuantityString(pluralId, count, count)
+      }
+    }
+
+    override fun bindAvatar(model: StoryModel) {
+      if (model.story.recipient.isMyStory) {
+        avatar.setAvatarUsingProfile(Recipient.self())
+      } else {
+        super.bindAvatar(model)
       }
     }
 
@@ -216,19 +224,24 @@ object ContactSearchItems {
       }
 
       name.setText(getRecipient(model))
-      avatar.setAvatar(getRecipient(model))
       badge.setBadgeFromRecipient(getRecipient(model))
 
+      bindAvatar(model)
       bindNumberField(model)
       bindLabelField(model)
       bindSmsTagField(model)
     }
 
+    protected open fun bindAvatar(model: T) {
+      avatar.setAvatar(getRecipient(model))
+    }
+
     protected open fun bindNumberField(model: T) {
       number.visible = getRecipient(model).isGroup
       if (getRecipient(model).isGroup) {
-        number.text = getRecipient(model).participants
+        number.text = getRecipient(model).participantIds
           .take(10)
+          .map { id -> Recipient.resolved(id) }
           .sortedWith(IsSelfComparator()).joinToString(", ") {
             if (it.isSelf) {
               context.getString(R.string.ConversationTitleView_you)

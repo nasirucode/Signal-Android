@@ -3,6 +3,7 @@ package org.thoughtcrime.securesms.contacts.sync
 import android.content.Context
 import androidx.annotation.WorkerThread
 import org.signal.contacts.SystemContactsRepository
+import org.signal.core.util.Stopwatch
 import org.signal.core.util.logging.Log
 import org.signal.libsignal.zkgroup.profiles.ProfileKey
 import org.thoughtcrime.securesms.BuildConfig
@@ -13,7 +14,6 @@ import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.phonenumbers.PhoneNumberFormatter
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.recipients.RecipientId
-import org.thoughtcrime.securesms.util.Stopwatch
 import org.whispersystems.signalservice.api.push.ServiceId
 import org.whispersystems.signalservice.api.services.CdsiV2Service
 import java.io.IOException
@@ -77,6 +77,9 @@ object ContactDiscoveryRefreshV2 {
     )
     stopwatch.split("recipient-db")
 
+    SignalDatabase.recipients.bulkUpdatedRegisteredStatus(registeredIds.associateWith { null }, emptyList())
+    stopwatch.split("update-registered")
+
     stopwatch.stop(TAG)
 
     return ContactDiscovery.RefreshResult(registeredIds, emptyMap())
@@ -126,6 +129,9 @@ object ContactDiscoveryRefreshV2 {
         .mapValues { entry -> RecipientDatabase.CdsV2Result(entry.value.pni, entry.value.aci.orElse(null)) }
     )
     stopwatch.split("recipient-db")
+
+    SignalDatabase.recipients.bulkUpdatedRegisteredStatus(registeredIds.associateWith { null }, emptyList())
+    stopwatch.split("update-registered")
 
     stopwatch.stop(TAG)
 

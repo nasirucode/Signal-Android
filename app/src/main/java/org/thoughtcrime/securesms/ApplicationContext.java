@@ -21,6 +21,7 @@ import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDexApplication;
@@ -230,6 +231,16 @@ public class ApplicationContext extends MultiDexApplication implements AppForegr
       KeyCachingService.onAppForegrounded(this);
       ApplicationDependencies.getShakeToReport().enable();
       checkBuildExpiration();
+
+      long lastForegroundTime = SignalStore.misc().getLastForegroundTime();
+      long currentTime        = System.currentTimeMillis();
+      long timeDiff           = currentTime - lastForegroundTime;
+
+      if (timeDiff < 0) {
+        Log.w(TAG, "Time travel! The system clock has moved backwards. (currentTime: " + currentTime + " ms, lastForegroundTime: " + lastForegroundTime + " ms, diff: " + timeDiff + " ms)");
+      }
+
+      SignalStore.misc().setLastForegroundTime(currentTime);
     });
 
     Log.d(TAG, "onStart() took " + (System.currentTimeMillis() - startTime) + " ms");
@@ -329,7 +340,8 @@ public class ApplicationContext extends MultiDexApplication implements AppForegr
     ApplicationDependencies.getIncomingMessageObserver();
   }
 
-  private void initializeAppDependencies() {
+  @VisibleForTesting
+  void initializeAppDependencies() {
     ApplicationDependencies.init(this, new ApplicationDependencyProvider(this));
   }
 

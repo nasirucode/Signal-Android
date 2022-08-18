@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Fraza e rikuperimit të pagesave të regjistruara</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Regjistro frazën</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Përpara se të çaktivizoni PIN-in tuaj, ju duhet të regjistroni frazën e rikuperimit të pagesave tuaja, për t\'u siguruar që ju të mund t\'i rikuperoni llogarinë e pagesave.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d minutë</item>
@@ -173,17 +176,25 @@
   <string name="ContactsDatabase_message_s">%s mesazhi</string>
   <string name="ContactsDatabase_signal_call_s">Telefonatë Signal me %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Ndrysho emrin</string>
   <string name="ContactNameEditActivity_given_name">Emër</string>
   <string name="ContactNameEditActivity_family_name">Mbiemër</string>
   <string name="ContactNameEditActivity_prefix">Prefiks</string>
   <string name="ContactNameEditActivity_suffix">Prapashtesë</string>
   <string name="ContactNameEditActivity_middle_name">Emri i mesëm</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Dërgo kontaktin</string>
   <string name="ContactShareEditActivity_type_home">Kryefaqja</string>
   <string name="ContactShareEditActivity_type_mobile">Celular</string>
   <string name="ContactShareEditActivity_type_work">Pune</string>
   <string name="ContactShareEditActivity_type_missing">Tjetër</string>
   <string name="ContactShareEditActivity_invalid_contact">Kontakti i zgjedhur ishte i pavlefshëm</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Ndrysho emrin</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Avatar</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Nuk u dërgua, klikoni për detajet</string>
   <string name="ConversationItem_error_partially_not_delivered">Dërguar pjesërisht, klikoni për detajet</string>
@@ -452,6 +463,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Që të riktheni një kopjeruajtje, instaloni një kopje të re të Signal-it. Hapni aplikacionin dhe prekni “Riktheni kopjeruajtje”, mandej lokalizoni një kartelë kopjeruajtjeje. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Mësoni më shumë</string>
   <string name="BackupsPreferenceFragment__in_progress">Në proçes…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Duke verifikuar rezervat</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d deri më tani…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% deri më tani…</string>
@@ -1512,6 +1525,12 @@ grupit dhe s\’do të marrë mesazhe grupi përpara se ta pranojë:</item>
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Përpunojeni</string>
   <string name="SubmitDebugLogActivity_done">U bë</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Ruaji</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Ruajtja dështoi</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Ruajtja përfundoi</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Prekeni një rresht që të fshihet</string>
   <string name="SubmitDebugLogActivity_submit">Parashtroje</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">S\’u arrit të parashtrohen regjistra</string>
@@ -1565,6 +1584,10 @@ grupit dhe s\’do të marrë mesazhe grupi përpara se ta pranojë:</item>
   <string name="ThreadRecord__you_sent_a_gift">Dërguat një dhuratë</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Ju përdorët një distinktiv dhuratë</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">Reagoi me %1$s ndaj postimit të përkohshëm</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">Reagoi me %1$s ndaj postimit të përkohshëm</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Përditësim i Signal-it</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Është gati një version i ri i Signal-it, prekeni që të përditësohet</string>
@@ -2718,10 +2741,16 @@ spastrohet dhe krejt lënda do të fshihet.</item>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">E dhatë me sukses frazëkalimin tuaj të kopjeruajtjes</string>
   <string name="BackupDialog_passphrase_was_not_correct">Frazëkalimi s\’qe i saktë</string>
   <string name="LocalBackupJob_creating_signal_backup">Po krijohet kopjeruajtje Signal-i…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Duke verifikuar rezervat e Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">Kopjeruajtja dështoi</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Drejtoria juaj e kopjeruajtjeve është fshirë ose lëvizur.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Kartela e kopjeruajtjes tuaj është shumë e madhe për t\’u depozituar në këtë vëllim.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">S\’ka hapësirë të mjaftueshme për të depozituar kopjeruajtjen tuaj.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Rezerva jote e fundit nuk mundi të krijohej dhe të verifikohej.  Të lutem krijo një të re.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Rezerva jote përmban një skedar shumë të madh, që nuk mund të rezervohet.  Të lutem, fshije dhe krijo një kopje të re rezervë.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Prekeni që të administroni kopjeruajtje.</string>
   <string name="ProgressPreference_d_messages_so_far">%d mesazhe deri këtu</string>
   <string name="RegistrationActivity_wrong_number">Numër i gabuar</string>
@@ -2977,6 +3006,9 @@ spastrohet dhe krejt lënda do të fshihet.</item>
   <string name="CallParticipant__you">Ju</string>
   <string name="CallParticipant__you_on_another_device">Ju (në një tjetër pajisje)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (në tjetër pajisje)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Wi-Fi i dobët. Kalo me internetin e celularit.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Fshirja e llogarisë tuaj do të:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Jepni numrin e telefonit tuaj</string>
@@ -3871,6 +3903,8 @@ spastrohet dhe krejt lënda do të fshihet.</item>
   <string name="StoriesLandingItem__share">Ndajeni me të tjerët…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Kalo te fjalosja</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Info</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Po dërgohet…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3917,6 +3951,7 @@ spastrohet dhe krejt lënda do të fshihet.</item>
     <item quantity="other">%1$d përgjigje</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">Shikimet u çaktivizuan</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -3930,7 +3965,17 @@ spastrohet dhe krejt lënda do të fshihet.</item>
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">Ende pa parje</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Aktivizo verifikuesin e leximit për të parë personat që i ka parë postimet e përkohshme.</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">Shko te cilësimet</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Fshije</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Të hiqet shikuesi?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$sdo të mund ta shohë ende këtë postim, por nuk do të mund të shohë asnjë postim të ardhshëm që ndani në %2$s.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Hiqe shikuesin</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Ende pa përgjigje</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4142,9 +4187,9 @@ spastrohet dhe krejt lënda do të fshihet.</item>
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Shihni më tepër</string>
   <string name="StoriesLinkPopup__visit_link">Vizitoni linkun</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
-    <item quantity="one">%1$s · %2$dkohëzgjatja e ditës</item>
+    <item quantity="one">%1$s · %2$d kohëzgjatja e ditës</item>
     <item quantity="other">%1$s · %2$d kohëzgjatja e ditës</item>
   </plurals>
   <!--Tagline for gift row items-->
@@ -4208,6 +4253,7 @@ spastrohet dhe krejt lënda do të fshihet.</item>
     <item quantity="other">Story-t e grupit · %1$d shikues</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">Kliko për të zgjedhur shikuesit</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">Rregullime historie</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4252,37 +4298,69 @@ spastrohet dhe krejt lënda do të fshihet.</item>
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">U mor</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">Hap menynë e kontekstit</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s  · Verifikuar</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">Verifiikuar</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Ndryshimet e numrit të sigurisë</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">Personat e mëposhtëm mund ta kenë riinstaluar Signal ose të kenë ndryshuar pajisje. Kliko një marrës për të konfirmuar numrin e ri të sigurisë. Kjo është opsionale.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Kontrolli i numrit të sigurisë</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Numri i sigurisë u kontrollua</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Të gjitha kontaktet janë shqyrtuar; kliko dërgo për të vazhduar.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Ke %1$d kontakte që mund të kenë riinstaluar Signal ose të kenë ndryshuar pajisje. Para se të shpërndash postimin e përkohshëm me ta, rishiko numrat e tyre të sigurisë ose shih mundësinë e heqjes së tyre nga postimi i përkohshëm.</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Verifiko numër siguri</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">Hiq nga postimi i përkohshëm</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">Dërgoje, sido qoftë</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">Rishiko kontaktet</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">Nuk ka më marrës për të shfaqur</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">U bë</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Ndryshimet e numrit të sigurisë</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$d marrësit mund të kenë riinstaluar Signal ose mund të kenë ndryshuar pajisje. Kliko mbi një marrës për të konfirmuar numrin e ri të sigurisë. Kjo është opsionale.</item>
+    <item quantity="other">%1$dmarrës mund të kenë riinstaluar Signal ose mund të kenë ndryshuar pajisje. Kliko mbi marrësin për të konfirmuar numrin e ri të sigurisë. Kjo është opsionale.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Kontaktet</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">Hiqi të gjithë</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">Fshije</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Privatësia e postimit tim të përkohshëm</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Zgjidh personat që mund t\'i shikojë postimet te \"Postimet e  mia të përkohshme\". Ndryshimet mund të bëhen gjithmonë te cilësimet.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Të gjitha lidhjet e Signalit</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Të gjitha lidhjet e Signal përveç…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Shpërndajeni vetëm me…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Dërguar më</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Marrë më</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Madhësia e skedarit</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Dërguar te</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Dërguar nga</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Info</string>
   <!--EOF-->
 </resources>

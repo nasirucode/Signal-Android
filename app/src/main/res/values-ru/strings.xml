@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Запишите платёжную фразу восстановления</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Записать фразу</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Перед тем, как отключить PIN-код, вы должны записать свою платёжную фразу восстановления, чтобы обеспечить возможность восстановления своей платёжной учётной записи при необходимости.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d минута</item>
@@ -175,17 +178,25 @@
   <string name="ContactsDatabase_message_s">Сообщение %s</string>
   <string name="ContactsDatabase_signal_call_s">Позвонить через Signal на %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Изменить имя</string>
   <string name="ContactNameEditActivity_given_name">Имя</string>
   <string name="ContactNameEditActivity_family_name">Фамилия</string>
   <string name="ContactNameEditActivity_prefix">Префикс</string>
   <string name="ContactNameEditActivity_suffix">Суффикс</string>
   <string name="ContactNameEditActivity_middle_name">Отчество</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Отправить контакт</string>
   <string name="ContactShareEditActivity_type_home">Домашний</string>
   <string name="ContactShareEditActivity_type_mobile">Мобильный</string>
   <string name="ContactShareEditActivity_type_work">Рабочий</string>
   <string name="ContactShareEditActivity_type_missing">Другой</string>
   <string name="ContactShareEditActivity_invalid_contact">Выбранный контакт недействителен</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Изменить имя</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Аватар</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Не отправлено. Подробнее…</string>
   <string name="ConversationItem_error_partially_not_delivered">Частично отправлено. Подробнее…</string>
@@ -494,6 +505,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Чтобы восстановить из резервной копии, установите новую копию Signal. Откройте приложение и нажмите «Восстановить резервную копию», затем выберите файл резервной копии. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Узнать больше</string>
   <string name="BackupsPreferenceFragment__in_progress">В процессе…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Проверяем резервную копию…</string>
   <string name="BackupsPreferenceFragment__d_so_far">Уже %1$d…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">Уже %1$s%%…</string>
@@ -770,7 +783,7 @@
   <string name="ManageGroupActivity_only_admins_can_reset_the_sharable_group_link">Только администраторы могут сбрасывать ссылку на группу.</string>
   <string name="ManageGroupActivity_you_dont_have_the_rights_to_do_this">У вас нет прав, чтобы сделать это</string>
   <string name="ManageGroupActivity_not_capable">Кто-то из тех, кого вы добавили, не поддерживает новые группы и должен(-на) обновить Signal</string>
-  <string name="ManageGroupActivity_not_announcement_capable">Кто-то из тех, кого вы добавили, не поддерживает группы для объявлений и должен(-на) обновить Signal</string>
+  <string name="ManageGroupActivity_not_announcement_capable">Кто-то из добавленных вами не поддерживает группы для объявлений и должен(-на) обновить Signal</string>
   <string name="ManageGroupActivity_failed_to_update_the_group">Не удалось обновить группу</string>
   <string name="ManageGroupActivity_youre_not_a_member_of_the_group">Вы не являетесь участником этой группы</string>
   <string name="ManageGroupActivity_failed_to_update_the_group_please_retry_later">Не удалось обновить группу, пожалуйста, попробуйте позже</string>
@@ -1650,6 +1663,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Изменить</string>
   <string name="SubmitDebugLogActivity_done">Готово</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Сохранить</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Не удалось сохранить</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Сохранение завершено</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Нажмите на строку, чтобы удалить её</string>
   <string name="SubmitDebugLogActivity_submit">Отправить</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Не удалось отправить журналы</string>
@@ -1703,6 +1722,10 @@
   <string name="ThreadRecord__you_sent_a_gift">Вы отправили подарок</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Вы приняли значок, полученный в подарок</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">Отреагировал(-а) %1$s на вашу историю</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">Отреагировал(-а) %1$s на их историю</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Обновление Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Доступна новая версия Signal. Обновиться?</string>
@@ -2894,10 +2917,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Вы успешно ввели парольную фразу своей резервной копии</string>
   <string name="BackupDialog_passphrase_was_not_correct">Парольная фраза была неправильной</string>
   <string name="LocalBackupJob_creating_signal_backup">Создаём резервную копию Signal…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Проверяем резервную копию Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">Резервное копирование не удалось</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Ваша папка для резервных копий была удалена или перемещена.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Ваш файл резервной копии слишком большой для хранения на этом носителе.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Недостаточно места, чтобы сохранить вашу резервную копию.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Не удалось создать и проверить вашу недавнюю резервную копию. Пожалуйста, создайте новую.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Ваша резервная копия содержит очень большой файл, резервное копирование которого невозможно. Пожалуйста, удалите его и создайте новую резервную копию.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Нажмите, чтобы управлять резервным копированием.</string>
   <string name="ProgressPreference_d_messages_so_far">Уже %d сообщений</string>
   <string name="RegistrationActivity_wrong_number">Неправильный номер</string>
@@ -3157,6 +3186,9 @@
   <string name="CallParticipant__you">Вы</string>
   <string name="CallParticipant__you_on_another_device">Вы (на другом устройстве)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (на другом устройстве)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Слабое Wi-Fi соединение. Выполнено переключение на сотовую связь.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Удаление вашей учётной записи приведёт к:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Введите свой номер телефона</string>
@@ -3185,7 +3217,7 @@
   <!--Title of error dialog shown when a network error occurs during account deletion-->
   <string name="DeleteAccountFragment__account_not_deleted">Учётная запись не удалена</string>
   <!--Message of error dialog shown when a network error occurs during account deletion-->
-  <string name="DeleteAccountFragment__there_was_a_problem">В процессе удаления произошла ошибка. Проверьте своё соединение с интернетом и попробуйте ещё раз.</string>
+  <string name="DeleteAccountFragment__there_was_a_problem">В процессе удаления произошла ошибка. Проверьте ваше соединение с интернетом и попробуйте ещё раз.</string>
   <!--DeleteAccountCountryPickerFragment-->
   <string name="DeleteAccountCountryPickerFragment__search_countries">Поиск по странам</string>
   <!--CreateGroupActivity-->
@@ -3639,7 +3671,7 @@
   <string name="MultiselectForwardFragment__add_a_message">Добавьте сообщение</string>
   <string name="MultiselectForwardFragment__faster_forwards">Более быстрая пересылка</string>
   <!--Displayed when user selects a video that will be clipped before sharing to a story-->
-  <string name="MultiselectForwardFragment__videos_will_be_trimmed">Видео будут обрезаны до 30-секундных клипов и отправлены в виде нескольких историй.</string>
+  <string name="MultiselectForwardFragment__videos_will_be_trimmed">Видео будут сокращены до 30-секундных клипов и отправлены в виде нескольких историй.</string>
   <!--Displayed when user selects a video that cannot be sent as a story-->
   <string name="MultiselectForwardFragment__videos_sent_to_stories_cant">Видео, отправленные в истории, не могут быть длиннее 30 секунд.</string>
   <string name="MultiselectForwardFragment__forwarded_messages_are_now">Пересылаемые сообщения теперь отправляются сразу.</string>
@@ -4067,6 +4099,8 @@
   <string name="StoriesLandingItem__share">Поделиться…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Перейти к чату</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Информация</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Отправляется…</string>
   <!--Label when multiple stories are pending sending-->
@@ -4136,6 +4170,14 @@
   <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Включите функцию уведомления о прочтении, чтобы узнать, кто просматривал ваши истории.</string>
   <!--Button label displayed when user has disabled receipts-->
   <string name="StoryViewsFragment__go_to_settings">Перейти в настройки</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Удалить</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Удалить зрителя?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s по-прежнему сможет просматривать эту публикацию, но не сможет просматривать никакие будущие публикации, которыми вы делитесь с %2$s.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Удалить зрителя</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Ещё нет ответов</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4353,7 +4395,7 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Просмотреть больше</string>
   <string name="StoriesLinkPopup__visit_link">Посетить ссылку</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="one">%1$s · действует %2$d день</item>
     <item quantity="few">%1$s · действует %2$d дня</item>
@@ -4489,6 +4531,8 @@
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Проверка кода безопасности</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Проверка кода безопасности завершена</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Все контакты были проверены, нажмите «отправить», чтобы продолжить.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">У вас есть контакты (%1$d), которые, возможно, переустановили Signal или сменили устройства. Прежде чем поделиться с ними своей историей, просмотрите их коды безопасности или подумайте о том, чтобы удалить их из своей истории.</string>
   <!--Menu action to launch safety number verification screen-->
@@ -4506,7 +4550,12 @@
   <!--Title of safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Изменения кодов безопасности</string>
   <!--Message of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">Следующие получатели (%1$d), возможно, переустановили Signal или сменили устройство. Нажмите на получателя, чтобы подтвердить новый код безопасности. Это необязательно.</string>
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">Следующие получатели (%1$d), возможно, переустановили Signal или сменили устройство. Нажмите на получателя, чтобы подтвердить новый код безопасности. Это необязательно.</item>
+    <item quantity="few">Следующие получатели (%1$d), возможно, переустановили Signal или сменили устройство. Нажмите на получателя, чтобы подтвердить новый код безопасности. Это необязательно.</item>
+    <item quantity="many">Следующие получатели (%1$d), возможно, переустановили Signal или сменили устройство. Нажмите на получателя, чтобы подтвердить новый код безопасности. Это необязательно.</item>
+    <item quantity="other">Следующие получатели (%1$d), возможно, переустановили Signal или сменили устройство. Нажмите на получателя, чтобы подтвердить новый код безопасности. Это необязательно.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Контакты</string>
   <!--Context menu label for distribution list headers in review fragment-->
@@ -4514,14 +4563,26 @@
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">Удалить</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Мои настройки приватности историй</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Настройки приватности моих историй</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Выберите, кто может видеть сообщения в Моей истории. Вы всегда можете изменить настройки.</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Выберите тех, кто может видеть сообщения в Моей истории. Вы всегда можете изменить настройки.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Все контакты Signal</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Все контакты Signal, кроме…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Поделиться только с…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Отправленные</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Полученные</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Размер файла</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Отправлено</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Отправитель</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Информация</string>
   <!--EOF-->
 </resources>

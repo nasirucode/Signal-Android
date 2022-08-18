@@ -50,7 +50,9 @@ class StoryViewerFragment :
       storyViewerArgs.storyId,
       storyViewerArgs.isFromNotification,
       storyViewerArgs.groupReplyStartPosition,
-      storyViewerArgs.isUnviewedOnly
+      storyViewerArgs.isUnviewedOnly,
+      storyViewerArgs.isFromMyStories,
+      storyViewerArgs.isFromInfoContextMenuAction
     )
 
     storyPager.adapter = adapter
@@ -67,6 +69,7 @@ class StoryViewerFragment :
       adapter.setPages(state.pages)
       if (state.pages.isNotEmpty() && storyPager.currentItem != state.page) {
         pagerOnPageSelectedLock = true
+        storyPager.isUserInputEnabled = false
         storyPager.setCurrentItem(state.page, state.previousPage > -1)
         pagerOnPageSelectedLock = false
 
@@ -83,6 +86,10 @@ class StoryViewerFragment :
       if (state.crossfadeTarget is StoryViewerState.CrossfadeTarget.Record) {
         storyCrossfader.setTargetView(state.crossfadeTarget.messageRecord)
         requireActivity().supportStartPostponedEnterTransition()
+      }
+
+      if (state.skipCrossfade) {
+        viewModel.setCrossfaderIsReady(true)
       }
 
       if (state.loadState.isReady()) {
@@ -135,6 +142,9 @@ class StoryViewerFragment :
 
     override fun onPageScrollStateChanged(state: Int) {
       viewModel.setIsScrolling(state == ViewPager2.SCROLL_STATE_DRAGGING)
+      if (state == ViewPager2.SCROLL_STATE_IDLE) {
+        storyPager.isUserInputEnabled = true
+      }
     }
   }
 

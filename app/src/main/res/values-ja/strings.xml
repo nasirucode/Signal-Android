@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">決済機能リカバリーフレーズの保管</string>
   <string name="ApplicationPreferencesActivity_record_phrase">フレーズを記録</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">PINを無効にする前に、口座を回復するためのリカバリーフレーズを保管しなければなりません。</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">バックスペース</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="other">%d分</item>
@@ -172,17 +175,25 @@
   <string name="ContactsDatabase_message_s">%s にメッセージを送る</string>
   <string name="ContactsDatabase_signal_call_s">Signal通話 %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">名前を編集</string>
   <string name="ContactNameEditActivity_given_name">名</string>
   <string name="ContactNameEditActivity_family_name">姓</string>
   <string name="ContactNameEditActivity_prefix">プレフィックス</string>
   <string name="ContactNameEditActivity_suffix">サフィックス</string>
   <string name="ContactNameEditActivity_middle_name">ミドルネーム</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">連絡先を送信</string>
   <string name="ContactShareEditActivity_type_home">自宅</string>
   <string name="ContactShareEditActivity_type_mobile">携帯</string>
   <string name="ContactShareEditActivity_type_work">職場</string>
   <string name="ContactShareEditActivity_type_missing">その他</string>
   <string name="ContactShareEditActivity_invalid_contact">選択された連絡先は無効です</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">名前を編集</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">アバター</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">送信されませんでした。タップして詳細を表示</string>
   <string name="ConversationItem_error_partially_not_delivered">一部だけ送信しました。タップして詳細を表示</string>
@@ -431,6 +442,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">バックアップを復元するには、新しいSignalをインストールしてください。その後アプリを開き、「バックアップを復元する」をタップしてバックアップファイルの場所を指定します。 %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">詳しく見る</string>
   <string name="BackupsPreferenceFragment__in_progress">実行しています…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">バックアップを検証しています…</string>
   <string name="BackupsPreferenceFragment__d_so_far">これまで %1$d…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%%完了</string>
@@ -1428,6 +1441,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">編集</string>
   <string name="SubmitDebugLogActivity_done">完了</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">保存</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">保存に失敗しました</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">保存が完了しました</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">タップした行を削除します</string>
   <string name="SubmitDebugLogActivity_submit">提出する</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">ログの送信に失敗しました</string>
@@ -1481,6 +1500,10 @@
   <string name="ThreadRecord__you_sent_a_gift">ギフトを贈りました</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">ギフトバッジの交換</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">あなたのストーリーにリアクション%1$sしました</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">彼らのストーリー%1$sにリアクションしました</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signalアップデート</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">新バージョンのSignalを利用できます。タップしてアップデートします。</string>
@@ -2609,10 +2632,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">正しいバックアップ用パスフレーズが入力されました</string>
   <string name="BackupDialog_passphrase_was_not_correct">パスフレーズが違います</string>
   <string name="LocalBackupJob_creating_signal_backup">Signalのバックアップを作成しています…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Signalのバックアップを検証しています…</string>
   <string name="LocalBackupJobApi29_backup_failed">バックアップに失敗しました</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">バックアップディレクトリは削除または移動されています。</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">あなたのバックアップファイルは、このボリュームに保存するには大きすぎます。</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">バックアップを保存できる十分なスペースがありません。</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">最新のバックアップの作成および検証ができませんでした。 新しいものを作成してください。</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">非常に大きなファイルが含まれているためバックアップできません。そのファイルを削除して、新しいバックアップを作成してください。</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">タップしてバックアップを管理</string>
   <string name="ProgressPreference_d_messages_so_far">これまで%d件のメッセージ</string>
   <string name="RegistrationActivity_wrong_number">電話番号を訂正</string>
@@ -2866,6 +2895,9 @@
   <string name="CallParticipant__you">あなた</string>
   <string name="CallParticipant__you_on_another_device">あなた (別端末)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (別端末)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular"> Wi-Fi強度が弱いのでモバイルデータ通信に切り替えます。</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">アカウントを削除すると:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">あなたの電話番号を入力してください</string>
@@ -3753,6 +3785,8 @@
   <string name="StoriesLandingItem__share">共有…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">チャットする</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">詳細</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">送信しています…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3796,6 +3830,7 @@
     <item quantity="other">返信 %1$d件</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">視聴をオフにする</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -3809,7 +3844,17 @@
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">閲覧 なし</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">既読を有効にすると、誰があなたのストーリーズを見たのかがわかります。</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">設定へ</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">削除</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">閲覧者を削除しますか？</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$sは今後もこの投稿の閲覧が可能ですが、あなたが%2$sに共有する今後の投稿は閲覧できなくなります。</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">閲覧者を削除</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">返信 なし</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4018,9 +4063,9 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">続き</string>
   <string name="StoriesLinkPopup__visit_link">表示</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
-    <item quantity="other">%1$s・%2$d日間</item>
+    <item quantity="other">%1$s・%2$d 日間</item>
   </plurals>
   <!--Tagline for gift row items-->
   <string name="GiftRowItem__send_a_gift_badge">ギフトバッジを送る</string>
@@ -4081,6 +4126,7 @@
     <item quantity="other">グループストーリー · 閲覧 %1$d人</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">タップしてビューアーを選択します</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">ストーリーの設定</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4122,37 +4168,68 @@
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">わかりました</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">コンテキストメニューを開く</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s・検証済</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">確認済み</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">安全番号の変更</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">次の人は、Signalを再インストールしたか、端末を変更した可能性があります。 受信者をタップして、新しい安全番号を確認してください。 これは任意です。</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">安全番号のチェック</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">安全番号のチェックが完了しました</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">すべてのコネクションが確認されました。続行するには送信をタップしてください。</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">%1$d人のコネクションがSignalを再インストールしたか、端末を変更した可能性があります。 ストーリーを彼らと共有する前に、彼らの安全番号を確認するか、あなたのストーリーから彼らを削除することを検討してください。</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">安全番号を確認</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">ストーリーから削除する</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">とにかく送信する</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">コネクションを確認する</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">表示する受信者はこれ以上いません</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">完了</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">安全番号の変更</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="other">%1$d人の受信者が、Signalを再インストールしたか、端末を変更した可能性があります。 受信者をタップして、新しい安全番号を確認してください。 これは任意です。</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">連絡先</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">すべて削除</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">削除</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">マイストーリープライバシー</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">マイストーリーへの投稿を見ることができる人を選択します。設定からいつでも変更できます。</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">すべてのSignalコネクション</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">…を除くすべてのSignalコネクション</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">共有するのは…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">送金済み</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">着金</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">ファイルサイズ</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">送信済み</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">送信元</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">詳細</string>
   <!--EOF-->
 </resources>

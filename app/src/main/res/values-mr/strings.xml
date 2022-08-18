@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">पेमेंट रिकव्हरी फ्रेझ रेकॉर्ड करा</string>
   <string name="ApplicationPreferencesActivity_record_phrase">फ्रेझ रेकॉर्ड करा</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">आपला PIN अक्षम करण्यापूर्वी, आपले पेमेंट खाते आपण रिकव्हर करू शकता हे सुनिश्चित करण्यासाठी आपली पेमेंट रिकव्हरी फ्रेझ रेकॉर्ड करणे आवश्यक आहे.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">बॅकस्पेस</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d मिनिट</item>
@@ -173,17 +176,25 @@
   <string name="ContactsDatabase_message_s">संदेश %s</string>
   <string name="ContactsDatabase_signal_call_s">Signal कॉल %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">नाव संपादित करा</string>
   <string name="ContactNameEditActivity_given_name">दिलेले नाव</string>
   <string name="ContactNameEditActivity_family_name">कुटूंब नाव</string>
   <string name="ContactNameEditActivity_prefix">प्रीफिक्स</string>
   <string name="ContactNameEditActivity_suffix">सफ्फिक्स</string>
   <string name="ContactNameEditActivity_middle_name">मधले नाव</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">संपर्क पाठवा</string>
   <string name="ContactShareEditActivity_type_home">मुख्यस्क्रीन</string>
   <string name="ContactShareEditActivity_type_mobile">मोबाईल</string>
   <string name="ContactShareEditActivity_type_work">कार्य</string>
   <string name="ContactShareEditActivity_type_missing">इतर</string>
   <string name="ContactShareEditActivity_invalid_contact">निवडलेला संपर्क अवैध होता</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">नाव संपादित करा</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">अवतार</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">पाठविले नाही, तपशीलांसाठी टॅप करा</string>
   <string name="ConversationItem_error_partially_not_delivered">अर्धवट पाठविले, तपशीलांसाठी टॅप करा</string>
@@ -452,6 +463,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">बॅकअप पुनर्संचयित करण्यासाठी, Signal ची नवीन प्रत स्थापित करा. अ‍ॅप उघडा आणि \"बॅकअप पुनर्स्थापना करा\" टॅप करा, नंतर एक बॅकअप फाईल शोधा. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">अधिक जाणा</string>
   <string name="BackupsPreferenceFragment__in_progress">प्रगतीपथावर…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">बॅकअप सत्यापित करत आहे…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d आतापर्यंत…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% आत्तापर्यंत…</string>
@@ -1508,6 +1521,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">संपादन</string>
   <string name="SubmitDebugLogActivity_done">ठीक</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">जतन करा</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">जतन करण्यात अपयशी</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">जतन करणे पूर्ण</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">लाईन हटवण्यासाठी त्यास टॅप करा</string>
   <string name="SubmitDebugLogActivity_submit">सादर करा</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">लॉग प्रविष्ट करण्यात अयशस्वी</string>
@@ -1561,6 +1580,10 @@
   <string name="ThreadRecord__you_sent_a_gift">आपण एक भेट पाठवली</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">आपण एक भेट बॅज रिडीम केला</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">आपल्या स्टोरी वर %1$s प्रतिक्रिया दिली</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">त्यांच्या स्टोरीवर %1$s नी प्रतिक्रिया दिली</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signal अद्यतन</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Signal ची एक नवीन आवृत्ती उपलब्ध आहे, अद्ययावत करण्यासाठी टॅप करा</string>
@@ -2710,10 +2733,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">आपण आपला बॅकअप पासफ्रेझ यशस्वीरीत्या प्रविष्ट केला आहे</string>
   <string name="BackupDialog_passphrase_was_not_correct">पासफ्रेझ बरोबर नव्हता</string>
   <string name="LocalBackupJob_creating_signal_backup">Signal चा बॅकअप तयार करत आहे…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Signal बॅकअप सत्यापित करत आहे…</string>
   <string name="LocalBackupJobApi29_backup_failed">बॅकअप अयशस्वी</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">आपली बॅकअप डिरेक्टरी हटवली किंवा हलवली गेली आहे.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">या व्हॉल्यूमवर स्टोअर करण्यासाठी आपली बॅकअप फाईल खूप मोठी आहे.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">आपला बॅकअप स्टोअर करण्यासाठी पुरेशी जागा नाही.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">आपला अलिकडील बॅकअप तयार करू आणि सत्यापित करू शकत नाही. कृपया नवीन तयार करा.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">आपल्या बॅकअपमध्ये एक अतिशय मोठी फाईल आहे जिचा बॅकअप घेतला जाऊ शकत नाही. कृपया ती हटवा किंवा नवीन तयार करा.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">बॅकअप व्यवस्थापित करण्यासाठी टॅप करा.</string>
   <string name="ProgressPreference_d_messages_so_far">आतापर्यंत %d संदेश</string>
   <string name="RegistrationActivity_wrong_number">चुकीचा नंबर</string>
@@ -2969,6 +2998,9 @@
   <string name="CallParticipant__you">आपण</string>
   <string name="CallParticipant__you_on_another_device">आपण (दुसऱ्या डिव्हाईसवर)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (दुसऱ्या डिव्हाईसवर)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">कमकुवत Wi-Fi . सेल्युलरवर स्वीच केले.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">आपले खाते हटवल्याने खालील गोष्टी होतील:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">आपला फोन नंबर प्रविष्ट करा</string>
@@ -3863,6 +3895,8 @@
   <string name="StoriesLandingItem__share">शेअर करा…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">चॅटवर जा</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">माहिती</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">पाठवत आहे…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3923,9 +3957,17 @@
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">अद्याप कोणतीही दृश्ये नाहीत</string>
   <!--Displayed when user has disabled receipts-->
-  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">आपल्या स्टोरीज कोणी पाहल्या आहेत ते पाहण्यासाठी रिसिप्टस् वाचा सक्षम करा.</string>
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">आपल्या स्टोरीज कोणी पाहिल्या आहेत ते पाहण्यासाठी पोच वाचा ला सक्षम करा.</string>
   <!--Button label displayed when user has disabled receipts-->
-  <string name="StoryViewsFragment__go_to_settings">सेटिंग वर जा</string>
+  <string name="StoryViewsFragment__go_to_settings">सेटिंग्ज वर जा</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">काढा</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">दर्शकाला हटवायचे?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s हे अद्याप ही पोस्ट पाहू शकतात, मात्र आपण %2$sला सामायिक केलेल्या भविष्यातील कोणत्याही पोस्ट पाहू शकणार नाही.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">दर्शकाला हटवा</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">अद्याप कोणतीही प्रत्युत्तरे नाहीत</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4137,7 +4179,7 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">अधिक पहा</string>
   <string name="StoriesLinkPopup__visit_link">लिंकला भेट द्या</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="one">%1$s · %2$d दिवसांचा कालावधी</item>
     <item quantity="other">%1$s · %2$d दिवसांचा कालावधी</item>
@@ -4254,31 +4296,36 @@
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">सत्यापित</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">सुरक्षितता नंबर बदल</string>
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">सुरक्षितता क्रमांक बदल</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__the_following_people">खालील लोकांनी Signal ला पुन्हा इन्स्टॉल केले किंवा उपकरणे बदलेली असू शकतात . नवीन सुरक्षितता नंबर ची पुष्टी करण्यास प्राप्तकर्ता वर टॅप करा.</string>
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">खालील लोकांनी Signal ला पुन्हा इन्स्टॉल केलेले किंवा उपकरणे बदलेली असू शकतात. नवीन सुरक्षितता क्रमांकाची पुष्टी करण्यास प्राप्तकर्त्यावर टॅप करा.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">सुरक्षितता नंबर तपासणी</string>
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">सुरक्षितता क्रमांक तपासणी</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
-  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">सुरक्षितता नंबर तपासणी पूर्ण</string>
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">सुरक्षितता क्रमांक तपासणी पूर्ण</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">सर्व कनेक्शन्सचे पुनरावलोकन करण्यात आले आहे, पुढे सुरू ठेवण्यासाठी टॅप करा.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">ज्यांनी Signal ला पुन्हा इन्स्टॉल केले आहे किंवा उपकरणे बदललेली आहेत अशी आपणाकडे %1$d कनेक्शन्स आहेत. आपली स्टोरी त्याच्या सोबत शेअर करण्यापूर्वी त्यांचे सुरक्षितता नंबर यांचे पुनरावलोकन करा किंवा त्यांना आपल्या स्टोरी मधून हटवण्याचा विचार करा..</string>
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">ज्यांनी कदाचित Signal पुन्हा इन्स्टॉल केले आहे किंवा उपकरणे बदलली आहेत अशी आपणाकडे %1$d कनेक्शन्स आहेत. आपली स्टोरी त्याच्या सोबत शेअर करण्यापूर्वी त्यांच्या सुरक्षितता क्रमांकांचे पुनरावलोकन करा किंवा त्यांना आपल्या स्टोरीमधून हटवण्याचा विचार करा.</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">सुरक्षितता नंबर सत्यापित करा</string>
   <!--Menu action to remove user from story-->
-  <string name="SafetyNumberBottomSheetFragment__remove_from_story">स्टोरी मधून काढा</string>
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">स्टोरीमधून काढून टाका</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">तरीही पाठवा</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
-  <string name="SafetyNumberBottomSheetFragment__review_connections">कनेक्शन्स चे पुनरावलोकन करा</string>
+  <string name="SafetyNumberBottomSheetFragment__review_connections">कनेक्शन्सचे पुनरावलोकन करा</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
-  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">दाखवण्यासाठी आणखी प्राप्तकर्ता नाहीत</string>
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">दाखवण्यासाठी आणखी प्राप्तकर्ते नाहीत</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">ठीक</string>
   <!--Title of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">सुरक्षितता नंबर बदल</string>
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">सुरक्षितता क्रमांक बदल</string>
   <!--Message of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">%1$d प्राप्तकर्त्यांनी Signal ला पुन्हा इन्स्टॉल केलेले किंवा उपकरणे बदलले असू शकते. नवीन सुरक्षितता नंबर ची पुष्टी करण्यासाठी एक प्राप्तकर्ता टॅप करा. हे पर्यायी आहे.</string>
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$d प्राप्तकर्त्याने Signal पुन्हा इन्स्टॉल केलेले किंवा उपकरणे बदलले असू शकते. नवीन सुरक्षितता क्रमांकाची पुष्टी करण्यासाठी एका प्राप्तकर्त्यांवर टॅप करा. हे पर्यायी आहे.</item>
+    <item quantity="other">%1$d प्राप्तकर्त्यांनी Signal पुन्हा इन्स्टॉल केले किंवा उपकरणे बदललेली असू शकतात. नवीन सुरक्षितता क्रमांकाची पुष्टी करण्यासाठी प्राप्तकर्त्यावर टॅप करा. हे पर्यायी आहे.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">संपर्क</string>
   <!--Context menu label for distribution list headers in review fragment-->
@@ -4286,14 +4333,26 @@
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">काढा</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">माझी स्टोरी गोपनीयता</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">माझ्या स्टोरीची गोपनीयता</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">माझी स्टोरी वरील पोस्टस् कोण पाहू शकते ते निवडा. आपण सेटिंग मध्ये बदल करू शकता.</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">माझ्या स्टोरीवरील पोस्ट्स कोण पाहू शकतात ते निवडा. आपण सेटिंग्जमध्ये बदल करू शकता.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">सर्व Signal कनेक्शन्स</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">…सोडून सर्व Signal कनेक्शन्स</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">…सह फक्त शेअर करा</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">पाठविले</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">प्राप्त झाले</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">फाईल आकार</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">यांना पाठवले</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">यांनी पाठवले</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">माहिती</string>
   <!--EOF-->
 </resources>

@@ -594,15 +594,8 @@ public final class SignalServiceContent {
                                                                      SignalServiceProtos.DataMessage content)
       throws UnsupportedDataMessageException, InvalidMessageStructureException
   {
-    SignalServiceGroupV2                groupInfoV2  = createGroupV2Info(content);
-    Optional<SignalServiceGroupContext> groupContext;
-
-    try {
-      groupContext = SignalServiceGroupContext.createOptional(null, groupInfoV2);
-    } catch (InvalidMessageException e) {
-      throw new InvalidMessageStructureException(e);
-    }
-
+    SignalServiceGroupV2           groupInfoV2  = createGroupV2Info(content);
+    Optional<SignalServiceGroupV2> groupContext = Optional.ofNullable(groupInfoV2);
 
     List<SignalServiceAttachment>            attachments      = new LinkedList<>();
     boolean                                  endSession       = ((content.getFlags() & SignalServiceProtos.DataMessage.Flags.END_SESSION_VALUE            ) != 0);
@@ -649,7 +642,6 @@ public final class SignalServiceContent {
     }
 
     return new SignalServiceDataMessage(metadata.getTimestamp(),
-                                        null,
                                         groupInfoV2,
                                         attachments,
                                         content.hasBody() ? content.getBody() : null,
@@ -682,7 +674,7 @@ public final class SignalServiceContent {
       Optional<SignalServiceDataMessage>      dataMessage          = sentContent.hasMessage() ? Optional.of(createSignalServiceMessage(metadata, sentContent.getMessage())) : Optional.empty();
       Optional<SignalServiceStoryMessage>     storyMessage         = sentContent.hasStoryMessage() ? Optional.of(createStoryMessage(sentContent.getStoryMessage())) : Optional.empty();
       Optional<SignalServiceAddress>          address              = SignalServiceAddress.isValidAddress(sentContent.getDestinationUuid())
-                                                                     ? Optional.of(new SignalServiceAddress(ServiceId.parseOrThrow(sentContent.getDestinationUuid())))
+                                                                     ? Optional.of(new SignalServiceAddress(ServiceId.parseOrThrow(sentContent.getDestinationUuid()), sentContent.getDestinationE164()))
                                                                      : Optional.empty();
       Set<SignalServiceStoryMessageRecipient> recipientManifest    = sentContent.getStoryMessageRecipientsList()
                                                                                 .stream()

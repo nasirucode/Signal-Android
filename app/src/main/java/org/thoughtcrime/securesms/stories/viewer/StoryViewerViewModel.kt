@@ -29,7 +29,8 @@ class StoryViewerViewModel(
         storyViewerArgs.storyThumbTextModel != null -> StoryViewerState.CrossfadeSource.TextModel(storyViewerArgs.storyThumbTextModel)
         storyViewerArgs.storyThumbUri != null -> StoryViewerState.CrossfadeSource.ImageUri(storyViewerArgs.storyThumbUri, storyViewerArgs.storyThumbBlur)
         else -> StoryViewerState.CrossfadeSource.None
-      }
+      },
+      skipCrossfade = storyViewerArgs.isFromNotification || storyViewerArgs.isFromQuote
     )
   )
 
@@ -49,6 +50,8 @@ class StoryViewerViewModel(
 
   var hasConsumedInitialState = false
     private set
+
+  val isChildScrolling: Observable<Boolean> = childScrollStatePublisher.distinctUntilChanged()
 
   init {
     refresh()
@@ -86,7 +89,8 @@ class StoryViewerViewModel(
     } else {
       repository.getStories(
         hiddenStories = storyViewerArgs.isInHiddenStoryMode,
-        unviewedOnly = storyViewerArgs.isUnviewedOnly
+        unviewedOnly = storyViewerArgs.isUnviewedOnly,
+        isOutgoingOnly = storyViewerArgs.isFromMyStories
       )
     }
   }

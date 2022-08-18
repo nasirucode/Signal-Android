@@ -72,7 +72,7 @@ public class RemoteDeleteSendJob extends BaseJob {
         return ApplicationDependencies.getJobManager().startChain(MultiDeviceStorySendSyncJob.create(message.getDateSent(), messageId));
       }
     } else {
-      recipients = conversationRecipient.isGroup() ? Stream.of(conversationRecipient.getParticipants()).map(Recipient::getId).toList()
+      recipients = conversationRecipient.isGroup() ? Stream.of(conversationRecipient.getParticipantIds()).toList()
                                                    : Stream.of(conversationRecipient.getId()).toList();
     }
 
@@ -214,7 +214,8 @@ public class RemoteDeleteSendJob extends BaseJob {
                                                                                    false,
                                                                                    ContentHint.RESENDABLE,
                                                                                    new MessageId(messageId, isMms),
-                                                                                   dataMessage);
+                                                                                   dataMessage,
+                                                                                   true);
 
     return GroupSendJobHelper.getCompletedSends(destinations, results);
   }

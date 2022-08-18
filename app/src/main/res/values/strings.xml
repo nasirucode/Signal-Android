@@ -59,6 +59,20 @@
     <string name="ApplicationPreferencesActivity_record_phrase">Record phrase</string>
     <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Before you can disable your PIN, you must record your payments recovery phrase to ensure you can recover your payments account.</string>
 
+    <!-- NumericKeyboardView -->
+    <string name="NumericKeyboardView__1" translatable="false">1</string>
+    <string name="NumericKeyboardView__2" translatable="false">2</string>
+    <string name="NumericKeyboardView__3" translatable="false">3</string>
+    <string name="NumericKeyboardView__4" translatable="false">4</string>
+    <string name="NumericKeyboardView__5" translatable="false">5</string>
+    <string name="NumericKeyboardView__6" translatable="false">6</string>
+    <string name="NumericKeyboardView__7" translatable="false">7</string>
+    <string name="NumericKeyboardView__8" translatable="false">8</string>
+    <string name="NumericKeyboardView__9" translatable="false">9</string>
+    <string name="NumericKeyboardView__0" translatable="false">0</string>
+    <!-- Back button on numeric keyboard -->
+    <string name="NumericKeyboardView__backspace">Backspace</string>
+
     <!-- AppProtectionPreferenceFragment -->
     <plurals name="AppProtectionPreferenceFragment_minutes">
         <item quantity="one">%d minute</item>
@@ -210,6 +224,8 @@
     <string name="ContactsDatabase_signal_call_s">Signal Call %s</string>
 
     <!-- ContactNameEditActivity -->
+    <!-- Toolbar title for contact name edit activity -->
+    <string name="ContactNameEditActivity__edit_name">Edit name</string>
     <string name="ContactNameEditActivity_given_name">Given name</string>
     <string name="ContactNameEditActivity_family_name">Family name</string>
     <string name="ContactNameEditActivity_prefix">Prefix</string>
@@ -217,11 +233,17 @@
     <string name="ContactNameEditActivity_middle_name">Middle name</string>
 
     <!-- ContactShareEditActivity -->
+    <!-- ContactShareEditActivity toolbar title -->
+    <string name="ContactShareEditActivity__send_contact">Send contact</string>
     <string name="ContactShareEditActivity_type_home">Home</string>
     <string name="ContactShareEditActivity_type_mobile">Mobile</string>
     <string name="ContactShareEditActivity_type_work">Work</string>
     <string name="ContactShareEditActivity_type_missing">Other</string>
     <string name="ContactShareEditActivity_invalid_contact">Selected contact was invalid</string>
+    <!-- Content descrption for name edit button on contact share edit activity -->
+    <string name="ContactShareEditActivity__edit_name">Edit name</string>
+    <!-- Content description for user avatar in edit activity -->
+    <string name="ContactShareEditActivity__avatar">Avatar</string>
 
     <!-- ConversationItem -->
     <string name="ConversationItem_error_not_sent_tap_for_details">Not sent, tap for details</string>
@@ -514,6 +536,8 @@
     <string name="BackupsPreferenceFragment__to_restore_a_backup">To restore a backup, install a new copy of Signal. Open the app and tap "Restore backup", then locate a backup file. %1$s</string>
     <string name="BackupsPreferenceFragment__learn_more">Learn more</string>
     <string name="BackupsPreferenceFragment__in_progress">In progress…</string>
+    <!-- Status text shown in backup preferences when verifying a backup -->
+    <string name="BackupsPreferenceFragment__verifying_backup">Verifying backup…</string>
     <string name="BackupsPreferenceFragment__d_so_far">%1$d so far…</string>
     <!-- Show percentage of completion of backup -->
     <string name="BackupsPreferenceFragment__s_so_far">%1$s%% so far…</string>
@@ -1747,6 +1771,12 @@
     <!-- SubmitDebugLogActivity -->
     <string name="SubmitDebugLogActivity_edit">Edit</string>
     <string name="SubmitDebugLogActivity_done">Done</string>
+    <!-- Menu option to save a debug log file to disk. -->
+    <string name="SubmitDebugLogActivity_save">Save</string>
+    <!-- Error that is show in a toast when we fail to save a debug log file to disk. -->
+    <string name="SubmitDebugLogActivity_failed_to_save">Failed to save</string>
+    <!-- Toast that is show to notify that we have saved the debug log file to disk. -->
+    <string name="SubmitDebugLogActivity_save_complete">Save complete</string>
     <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Tap a line to delete it</string>
     <string name="SubmitDebugLogActivity_submit">Submit</string>
     <string name="SubmitDebugLogActivity_failed_to_submit_logs">Failed to submit logs</string>
@@ -1803,6 +1833,10 @@
     <string name="ThreadRecord__you_sent_a_gift">You sent a gift</string>
     <!-- Displayed in the notification when the user has opened a received gift -->
     <string name="ThreadRecord__you_redeemed_a_gift_badge">You redeemed a gift badge</string>
+    <!-- Displayed in the conversation list when someone reacted to your story -->
+    <string name="ThreadRecord__reacted_s_to_your_story">Reacted %1$s to your story</string>
+    <!-- Displayed in the conversation list when you reacted to someone\'s story -->
+    <string name="ThreadRecord__reacted_s_to_their_story">Reacted %1$s to their story</string>
 
     <!-- UpdateApkReadyListener -->
     <string name="UpdateApkReadyListener_Signal_update">Signal update</string>
@@ -2671,6 +2705,8 @@
     <string name="configurable_single_select__customize_option">Customize option</string>
 
     <!-- Internal only preferences -->
+    <string name="preferences__internal_clear_onboarding_state" translatable="false">Clear onboarding state</string>
+    <string name="preferences__internal_clears_onboarding_flag_and_triggers_download_of_onboarding_stories" translatable="false">Clears onboarding flag and triggers download of onboarding stories.</string>
     <string name="preferences__internal_preferences" translatable="false">Internal Preferences</string>
     <string name="preferences__internal_preferences_groups_v2" translatable="false">Groups V2</string>
     <string name="preferences__internal_preferences_groups_v1_migration" translatable="false">Groups V1 Migration</string>
@@ -3242,10 +3278,16 @@
     <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">You successfully entered your backup passphrase</string>
     <string name="BackupDialog_passphrase_was_not_correct">Passphrase was not correct</string>
     <string name="LocalBackupJob_creating_signal_backup">Creating Signal backup…</string>
+    <!-- Title for progress notification shown in a system notification while verifying a recent backup. -->
+    <string name="LocalBackupJob_verifying_signal_backup">Verifying Signal backup…</string>
     <string name="LocalBackupJobApi29_backup_failed">Backup failed</string>
     <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Your backup directory has been deleted or moved.</string>
     <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Your backup file is too large to store on this volume.</string>
     <string name="LocalBackupJobApi29_there_is_not_enough_space">There is not enough space to store your backup.</string>
+    <!-- Error message shown if a newly created backup could not be verified as accurate -->
+    <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Your recent backup could not be created and verified. Please create a new one.</string>
+    <!-- Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail -->
+    <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Your backup contains a very large file that cannot be backed up. Please delete it and create a new backup.</string>
     <string name="LocalBackupJobApi29_tap_to_manage_backups">Tap to manage backups.</string>
     <string name="ProgressPreference_d_messages_so_far">%d messages so far</string>
     <string name="RegistrationActivity_wrong_number">Wrong number</string>
@@ -3528,6 +3570,10 @@
     <string name="CallParticipant__you">You</string>
     <string name="CallParticipant__you_on_another_device">You (on another device)</string>
     <string name="CallParticipant__s_on_another_device">%1$s (on another device)</string>
+
+    <!-- WifiToCellularPopupWindow -->
+    <!-- Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead. -->
+    <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Weak Wi-Fi. Switched to cellular.</string>
 
     <!-- DeleteAccountFragment -->
     <string name="DeleteAccountFragment__deleting_your_account_will">Deleting your account will:</string>
@@ -4545,6 +4591,8 @@
     <string name="StoriesLandingItem__share">Share…</string>
     <!-- Context menu option to go to story chat -->
     <string name="StoriesLandingItem__go_to_chat">Go to chat</string>
+    <!-- Context menu option to go to story info -->
+    <string name="StoriesLandingItem__info">Info</string>
     <!-- Label when a story is pending sending -->
     <string name="StoriesLandingItem__sending">Sending…</string>
     <!-- Label when multiple stories are pending sending -->
@@ -4608,6 +4656,14 @@
     <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Enable read receipts to see who\'s viewed your stories.</string>
     <!-- Button label displayed when user has disabled receipts -->
     <string name="StoryViewsFragment__go_to_settings">Go to settings</string>
+    <!-- Dialog action to remove viewer from a story -->
+    <string name="StoryViewsFragment__remove">Remove</string>
+    <!-- Dialog title when removing a viewer from a story -->
+    <string name="StoryViewsFragment__remove_viewer">Remove viewer?</string>
+    <!-- Dialog message when removing a viewer from a story -->
+    <string name="StoryViewsFragment__s_will_still_be_able">%1$s will still be able to view this post, but will not be able to view any future posts you share to %2$s.</string>
+    <!-- Story View context menu action to remove them from a story -->
+    <string name="StoryViewItem__remove_viewer">Remove viewer</string>
     <!-- Displayed when a story has no replies yet -->
     <string name="StoryGroupReplyFragment__no_replies_yet">No replies yet</string>
     <!-- Displayed for each user that reacted to a story when viewing replies -->
@@ -4823,7 +4879,7 @@
     <string name="ExpandModel__view_more">View more</string>
     <string name="StoriesLinkPopup__visit_link">Visit link</string>
 
-    <!-- Duration and price information -->
+    <!-- Gift price and duration, formatted as: {price} dot {n} day duration -->
     <plurals name="GiftRowItem_s_dot_d_day_duration">
         <item quantity="one">%1$s · %2$d day duration</item>
         <item quantity="other">%1$s · %2$d day duration</item>
@@ -4967,7 +5023,10 @@
     <!-- Title of safety number review fragment -->
     <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Safety number changes</string>
     <!-- Message of safety number review fragment -->
-    <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">%1$d recipients may have reinstalled Signal or changed devices. Tap a recipient to confirm the new safety number. This is optional.</string>
+    <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+        <item quantity="one">%1$d recipient may have reinstalled Signal or changed devices. Tap a recipient to confirm the new safety number. This is optional.</item>
+        <item quantity="other">%1$d recipients may have reinstalled Signal or changed devices. Tap a recipient to confirm the new safety number. This is optional.</item>
+    </plurals>
     <!-- Section header for 1:1 contacts in review fragment -->
     <string name="SafetyNumberBucketRowItem__contacts">Contacts</string>
     <!-- Context menu label for distribution list headers in review fragment -->
@@ -4985,6 +5044,19 @@
     <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">All Signal connections except…</string>
     <!-- Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time -->
     <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Only share with…</string>
+
+    <!-- Story info header sent heading -->
+    <string name="StoryInfoHeader__sent">Sent</string>
+    <!-- Story info header received heading -->
+    <string name="StoryInfoHeader__received">Received</string>
+    <!-- Story info header file size heading -->
+    <string name="StoryInfoHeader__file_size">File size</string>
+    <!-- Story info "Sent to" header -->
+    <string name="StoryInfoBottomSheetDialogFragment__sent_to">Sent to</string>
+    <!-- Story info "Sent from" header -->
+    <string name="StoryInfoBottomSheetDialogFragment__sent_from">Sent from</string>
+    <!-- Story Info context menu label -->
+    <string name="StoryInfoBottomSheetDialogFragment__info">Info</string>
 
     <!-- EOF -->
 

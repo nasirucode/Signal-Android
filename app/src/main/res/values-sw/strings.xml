@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Rekodi maneno ya kurejesha malipo</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Rekodi maneno</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Kabla ya kuzima PIN yako, lazima urekodi kifungu chako cha kurejesha malipo ili uhakikishe kuwa unaweza kurejesha akaunti yako ya malipo.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Nafasi ya kurudi nyuma</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">dakika %d </item>
@@ -173,17 +176,25 @@
   <string name="ContactsDatabase_message_s">Ujumbe %s</string>
   <string name="ContactsDatabase_signal_call_s">Simu ya Signal %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Hariri jina</string>
   <string name="ContactNameEditActivity_given_name">Jina ulilopewa</string>
   <string name="ContactNameEditActivity_family_name">Jina la ukoo</string>
   <string name="ContactNameEditActivity_prefix">Kiambishi awali</string>
   <string name="ContactNameEditActivity_suffix">Kiambishi tamati</string>
   <string name="ContactNameEditActivity_middle_name">Jina la katikati</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Tuma muwasiliani</string>
   <string name="ContactShareEditActivity_type_home">Nyumbani</string>
   <string name="ContactShareEditActivity_type_mobile">Simu</string>
   <string name="ContactShareEditActivity_type_work">Kazi</string>
   <string name="ContactShareEditActivity_type_missing">ingine</string>
   <string name="ContactShareEditActivity_invalid_contact">Mawasilianao yaliyochaguliwa sio sahihi</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Hariri jina</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Avatar</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Haikutumwa, gusa upate maelezo</string>
   <string name="ConversationItem_error_partially_not_delivered">Ujumbe wote haujatumwa, gusa upate maelezo</string>
@@ -452,6 +463,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Ili kurejesha nakala hifadhi, sakinisha nakala mpya ya Signal. Fungua programu na uguse \"Rejesha nakala rudufu\", kisha utafute faili ya nakala hifadhi. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Jifunze zaidi</string>
   <string name="BackupsPreferenceFragment__in_progress">Inaendelea…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Kuthibitisha nakala rudufu…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d hadi sasa…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% hadi sasa …</string>
@@ -1504,6 +1517,12 @@ nambari yako ya simu</string>
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Hariri</string>
   <string name="SubmitDebugLogActivity_done">Imekamilika</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Hifadhi</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Imeshindwa kuhifadhi</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Kuhifadhi kumekamilika</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Gusa mstari ili kuifuta</string>
   <string name="SubmitDebugLogActivity_submit">Wasilisha</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Hujawasilisha kumbukumbu</string>
@@ -1557,6 +1576,10 @@ nambari yako ya simu</string>
   <string name="ThreadRecord__you_sent_a_gift">Umetuma zawadi</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Umepokea beji ya zawadi</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">Ame-react %1$s kwa stori yako</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">Ame-react %1$s kwa stori yao</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Sasisho ya Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Toleo jipya la Signal linapatikana, bonyeza kusasisha</string>
@@ -2707,10 +2730,16 @@ nambari yako ya simu</string>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Umefaulu kuweka kifungu maneno chako cha nakilihifadhi</string>
   <string name="BackupDialog_passphrase_was_not_correct">Kifungu maneno hakikuwa sahihi</string>
   <string name="LocalBackupJob_creating_signal_backup">Kutengeneza nakala rudufu ya Signal…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Kuthibitisha nakala rudufu ya Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">Nakala hifadhi haijawekwa</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Nakala hifadhi yako imefutwa au imehamishwa.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Faili yako ya kakala hifadhi ni kubwa mno kwamba haiwezi kuhifadhi kiasi hiki.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Hakuna nafasi ya kutosha ya kuhifadhi nakala rudufu yako.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Nakala rudufu yako ya hivi karibuni haingeweza kutengenezwa na kuthibitishwa. Tafadhali tengeneza mpya.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Nakala rudufu yako ina faili kubwa ambalo haliweze kurudufiwa. Tafadhali lifute na tengeneza nakala rudufu mpya. </string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Gonga ili udhibiti nakala hifadhi.</string>
   <string name="ProgressPreference_d_messages_so_far">1%d Jumbe hadi sasa</string>
   <string name="RegistrationActivity_wrong_number">Nambari sio sahihi</string>
@@ -2967,6 +2996,9 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
   <string name="CallParticipant__you">Wewe</string>
   <string name="CallParticipant__you_on_another_device">Wewe (kwenye kifaa kingine)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (kwenye kifaa kingine)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Wi-Fi dhaifu. Imehamia data ya simu.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Kufuta akaunti yako kutasababisha:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Weka nambari yako ya simu</string>
@@ -3861,6 +3893,8 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
   <string name="StoriesLandingItem__share">Shirikisha..</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Enda kwa gumzo</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Maelezo</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Inatuma…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3907,6 +3941,7 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
     <item quantity="other">Majibu %1$d</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">Kutazama kumezuiwa</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -3920,7 +3955,17 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">Hakuna watazamaji bado</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Wezesha read receipts kuona nani amengalia stori zako</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">Nenda kwenye mipangilio</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Ondoa</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Muondoe mtazamaji?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s bado ataweza kuangalia chapisho hili, lakini hataweza kuona machapisho yoyote utakayoshiriki %2$s.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Muondoe mtazamaji</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Hakuna majibu bado</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4132,10 +4177,10 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Tazama zaidi</string>
   <string name="StoriesLinkPopup__visit_link">Tembelea kiungo</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
-    <item quantity="one">%1$s . kwa siku %2$d</item>
-    <item quantity="other">%1$s . kwa muda wa siku %2$d</item>
+    <item quantity="one">%1$s · kwa siku %2$d</item>
+    <item quantity="other">%1$s · kwa muda wa siku %2$d</item>
   </plurals>
   <!--Tagline for gift row items-->
   <string name="GiftRowItem__send_a_gift_badge">Tuma beji ya zawadi</string>
@@ -4198,6 +4243,7 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
     <item quantity="other">Stori ya Kikundi . watazamaji %1$d</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">Bonyeza kuchagua watazamaji wako</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">Mipangilio ya stori</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4242,37 +4288,69 @@ Funga ufikiaji wa Signal na ufungaji wa Android au alama za vidole</string>
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">Nimeelewa</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">Fungua menyu ya maudhui</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s . Imethibitishwa</string>
   <!--Sub-line when a user is verified.-->
-  <string name="SafetyNumberRecipientRowItem__verified">Iliyothibitishwa</string>
+  <string name="SafetyNumberRecipientRowItem__verified">Imethibitishwa</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Mabadiliko ya Nambari ya usalama</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">Watu wafuatao huenda wakawa wamesakinisha upya Signal au wamebadili kifaa. Bonyeza mpokeaji ili kuhakikisha nambari mpya ya usalama. Hii ni kwa hiari.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Ukaguzi wa nambari ya usalama</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Ukaguzi wa nambari ya usalama umekamilika</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Miungano yote imehakikishwa, bonyeza tuma kuendelea. </string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Una connections %1$d ambao huenda wamesakinisha upya Signal au kubadili vifaa. Kabla ya kushiriki stori yako nao, kagua nambari yao ya usalama au fikiria kuhusu kuwaondoa kwenye stori yako.</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Thibitisha nambari salama</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">Ondoa kwenye stori</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">Tuma tu</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">Kagua miunganisho</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">Hakuna wapokeaji zaidi wa kuonyesha</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">Imekamilika</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Mabadiliko ya Nambari ya usalama</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">Wanufaika %1$dwanaweza wakawa wamesakinisha upya Signal au kubadili vifaa. Gusa mnufaika mmoja kuthibitisha nambari ya usalama. Hii ni hiari.</item>
+    <item quantity="other">Wawasiliani %1$d inawezekana wamesakinisha upya Signal au kubadili vifaa. Bonyeza muwasiliani kuthibitisha nambari yao mpya ya usalama. Hili ni la hiari.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Wawasiliani</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">Ondoa wote</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">Ondoa</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Faragha ya Stori Yangu</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Chagua nani anayeweza kuona maudhui ya Stori Yangu. Unaweza kufanya mabadiliko kwenye mipangilio.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Signal connections wote </string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Signal connections wote isipokuwa…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Shirikisha pekee na…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Imetumwa</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Imepokelewa</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Ukubwa wa faili</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Imetumwa kwa</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Imetumwa kutoka kwa</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Maelezo</string>
   <!--EOF-->
 </resources>

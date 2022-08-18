@@ -613,7 +613,7 @@ public class MmsDatabase extends MessageDatabase {
       whereArgs = SqlUtil.buildArgs(recipientId);
     } else {
       where += " AND " + THREAD_ID_WHERE;
-      whereArgs = SqlUtil.buildArgs(1, 0, threadId);
+      whereArgs = SqlUtil.buildArgs(threadId);
     }
 
     return new Reader(rawQuery(where, whereArgs));
@@ -798,7 +798,8 @@ public class MmsDatabase extends MessageDatabase {
   }
 
   @Override
-  public @NonNull List<StoryResult> getOrderedStoryRecipientsAndIds() {
+  public @NonNull List<StoryResult> getOrderedStoryRecipientsAndIds(boolean isOutgoingOnly) {
+    String         where = "WHERE is_story > 0 AND remote_deleted = 0" + (isOutgoingOnly ? " AND is_outgoing != 0" : "") + "\n";
     SQLiteDatabase db    = getReadableDatabase();
     String         query = "SELECT\n"
                            + " mms.date AS sent_timestamp,\n"
@@ -812,7 +813,7 @@ public class MmsDatabase extends MessageDatabase {
                            + "FROM mms\n"
                            + "JOIN thread\n"
                            + "ON mms.thread_id = thread._id\n"
-                           + "WHERE is_story > 0 AND remote_deleted = 0\n"
+                           + where
                            + "ORDER BY\n"
                            + "is_unread DESC,\n"
                            + "CASE\n"
@@ -829,7 +830,8 @@ public class MmsDatabase extends MessageDatabase {
         while (cursor.moveToNext()) {
           results.add(new StoryResult(RecipientId.from(CursorUtil.requireLong(cursor, ThreadDatabase.RECIPIENT_ID)),
                                            CursorUtil.requireLong(cursor, "mms_id"),
-                                           CursorUtil.requireLong(cursor, "sent_timestamp")));
+                                           CursorUtil.requireLong(cursor, "sent_timestamp"),
+                                           CursorUtil.requireBoolean(cursor, "is_outgoing")));
         }
 
         return results;
@@ -898,16 +900,35 @@ public class MmsDatabase extends MessageDatabase {
   }
 
   @Override
-  public @Nullable Long getOldestStorySendTimestamp() {
-    SQLiteDatabase db        = databaseHelper.getSignalReadableDatabase();
-    String[]       columns   = new String[]{DATE_SENT};
-    String         where     = IS_STORY_CLAUSE;
-    String         orderBy   = DATE_SENT + " ASC";
-    String         limit     = "1";
+  public @Nullable Long getOldestStorySendTimestamp(boolean hasSeenReleaseChannelStories) {
+    long           releaseChannelThreadId = getReleaseChannelThreadId(hasSeenReleaseChannelStories);
+    SQLiteDatabase db                     = databaseHelper.getSignalReadableDatabase();
+    String[]       columns                = new String[] { DATE_SENT };
+    String         where                  = IS_STORY_CLAUSE + " AND " + THREAD_ID + " != ?";
+    String         orderBy                = DATE_SENT + " ASC";
+    String         limit                  = "1";
 
-    try (Cursor cursor = db.query(TABLE_NAME, columns, where, null, null, null, orderBy, limit)) {
+    try (Cursor cursor = db.query(TABLE_NAME, columns, where, SqlUtil.buildArgs(releaseChannelThreadId), null, null, orderBy, limit)) {
       return cursor != null && cursor.moveToNext() ? cursor.getLong(0) : null;
     }
+  }
+
+  private static long getReleaseChannelThreadId(boolean hasSeenReleaseChannelStories) {
+    if (hasSeenReleaseChannelStories) {
+      return -1L;
+    }
+
+    RecipientId releaseChannelRecipientId = SignalStore.releaseChannelValues().getReleaseChannelRecipientId();
+    if (releaseChannelRecipientId == null) {
+      return -1L;
+    }
+
+    Long releaseChannelThreadId = SignalDatabase.threads().getThreadIdFor(releaseChannelRecipientId);
+    if (releaseChannelThreadId == null) {
+      return -1L;
+    }
+
+    return releaseChannelThreadId;
   }
 
   @Override
@@ -924,8 +945,7 @@ public class MmsDatabase extends MessageDatabase {
 
     db.beginTransaction();
     try {
-      RecipientId releaseChannelRecipient     = hasSeenReleaseChannelStories ? null : SignalStore.releaseChannelValues().getReleaseChannelRecipientId();
-      long        releaseChannelThreadId      = releaseChannelRecipient != null ? SignalDatabase.threads().getOrCreateThreadIdFor(Recipient.resolved(releaseChannelRecipient)) : -1;
+      long        releaseChannelThreadId      = getReleaseChannelThreadId(hasSeenReleaseChannelStories);
       String      storiesBeforeTimestampWhere = IS_STORY_CLAUSE + " AND " + DATE_SENT + " < ? AND " + THREAD_ID + " != ?";
       String[]    sharedArgs                  = SqlUtil.buildArgs(timestamp, releaseChannelThreadId);
       String      deleteStoryRepliesQuery     = "DELETE FROM " + TABLE_NAME + " " +
@@ -1045,6 +1065,22 @@ public class MmsDatabase extends MessageDatabase {
 
     try (Cursor cursor = db.query(TABLE_NAME, new String[] { "1" }, THREAD_ID + " = ? AND " + STORY_TYPE + " = ? AND " + PARENT_STORY_ID + " <= ?", SqlUtil.buildArgs(threadId, 0, 0), null, null, null, "1")) {
       return cursor != null && cursor.moveToFirst();
+    }
+  }
+
+  @Override
+  public int getIncomingMeaningfulMessageCountSince(long threadId, long afterTime) {
+    SQLiteDatabase db                      = databaseHelper.getSignalReadableDatabase();
+    String[]       projection              = SqlUtil.COUNT;
+    String         where                   = THREAD_ID + " = ? AND " + STORY_TYPE + " = ? AND " + PARENT_STORY_ID + " <= ? AND " + DATE_RECEIVED + " >= ?";
+    String[]       whereArgs               = SqlUtil.buildArgs(threadId, 0, 0, afterTime);
+
+    try (Cursor cursor = db.query(TABLE_NAME, projection, where, whereArgs, null, null, null, "1")) {
+      if (cursor != null && cursor.moveToFirst()) {
+        return cursor.getInt(0);
+      } else {
+        return 0;
+      }
     }
   }
 
@@ -1500,51 +1536,6 @@ public class MmsDatabase extends MessageDatabase {
     }
 
     return result;
-  }
-
-  @Override
-  @NonNull MmsSmsDatabase.TimestampReadResult setTimestampRead(SyncMessageId messageId, long proposedExpireStarted, @NonNull Map<Long, Long> threadToLatestRead) {
-    SQLiteDatabase         database   = databaseHelper.getSignalWritableDatabase();
-    List<Pair<Long, Long>> expiring   = new LinkedList<>();
-    String[]               projection = new String[] { ID, THREAD_ID, MESSAGE_BOX, EXPIRES_IN, EXPIRE_STARTED, RECIPIENT_ID };
-    String                 query      = DATE_SENT + " = ?";
-    String[]               args       = SqlUtil.buildArgs(messageId.getTimetamp());
-    List<Long>             threads    = new LinkedList<>();
-
-    try (Cursor cursor = database.query(TABLE_NAME, projection, query, args, null, null, null)) {
-      while (cursor.moveToNext()) {
-        RecipientId theirRecipientId = RecipientId.from(cursor.getLong(cursor.getColumnIndexOrThrow(RECIPIENT_ID)));
-        RecipientId ourRecipientId   = messageId.getRecipientId();
-
-        if (ourRecipientId.equals(theirRecipientId) || Recipient.resolved(theirRecipientId).isGroup() || ourRecipientId.equals(Recipient.self().getId())) {
-          long id            = cursor.getLong(cursor.getColumnIndexOrThrow(ID));
-          long threadId      = cursor.getLong(cursor.getColumnIndexOrThrow(THREAD_ID));
-          long expiresIn     = cursor.getLong(cursor.getColumnIndexOrThrow(EXPIRES_IN));
-          long expireStarted = cursor.getLong(cursor.getColumnIndexOrThrow(EXPIRE_STARTED));
-
-          expireStarted = expireStarted > 0 ? Math.min(proposedExpireStarted, expireStarted) : proposedExpireStarted;
-
-          ContentValues values = new ContentValues();
-          values.put(READ, 1);
-          values.put(REACTIONS_UNREAD, 0);
-          values.put(REACTIONS_LAST_SEEN, System.currentTimeMillis());
-
-          if (expiresIn > 0) {
-            values.put(EXPIRE_STARTED, expireStarted);
-            expiring.add(new Pair<>(id, expiresIn));
-          }
-
-          database.update(TABLE_NAME, values, ID_WHERE, SqlUtil.buildArgs(id));
-
-          threads.add(threadId);
-
-          Long latest = threadToLatestRead.get(threadId);
-          threadToLatestRead.put(threadId, (latest != null) ? Math.max(latest, messageId.getTimetamp()) : messageId.getTimetamp());
-        }
-      }
-    }
-
-    return new MmsSmsDatabase.TimestampReadResult(expiring, threads);
   }
 
   @Override

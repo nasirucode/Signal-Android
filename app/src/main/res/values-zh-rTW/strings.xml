@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">記錄付款回復短語</string>
   <string name="ApplicationPreferencesActivity_record_phrase">紀錄短語</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">在停用PIN碼之前，你必須記錄你的付款回復詞語以確保可以回復你的付款帳戶。</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">退格鍵</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="other">%d 分鐘</item>
@@ -172,17 +175,25 @@
   <string name="ContactsDatabase_message_s">傳送訊息給 %s</string>
   <string name="ContactsDatabase_signal_call_s">與 %s 進行 Signal 通話</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">編輯名稱</string>
   <string name="ContactNameEditActivity_given_name">名字</string>
   <string name="ContactNameEditActivity_family_name">姓</string>
   <string name="ContactNameEditActivity_prefix">前綴名</string>
   <string name="ContactNameEditActivity_suffix">後綴名</string>
   <string name="ContactNameEditActivity_middle_name">中間名</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">傳送聯絡人</string>
   <string name="ContactShareEditActivity_type_home">住家</string>
   <string name="ContactShareEditActivity_type_mobile">行動電話</string>
   <string name="ContactShareEditActivity_type_work">工作電話</string>
   <string name="ContactShareEditActivity_type_missing">其他</string>
   <string name="ContactShareEditActivity_invalid_contact">選擇的聯絡人無效</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">編輯名稱</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">頭像</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">未傳送，請點擊以獲得詳細資訊</string>
   <string name="ConversationItem_error_partially_not_delivered">部分發送，請點擊以了解細節。</string>
@@ -431,6 +442,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">要回復備份，請安裝新的Signal。 打開應用程式，然後點擊“還原備份”，然後找到一個備份檔案。%1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">了解更多</string>
   <string name="BackupsPreferenceFragment__in_progress">正在進行中…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">正在驗證備份內容…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d到目前為止…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">目前進度%1$s%%…</string>
@@ -1434,6 +1447,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">編輯</string>
   <string name="SubmitDebugLogActivity_done">完成</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">儲存</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">無法儲存</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">已成功儲存</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">點擊一行以將其刪除</string>
   <string name="SubmitDebugLogActivity_submit">上傳</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">傳送紀錄失敗</string>
@@ -1487,6 +1506,10 @@
   <string name="ThreadRecord__you_sent_a_gift">你已送出一份禮物</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">你已加值了一個禮品徽章</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">已向你的限動送出 %1$s</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">已向對方的限動送出 %1$s</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signal 更新</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">有新版本的 Signal，輕觸更新</string>
@@ -2615,10 +2638,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">你已成功的輸入你的備份碼</string>
   <string name="BackupDialog_passphrase_was_not_correct">備份碼錯誤</string>
   <string name="LocalBackupJob_creating_signal_backup">建立 Signal 備份…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">正在驗證 Signal 備份內容…</string>
   <string name="LocalBackupJobApi29_backup_failed">備份失敗</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">你的備份目錄已被刪除或移動。</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">你的備份檔案太大，無法儲存在該空間上。</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">沒有足夠的空間來儲存備份。</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">無法建立並驗證近期的備份內容。請建立新的備份內容。</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">你的備份內容包含一個大型檔案，因此無法成功備份。請刪除該檔案，並建立新的備份內容。</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">點擊以管理備份。</string>
   <string name="ProgressPreference_d_messages_so_far">目前有 %d 則訊息</string>
   <string name="RegistrationActivity_wrong_number">電話號碼不對</string>
@@ -2872,6 +2901,9 @@
   <string name="CallParticipant__you">你</string>
   <string name="CallParticipant__you_on_another_device">你 (在其他的裝置上)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (在另一台裝置上)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Wi-Fi 訊號微弱，已切換至行動數據。</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">刪除你的帳戶將：</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">輸入你的電話號碼</string>
@@ -3758,6 +3790,8 @@
   <string name="StoriesLandingItem__share">分享…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">到聊天</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">資訊</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">傳送中…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3801,6 +3835,7 @@
     <item quantity="other">%1$d 則回覆</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">已讀標記關閉</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -3814,7 +3849,17 @@
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">尚未觀看</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">啟用已讀標記，即可查看誰瀏覽了你的限動。</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">前往「設定」</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">移除</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">要移除瀏覽者嗎？</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s 仍可瀏覽這則貼文，但無法瀏覽未來你分享至「%2$s」的任何貼文。</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">移除瀏覽者</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">未有回覆</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4023,7 +4068,7 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">檢視更多</string>
   <string name="StoriesLinkPopup__visit_link">訪問連結</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="other">%1$s · 持續 %2$d 天</item>
   </plurals>
@@ -4086,6 +4131,7 @@
     <item quantity="other">群組限時動態 · %1$d 個觀眾</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">點選以選擇瀏覽的對象</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">限時動態設定</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4127,37 +4173,68 @@
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">收到</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">開啟快顯選單</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s · 已驗證</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">已驗證</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">安全碼變更詳情</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">下列使用者可能已重新安裝 Signal 或更換裝置。點選任一位收件人，以便確認新的安全碼。這道程序並非強制要求。</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">安全碼檢查</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">安全碼檢查已完成</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">所有聯絡人已審核完畢，點選「傳送」即可繼續。</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">你有 %1$d 位聯絡人可能已重新安裝 Signal 或更換裝置。在分享限動之前，請審核對方的安全碼，或直接將他們從你的限動中移除。</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">驗證安全碼</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">從限動中移除</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">仍然傳送</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">審核聯絡人</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">沒有其他要顯示的收件人了</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">完成</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">安全碼變更詳情</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="other">%1$d 位收件人可能已重新安裝 Signal 或更換裝置。點選任一位收件人即可確認安全碼；這道程序並非強制要求。</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">聯絡人</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">全部移除</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">移除</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">我的限動隱私設定</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">選擇誰能查看「我的限動」貼文。你可以隨時在「設定」中調整設定。</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">所有 Signal 聯絡人</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">所有 Signal 聯絡人，除了…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">僅分享給…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">傳送時間</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">接收時間</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">檔案大小</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">傳送給</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">傳送自</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">資訊</string>
   <!--EOF-->
 </resources>

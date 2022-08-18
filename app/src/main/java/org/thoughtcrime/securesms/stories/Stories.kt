@@ -106,10 +106,9 @@ object Stories {
     }
 
     Log.d(TAG, "Enqueuing downloads for up to $limit stories for $recipientId (force: $force)")
-    SignalDatabase.mms.getUnreadStories(recipientId, limit).use {
-      while (it.next != null) {
-        val record = it.current as MmsMessageRecord
-        enqueueAttachmentsFromStoryForDownloadSync(record, force)
+    SignalDatabase.mms.getUnreadStories(recipientId, limit).use { reader ->
+      reader.forEach {
+        enqueueAttachmentsFromStoryForDownloadSync(it as MmsMessageRecord, false)
       }
     }
   }
@@ -123,10 +122,8 @@ object Stories {
   @WorkerThread
   private fun enqueueAttachmentsFromStoryForDownloadSync(record: MmsMessageRecord, ignoreAutoDownloadConstraints: Boolean) {
     SignalDatabase.attachments.getAttachmentsForMessage(record.id).filterNot { it.isSticker }.forEach {
-      if (it.transferState == AttachmentDatabase.TRANSFER_PROGRESS_PENDING) {
-        val job = AttachmentDownloadJob(record.id, it.attachmentId, ignoreAutoDownloadConstraints)
-        ApplicationDependencies.getJobManager().add(job)
-      }
+      val job = AttachmentDownloadJob(record.id, it.attachmentId, ignoreAutoDownloadConstraints)
+      ApplicationDependencies.getJobManager().add(job)
     }
 
     if (record.hasLinkPreview()) {
@@ -184,6 +181,15 @@ object Stories {
        * Valid to send because the content does not have a duration.
        */
       object None : DurationResult()
+    }
+
+    @JvmStatic
+    @WorkerThread
+    fun canPreUploadMedia(media: Media): Boolean {
+      return when {
+        MediaUtil.isVideo(media.mimeType) -> getSendRequirements(media) != SendRequirements.REQUIRES_CLIP
+        else -> true
+      }
     }
 
     @JvmStatic

@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Transcrie fraza de recuperare plăți</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Transcrie frază</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Înainte de a putea dezactiva PIN-ul, trebuie să transcrii fraza de recuperare pentru a te asigura că poți recăpăta accesul la plățile contului.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d minut</item>
@@ -174,17 +177,25 @@
   <string name="ContactsDatabase_message_s">Mesaj %s</string>
   <string name="ContactsDatabase_signal_call_s">Apel Signal %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Editează numele</string>
   <string name="ContactNameEditActivity_given_name">Prenume</string>
   <string name="ContactNameEditActivity_family_name">Nume</string>
   <string name="ContactNameEditActivity_prefix">Prefix</string>
   <string name="ContactNameEditActivity_suffix">Sufix</string>
   <string name="ContactNameEditActivity_middle_name">Nume mijlociu</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Trimite contactul</string>
   <string name="ContactShareEditActivity_type_home">Acasă</string>
   <string name="ContactShareEditActivity_type_mobile">Mobil</string>
   <string name="ContactShareEditActivity_type_work">Serviciu</string>
   <string name="ContactShareEditActivity_type_missing">Altul</string>
   <string name="ContactShareEditActivity_invalid_contact">Contactul selectat a fost invalid</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Editează numele</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Avatar</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Nu a fost trimis, atinge pentru detalii</string>
   <string name="ConversationItem_error_partially_not_delivered">Trimis parțial, atinge pentru detalii</string>
@@ -473,6 +484,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Pentru a restabili un backup, instalează o copie nouă Signal. Deschide aplicația și atinge \"Restabilire backup\", apoi selectează un fișier de backup. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Află mai multe</string>
   <string name="BackupsPreferenceFragment__in_progress">În curs de desfășurare…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Se verifică backup-ul…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d până acum…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% până acum…</string>
@@ -962,7 +975,7 @@
   <string name="NotificationBarManager__incoming_signal_group_call">Primire apel Signal de grup</string>
   <!--Temporary notification shown when starting the calling service-->
   <string name="NotificationBarManager__starting_signal_call_service">Se inițializează serviciul de apel Signal</string>
-  <string name="NotificationBarManager__stopping_signal_call_service">Se oprește serviciul de apelare Signal</string>
+  <string name="NotificationBarManager__stopping_signal_call_service">Se oprește serviciul de apel Signal</string>
   <string name="NotificationBarManager__decline_call">Respinge apelul</string>
   <string name="NotificationBarManager__answer_call">Răspunde apelului</string>
   <string name="NotificationBarManager__end_call">Închide apelul</string>
@@ -1580,6 +1593,12 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Editează</string>
   <string name="SubmitDebugLogActivity_done">Gata</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Salvează</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Nu s-a putut salva</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Salvare finalizată</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Atinge o linie pentru a o șterge</string>
   <string name="SubmitDebugLogActivity_submit">Trimite</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Eroare la trimiterea jurnalului de depanare.</string>
@@ -1633,6 +1652,10 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <string name="ThreadRecord__you_sent_a_gift">Ai trimis un cadou</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Ai răscumpărat o insignă cadou</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">A reacționat cu %1$s la povestea ta</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">A reacționat cu %1$s la povestea lor</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Actualizare Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">O nouă versiune de Signal este disponibilă, apasă pentru actualizare</string>
@@ -2028,7 +2051,7 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <string name="media_overview_activity__no_media">Nu ai fișiere media</string>
   <!--message_recipients_list_item-->
   <string name="message_recipients_list_item__view">Vizualizare</string>
-  <string name="message_recipients_list_item__resend">Re-trimite</string>
+  <string name="message_recipients_list_item__resend">Retrimite</string>
   <!--Displayed in a toast when user long presses an item in MyStories-->
   <string name="MyStoriesFragment__copied_sent_timestamp_to_clipboard">Timpul a fost copiat în clipboard.</string>
   <!--Displayed when there are no outgoing stories-->
@@ -2560,7 +2583,7 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <!--Button to save a message attachment (image, file etc.)-->
   <string name="conversation_selection__menu_save">Salvează</string>
   <!--Button to retry sending a message-->
-  <string name="conversation_selection__menu_resend_message">Re-trimite</string>
+  <string name="conversation_selection__menu_resend_message">Retrimite</string>
   <!--Button to select a message and enter selection mode-->
   <string name="conversation_selection__menu_multi_select">Selectează</string>
   <!--conversation_expiring_on-->
@@ -2803,10 +2826,16 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Ai introdus cu succes parola de backup</string>
   <string name="BackupDialog_passphrase_was_not_correct">Parola nu a fost corectă</string>
   <string name="LocalBackupJob_creating_signal_backup">Se creează backup-ul…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Se verifică backup-ul Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">Backup-ul a eșuat</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Directorul tău de backup a fost șters sau mutat.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Fișierul de backup este prea mare pentru a fi stocat pe acest volum.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Nu există suficient spațiu pentru stocarea backup-ului.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Backup-ul recent nu a putut fi creat și verificat. Te rog creează unul nou.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Backup-ul tău conține un fișier foarte mare care nu poate fi adăugat la backup. Șterge-l și creează un backup nou.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Atinge pentru a gestiona backup-uri.</string>
   <string name="ProgressPreference_d_messages_so_far">%d mesaje până acum</string>
   <string name="RegistrationActivity_wrong_number">Număr greșit</string>
@@ -3064,6 +3093,9 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <string name="CallParticipant__you">Tu</string>
   <string name="CallParticipant__you_on_another_device">Tu (pe alt dispozitiv)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (pe alt dispozitiv)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Wi-Fi slab. Am trecut la date mobile.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Ștergerea contului tău implică:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Introdu numărul tău de telefon</string>
@@ -3688,7 +3720,7 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <!--Copy displayed when badge expires after payment failure-->
   <string name="ExpiredBadgeBottomSheetDialogFragment__your_recurring_monthly_donation_was_canceled">Donația ta lunară recurentă a fost anulată deoarece nu am putut procesa plata. Insigna ta nu va mai fi vizibilă pe profilul tău.</string>
   <!--Copy displayed when badge expires after a payment failure and we have a displayable charge failure reason-->
-  <string name="ExpiredBadgeBottomSheetDialogFragment__your_recurring_monthly_donation_was_canceled_s">Donația ta lunară recurentă a fost anulară. %1$s Insigna ta %2$s nu mai este vizibilă la profil.</string>
+  <string name="ExpiredBadgeBottomSheetDialogFragment__your_recurring_monthly_donation_was_canceled_s">Donația ta lunară recurentă a fost anulată. %1$s Insigna ta %2$s nu mai este vizibilă la profil.</string>
   <string name="ExpiredBadgeBottomSheetDialogFragment__you_can">Poți folosi în continuare Signal dar pentru a sprijini aplicația și pentru a-ți reactiva insigna, reînnoiește acum.</string>
   <string name="ExpiredBadgeBottomSheetDialogFragment__renew_subscription">Reînnoiește abonamentul</string>
   <!--Button label to send user to Google Pay website-->
@@ -3966,6 +3998,8 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <string name="StoriesLandingItem__share">Distribuie…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Arată conversația</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Informații</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Se trimite…</string>
   <!--Label when multiple stories are pending sending-->
@@ -4015,6 +4049,7 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
     <item quantity="other">%1$d răspunsuri</item>
   </plurals>
   <!--Used when view receipts are disabled-->
+  <string name="StoryViewerPageFragment__views_off">Fără vizualizări</string>
   <!--Used to join views and replies when both exist on a story item-->
   <string name="StoryViewerFragment__s_s">%1$s %2$s</string>
   <!--Displayed when viewing a post you sent-->
@@ -4028,7 +4063,17 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">Nicio vizualizare încă</string>
   <!--Displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Activează confirmările de citire ca să știi cine ți-a văzut poveștile.</string>
   <!--Button label displayed when user has disabled receipts-->
+  <string name="StoryViewsFragment__go_to_settings">Mergi la setări</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Elimină</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Elimini vizualizatorul?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s tot va putea să vadă postarea, dar nu va putea să vadă viitoarele postări pe care le trimiți către %2$s.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Elimină vizualizatorul</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Niciun răspuns încă</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4243,7 +4288,7 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Vezi mai multe</string>
   <string name="StoriesLinkPopup__visit_link">Vezi linkul</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="one">%1$s · %2$d zi valabilitate</item>
     <item quantity="few">%1$s · %2$d zile valabilitate</item>
@@ -4312,6 +4357,7 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
     <item quantity="other">Poveste de grup · %1$d de spectatori</item>
   </plurals>
   <!--Label under name for My Story when first sending to my story-->
+  <string name="ContactSearchItems__tap_to_choose_your_viewers">Atinge pentru a alege cine poate vizualiza</string>
   <!--Label for context menu item to open story settings-->
   <string name="ContactSearchItems__story_settings">Setări poveste</string>
   <!--Label for context menu item to remove a group story from contact results-->
@@ -4359,37 +4405,70 @@ Am primit mesajul conform căruia schimbul de chei a avut loc pentru o versiune 
   <!--Button label to confirm understanding of story navigation-->
   <string name="StoryFirstTimeNagivationView__got_it">Am înțeles</string>
   <!--Content description for vertical context menu button in safety number sheet rows-->
+  <string name="SafetyNumberRecipientRowItem__open_context_menu">Deschide meniul de context</string>
   <!--Sub-line when a user is verified.-->
+  <string name="SafetyNumberRecipientRowItem__s_dot_verified">%1$s · Verificat/ă</string>
   <!--Sub-line when a user is verified.-->
   <string name="SafetyNumberRecipientRowItem__verified">Verificat</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Schimbări privind numărul de siguranță</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">Este posibil ca următoarele persoane să fi reinstalat Signal sau să fi schimbat dispozitive. Atinge un recipient pentru a confirma noul număr de siguranță. Este opțional.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Verificarea numărului de siguranță</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Verificarea numărului de siguranță a fost finalizată</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Toate conexiunile au fost evaluate, atinge trimite pentru a continua.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Ai %1$d conexiuni care este posibil să fi reinstalat Signal sau să fi schimbat dispozitivele. Înainte de a-ți împărtăși povestea cu ei, evaluează numerele de siguranță sau ia în considerare să îi elimini de la povestea ta.</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Verifică numărul de siguranță</string>
   <!--Menu action to remove user from story-->
+  <string name="SafetyNumberBottomSheetFragment__remove_from_story">Elimină din poveste</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to send anyway-->
   <string name="SafetyNumberBottomSheetFragment__send_anyway">Trimite oricum</string>
   <!--Action button at bottom of SafetyNumberBottomSheetFragment to review connections-->
+  <string name="SafetyNumberBottomSheetFragment__review_connections">Evaluează conexiunile</string>
   <!--Empty state copy for SafetyNumberBottomSheetFragment-->
+  <string name="SafetyNumberBottomSheetFragment__no_more_recipients_to_show">Nu mai sunt beneficieri de arătat</string>
   <!--Done button on safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__done">Gata</string>
   <!--Title of safety number review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Schimbări privind numărul de siguranță</string>
   <!--Message of safety number review fragment-->
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$ddestinatar este posibil să fi reinstalat Signal sau să fi schimbat dispozitive. Atinge un destinatar ca să confirmi noul număr de siguranță. Este opțional.</item>
+    <item quantity="few">%1$ddestinatari este posibil să fi reinstalat Signal sau să fi schimbat dispozitive. Atinge un destinatar ca să confirmi noul număr de siguranță. Este opțional.</item>
+    <item quantity="other">%1$dde destinatari este posibil să fi reinstalat Signal sau să fi schimbat dispozitive. Atinge un destinatar ca să confirmi noul număr de siguranță. Este opțional.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Contacte</string>
   <!--Context menu label for distribution list headers in review fragment-->
+  <string name="SafetyNumberReviewConnectionsFragment__remove_all">Elimină toate</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">Elimină</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Confidențialitatea Poveștii Mele</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Alege cine poate vedea postările la Povestea Mea. Poți oricând să faci schimbări în setări.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Toate conexiunile Signal</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Toate conexiunile Signal cu excepția…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Distribuie doar către…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Trimis</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Primit</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Dimensiunea fișierului</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Trimis la</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Trimis de</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Informații</string>
   <!--EOF-->
 </resources>

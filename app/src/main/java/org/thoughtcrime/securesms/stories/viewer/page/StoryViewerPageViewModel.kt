@@ -15,6 +15,7 @@ import org.thoughtcrime.securesms.recipients.RecipientId
 import org.thoughtcrime.securesms.util.livedata.Store
 import org.thoughtcrime.securesms.util.rx.RxStore
 import java.util.Optional
+import java.util.concurrent.TimeUnit
 import kotlin.math.max
 import kotlin.math.min
 
@@ -25,6 +26,7 @@ class StoryViewerPageViewModel(
   private val recipientId: RecipientId,
   private val initialStoryId: Long,
   private val isUnviewedOnly: Boolean,
+  private val isOutgoingOnly: Boolean,
   private val repository: StoryViewerPageRepository,
   val storyCache: StoryCache
 ) : ViewModel() {
@@ -32,6 +34,7 @@ class StoryViewerPageViewModel(
   private val store = RxStore(StoryViewerPageState(isReceiptsEnabled = repository.isReadReceiptsEnabled()))
   private val disposables = CompositeDisposable()
   private val storyViewerDialogSubject: Subject<Optional<StoryViewerDialog>> = PublishSubject.create()
+  private val storyLongPressSubject: Subject<Boolean> = PublishSubject.create()
 
   private val storyViewerPlaybackStore = Store(StoryViewerPlaybackState())
 
@@ -59,12 +62,11 @@ class StoryViewerPageViewModel(
 
   fun refresh() {
     disposables.clear()
-    disposables += repository.getStoryPostsFor(recipientId, isUnviewedOnly).subscribe { posts ->
+    disposables += repository.getStoryPostsFor(recipientId, isUnviewedOnly, isOutgoingOnly).subscribe { posts ->
       store.update { state ->
-        var isDisplayingInitialState = false
+        val isDisplayingInitialState = state.posts.isEmpty() && posts.isNotEmpty()
         val startIndex = if (state.posts.isEmpty() && initialStoryId > 0) {
           val initialIndex = posts.indexOfFirst { it.id == initialStoryId }
-          isDisplayingInitialState = true
           initialIndex.takeIf { it > -1 } ?: state.selectedPostIndex
         } else if (state.posts.isEmpty()) {
           val initialPost = getNextUnreadPost(posts)
@@ -88,6 +90,10 @@ class StoryViewerPageViewModel(
           .filterIsInstance<StoryPost.Content.AttachmentContent>()
           .map { it.attachment }
       )
+    }
+
+    disposables += storyLongPressSubject.debounce(150, TimeUnit.MILLISECONDS).subscribe { isLongPress ->
+      storyViewerPlaybackStore.update { it.copy(isUserLongTouching = isLongPress) }
     }
   }
 
@@ -184,6 +190,10 @@ class StoryViewerPageViewModel(
     storyViewerPlaybackStore.update { it.copy(isUserScrollingParent = isUserScrollingParent) }
   }
 
+  fun setIsUserScrollingChild(isUserScrollingChild: Boolean) {
+    storyViewerPlaybackStore.update { it.copy(isUserScrollingChild = isUserScrollingChild) }
+  }
+
   fun setIsDisplayingSlate(isDisplayingSlate: Boolean) {
     storyViewerPlaybackStore.update { it.copy(isDisplayingSlate = isDisplayingSlate) }
   }
@@ -226,6 +236,7 @@ class StoryViewerPageViewModel(
 
   fun setIsUserTouching(isUserTouching: Boolean) {
     storyViewerPlaybackStore.update { it.copy(isUserTouching = isUserTouching) }
+    storyLongPressSubject.onNext(isUserTouching)
   }
 
   fun setAreSegmentsInitialized(areSegmentsInitialized: Boolean) {
@@ -242,6 +253,10 @@ class StoryViewerPageViewModel(
 
   fun setIsDisplayingFirstTimeNavigation(isDisplayingFirstTimeNavigation: Boolean) {
     storyViewerPlaybackStore.update { it.copy(isDisplayingFirstTimeNavigation = isDisplayingFirstTimeNavigation) }
+  }
+
+  fun setIsDisplayingInfoDialog(isDisplayingInfoDialog: Boolean) {
+    storyViewerPlaybackStore.update { it.copy(isDisplayingInfoDialog = isDisplayingInfoDialog) }
   }
 
   private fun resolveSwipeToReplyState(state: StoryViewerPageState, index: Int): StoryViewerPageState.ReplyState {
@@ -272,11 +287,12 @@ class StoryViewerPageViewModel(
     private val recipientId: RecipientId,
     private val initialStoryId: Long,
     private val isUnviewedOnly: Boolean,
+    private val isOutgoingOnly: Boolean,
     private val repository: StoryViewerPageRepository,
     private val storyCache: StoryCache
   ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-      return modelClass.cast(StoryViewerPageViewModel(recipientId, initialStoryId, isUnviewedOnly, repository, storyCache)) as T
+      return modelClass.cast(StoryViewerPageViewModel(recipientId, initialStoryId, isUnviewedOnly, isOutgoingOnly, repository, storyCache)) as T
     }
   }
 }

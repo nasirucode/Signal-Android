@@ -4,8 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 
 import androidx.annotation.NonNull;
+import androidx.camera.view.video.ExperimentalVideo;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 
 import org.thoughtcrime.securesms.mediasend.camerax.CameraXUtil;
 import org.thoughtcrime.securesms.mms.MediaConstraints;
@@ -13,11 +13,13 @@ import org.thoughtcrime.securesms.mms.MediaConstraints;
 import java.io.FileDescriptor;
 import java.util.Optional;
 
+import io.reactivex.rxjava3.core.Flowable;
+
 public interface CameraFragment {
 
   float PORTRAIT_ASPECT_RATIO = 9 / 16f;
 
-  @SuppressLint("RestrictedApi")
+  @SuppressLint({ "RestrictedApi", "UnsafeOptInUsageError" })
   static Fragment newInstance() {
     if (CameraXUtil.isSupported()) {
       return CameraXFragment.newInstance();
@@ -26,7 +28,7 @@ public interface CameraFragment {
     }
   }
 
-  @SuppressLint("RestrictedApi")
+  @SuppressLint({ "RestrictedApi", "UnsafeOptInUsageError" })
   static Fragment newInstanceForAvatarCapture() {
     if (CameraXUtil.isSupported()) {
       return CameraXFragment.newInstanceForAvatarCapture();
@@ -53,9 +55,8 @@ public interface CameraFragment {
     void onVideoCaptured(@NonNull FileDescriptor fd);
     void onVideoCaptureError();
     void onGalleryClicked();
-    int getDisplayRotation();
     void onCameraCountButtonClicked();
-    @NonNull LiveData<Optional<Media>> getMostRecentMediaItem();
+    @NonNull Flowable<Optional<Media>> getMostRecentMediaItem();
     @NonNull MediaConstraints getMediaConstraints();
     int getMaxVideoDuration();
   }

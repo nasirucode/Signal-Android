@@ -150,7 +150,7 @@ public final class IncomingGroupCallActionProcessor extends DeviceAwareActionPro
                                                                     remotePeerGroup.getRecipient(),
                                                                     null,
                                                                     new BroadcastVideoSink(currentState.getVideoState().getLockableEglBase(),
-                                                                                           false,
+                                                                                           true,
                                                                                            true,
                                                                                            currentState.getLocalDeviceState().getOrientation().getDegrees()),
                                                                     true,
@@ -172,7 +172,7 @@ public final class IncomingGroupCallActionProcessor extends DeviceAwareActionPro
                                                                             SignalStore.internalValues().groupCallingServer(),
                                                                             new byte[0],
                                                                             AUDIO_LEVELS_INTERVAL,
-                                                                            AudioProcessingMethodSelector.get(),
+                                                                            RingRtcDynamicConfiguration.getAudioProcessingMethod(),
                                                                             webRtcInteractor.getGroupCallObserver());
 
     try {

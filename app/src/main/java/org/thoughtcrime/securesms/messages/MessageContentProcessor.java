@@ -69,7 +69,6 @@ import org.thoughtcrime.securesms.groups.GroupChangeBusyException;
 import org.thoughtcrime.securesms.groups.GroupId;
 import org.thoughtcrime.securesms.groups.GroupManager;
 import org.thoughtcrime.securesms.groups.GroupNotAMemberException;
-import org.thoughtcrime.securesms.groups.GroupV1MessageProcessor;
 import org.thoughtcrime.securesms.groups.GroupsV1MigrationUtil;
 import org.thoughtcrime.securesms.jobmanager.JobManager;
 import org.thoughtcrime.securesms.jobs.AttachmentDownloadJob;
@@ -92,7 +91,6 @@ import org.thoughtcrime.securesms.jobs.PushProcessEarlyMessagesJob;
 import org.thoughtcrime.securesms.jobs.PushProcessMessageJob;
 import org.thoughtcrime.securesms.jobs.RefreshAttributesJob;
 import org.thoughtcrime.securesms.jobs.RefreshOwnProfileJob;
-import org.thoughtcrime.securesms.jobs.RequestGroupInfoJob;
 import org.thoughtcrime.securesms.jobs.ResendMessageJob;
 import org.thoughtcrime.securesms.jobs.RetrieveProfileJob;
 import org.thoughtcrime.securesms.jobs.SendDeliveryReceiptJob;
@@ -142,8 +140,6 @@ import org.whispersystems.signalservice.api.messages.SignalServiceAttachment;
 import org.whispersystems.signalservice.api.messages.SignalServiceAttachmentPointer;
 import org.whispersystems.signalservice.api.messages.SignalServiceContent;
 import org.whispersystems.signalservice.api.messages.SignalServiceDataMessage;
-import org.whispersystems.signalservice.api.messages.SignalServiceGroup;
-import org.whispersystems.signalservice.api.messages.SignalServiceGroupContext;
 import org.whispersystems.signalservice.api.messages.SignalServiceGroupV2;
 import org.whispersystems.signalservice.api.messages.SignalServicePreview;
 import org.whispersystems.signalservice.api.messages.SignalServiceReceiptMessage;
@@ -283,7 +279,7 @@ public final class MessageContentProcessor {
         boolean                  isGv2Message   = groupId.isPresent() && groupId.get().isV2();
 
         if (isGv2Message) {
-          if (handleGv2PreProcessing(groupId.orElse(null).requireV2(), content, content.getDataMessage().get().getGroupContext().get().getGroupV2().get(), senderRecipient)) {
+          if (handleGv2PreProcessing(groupId.orElse(null).requireV2(), content, content.getDataMessage().get().getGroupContext().get(), senderRecipient)) {
             return;
           }
         }
@@ -292,7 +288,6 @@ public final class MessageContentProcessor {
 
         if      (isInvalidMessage(message))                                                  handleInvalidMessage(content.getSender(), content.getSenderDevice(), groupId, content.getTimestamp(), smsMessageId);
         else if (message.isEndSession())                                                     messageId = handleEndSessionMessage(content, smsMessageId, senderRecipient);
-        else if (message.isGroupV1Update())                                                  handleGroupV1Message(content, message, smsMessageId, groupId.get().requireV1(), senderRecipient, threadRecipient, receivedTime);
         else if (message.isExpirationUpdate())                                               messageId = handleExpirationUpdate(content, message, smsMessageId, groupId, senderRecipient, threadRecipient, receivedTime, false);
         else if (message.getReaction().isPresent() && message.getStoryContext().isPresent()) messageId = handleStoryReaction(content, message, senderRecipient);
         else if (message.getReaction().isPresent())                                          messageId = handleReaction(content, message, senderRecipient);
@@ -343,7 +338,7 @@ public final class MessageContentProcessor {
 
         if      (syncMessage.getSent().isPresent())                   handleSynchronizeSentMessage(content, syncMessage.getSent().get(), senderRecipient);
         else if (syncMessage.getRequest().isPresent())                handleSynchronizeRequestMessage(syncMessage.getRequest().get(), content.getTimestamp());
-        else if (syncMessage.getRead().isPresent())                   handleSynchronizeReadMessage(content, syncMessage.getRead().get(), content.getTimestamp(), senderRecipient);
+        else if (syncMessage.getRead().isPresent())                   handleSynchronizeReadMessage(content, syncMessage.getRead().get(), content.getTimestamp());
         else if (syncMessage.getViewed().isPresent())                 handleSynchronizeViewedMessage(syncMessage.getViewed().get(), content.getTimestamp());
         else if (syncMessage.getViewOnceOpen().isPresent())           handleSynchronizeViewOnceOpenMessage(content, syncMessage.getViewOnceOpen().get(), content.getTimestamp());
         else if (syncMessage.getVerified().isPresent())               handleSynchronizeVerifiedMessage(syncMessage.getVerified().get());
@@ -516,20 +511,6 @@ public final class MessageContentProcessor {
     return false;
   }
 
-
-  private static @Nullable SignalServiceGroupContext getGroupContextIfPresent(@NonNull SignalServiceContent content) {
-    if (content.getDataMessage().isPresent() && content.getDataMessage().get().getGroupContext().isPresent()) {
-      return content.getDataMessage().get().getGroupContext().get();
-    } else if (content.getSyncMessage().isPresent()          &&
-        content.getSyncMessage().get().getSent().isPresent() &&
-        content.getSyncMessage().get().getSent().get().getDataMessage().get().getGroupContext().isPresent())
-    {
-      return content.getSyncMessage().get().getSent().get().getDataMessage().get().getGroupContext().get();
-    } else {
-      return null;
-    }
-  }
-
   /**
    * Attempts to update the group to the revision mentioned in the message.
    * If the local version is at least the revision in the message it will not query the server.
@@ -544,13 +525,8 @@ public final class MessageContentProcessor {
       throws IOException, GroupChangeBusyException
   {
     try {
-      ServiceId authServiceId = ServiceId.parseOrNull(content.getDestinationUuid());
-      if (authServiceId == null) {
-        warn(content.getTimestamp(), "Group message missing destination uuid, defaulting to ACI");
-        authServiceId = SignalStore.account().requireAci();
-      }
-      long      timestamp     = groupV2.getSignedGroupChange() != null ? content.getTimestamp() : content.getTimestamp() - 1;
-      GroupManager.updateGroupFromServer(context, authServiceId, groupV2.getMasterKey(), groupV2.getRevision(), timestamp, groupV2.getSignedGroupChange());
+      long timestamp = groupV2.getSignedGroupChange() != null ? content.getTimestamp() : content.getTimestamp() - 1;
+      GroupManager.updateGroupFromServer(context, groupV2.getMasterKey(), groupV2.getRevision(), timestamp, groupV2.getSignedGroupChange());
       return true;
     } catch (GroupNotAMemberException e) {
       warn(String.valueOf(content.getTimestamp()), "Ignoring message for a group we're not in");
@@ -795,51 +771,20 @@ public final class MessageContentProcessor {
     return threadId;
   }
 
-  private void handleGroupV1Message(@NonNull SignalServiceContent content,
-                                    @NonNull SignalServiceDataMessage message,
-                                    @NonNull Optional<Long> smsMessageId,
-                                    @NonNull GroupId.V1 groupId,
-                                    @NonNull Recipient senderRecipient,
-                                    @NonNull Recipient threadRecipient,
-                                    long receivedTime)
-      throws StorageFailedException, BadGroupIdException
-  {
-    log(content.getTimestamp(), "GroupV1 message.");
-
-    GroupV1MessageProcessor.process(context, content, message, false);
-
-    handlePossibleExpirationUpdate(content, message, Optional.of(groupId), senderRecipient, threadRecipient, receivedTime);
-
-    if (smsMessageId.isPresent()) {
-      SignalDatabase.sms().deleteMessage(smsMessageId.get());
-    }
-  }
-
   private void handleUnknownGroupMessage(@NonNull SignalServiceContent content,
-                                         @NonNull SignalServiceGroupContext group,
+                                         @NonNull SignalServiceGroupV2 group,
                                          @NonNull Recipient senderRecipient)
       throws BadGroupIdException
   {
     log(content.getTimestamp(), "Unknown group message.");
 
-    if (group.getGroupV1().isPresent()) {
-      SignalServiceGroup groupV1 = group.getGroupV1().get();
-      if (groupV1.getType() != SignalServiceGroup.Type.REQUEST_INFO) {
-        ApplicationDependencies.getJobManager().add(new RequestGroupInfoJob(senderRecipient.getId(), GroupId.v1(groupV1.getGroupId())));
-      } else {
-        warn(content.getTimestamp(), "Received a REQUEST_INFO message for a group we don't know about. Ignoring.");
-      }
-    } else if (group.getGroupV2().isPresent()) {
-      warn(content.getTimestamp(), "Received a GV2 message for a group we have no knowledge of -- attempting to fix this state.");
-      ServiceId authServiceId = ServiceId.parseOrNull(content.getDestinationUuid());
-      if (authServiceId == null) {
-        warn(content.getTimestamp(), "Group message missing destination uuid, defaulting to ACI");
-        authServiceId = SignalStore.account().requireAci();
-      }
-      SignalDatabase.groups().fixMissingMasterKey(authServiceId, group.getGroupV2().get().getMasterKey());
-    } else {
-      warn(content.getTimestamp(), "Received a message for a group we don't know about without a group context. Ignoring.");
+    warn(content.getTimestamp(), "Received a GV2 message for a group we have no knowledge of -- attempting to fix this state.");
+    ServiceId authServiceId = ServiceId.parseOrNull(content.getDestinationUuid());
+    if (authServiceId == null) {
+      warn(content.getTimestamp(), "Group message missing destination uuid, defaulting to ACI");
+      authServiceId = SignalStore.account().requireAci();
     }
+    SignalDatabase.groups().fixMissingMasterKey(authServiceId, group.getMasterKey());
   }
 
   /**
@@ -881,8 +826,8 @@ public final class MessageContentProcessor {
       return null;
     }
 
-    int                                 expiresInSeconds = message.getExpiresInSeconds();
-    Optional<SignalServiceGroupContext> groupContext     = message.getGroupContext();
+    int                            expiresInSeconds = message.getExpiresInSeconds();
+    Optional<SignalServiceGroupV2> groupContext     = message.getGroupContext();
 
     if (threadRecipient.getExpiresInSeconds() == expiresInSeconds) {
       log(String.valueOf(content.getTimestamp()), "No change in message expiry for group. Ignoring.");
@@ -968,7 +913,7 @@ public final class MessageContentProcessor {
 
     Recipient threadRecipient = targetThread.getRecipient().resolve();
 
-    if (threadRecipient.isGroup() && !threadRecipient.getParticipants().contains(senderRecipient)) {
+    if (threadRecipient.isGroup() && !threadRecipient.getParticipantIds().contains(senderRecipient.getId())) {
       warn(String.valueOf(content.getTimestamp()), "[handleReaction] Reaction author is not in the group! timestamp: " + reaction.getTargetSentTimestamp() + "  author: " + targetAuthor.getId());
       return null;
     }
@@ -1217,8 +1162,8 @@ public final class MessageContentProcessor {
 
       SignalServiceDataMessage dataMessage = message.getDataMessage().get();
       if (dataMessage.isGroupV2Message()) {
-        GroupId.V2 groupId = GroupId.v2(dataMessage.getGroupContext().get().getGroupV2().get().getMasterKey());
-        if (handleGv2PreProcessing(groupId, content, dataMessage.getGroupContext().get().getGroupV2().get(), senderRecipient)) {
+        GroupId.V2 groupId = GroupId.v2(dataMessage.getGroupContext().get().getMasterKey());
+        if (handleGv2PreProcessing(groupId, content, dataMessage.getGroupContext().get(), senderRecipient)) {
           return;
         }
       }
@@ -1229,9 +1174,6 @@ public final class MessageContentProcessor {
         handleGroupRecipientUpdate(message, content.getTimestamp());
       } else if (dataMessage.isEndSession()) {
         threadId = handleSynchronizeSentEndSessionMessage(message, content.getTimestamp());
-      } else if (dataMessage.isGroupV1Update()) {
-        Long gv1ThreadId = GroupV1MessageProcessor.process(context, content, dataMessage, true);
-        threadId = gv1ThreadId == null ? -1 : gv1ThreadId;
       } else if (dataMessage.isGroupV2Update()) {
         handleSynchronizeSentGv2Update(content, message);
         threadId = SignalDatabase.threads().getOrCreateThreadIdFor(getSyncMessageDestination(message));
@@ -1254,7 +1196,7 @@ public final class MessageContentProcessor {
         threadId = handleSynchronizeSentTextMessage(message, content.getTimestamp());
       }
 
-      if (dataMessage.getGroupContext().isPresent() && groupDatabase.isUnknownGroup(GroupUtil.idFromGroupContext(dataMessage.getGroupContext().get()))) {
+      if (dataMessage.getGroupContext().isPresent() && groupDatabase.isUnknownGroup(GroupId.v2(dataMessage.getGroupContext().get().getMasterKey()))) {
         handleUnknownGroupMessage(content, dataMessage.getGroupContext().get(), senderRecipient);
       }
 
@@ -1289,7 +1231,7 @@ public final class MessageContentProcessor {
     log(content.getTimestamp(), "Synchronize sent GV2 update for message with timestamp " + message.getTimestamp());
 
     SignalServiceDataMessage dataMessage          = message.getDataMessage().get();
-    SignalServiceGroupV2     signalServiceGroupV2 = dataMessage.getGroupContext().get().getGroupV2().get();
+    SignalServiceGroupV2     signalServiceGroupV2 = dataMessage.getGroupContext().get();
     GroupId.V2               groupIdV2            = GroupId.v2(signalServiceGroupV2.getMasterKey());
 
     if (!updateGv2GroupFromServerOrP2PChange(content, signalServiceGroupV2)) {
@@ -1337,14 +1279,13 @@ public final class MessageContentProcessor {
 
   private void handleSynchronizeReadMessage(@NonNull SignalServiceContent content,
                                             @NonNull List<ReadMessage> readMessages,
-                                            long envelopeTimestamp,
-                                            @NonNull Recipient senderRecipient)
+                                            long envelopeTimestamp)
   {
     log(envelopeTimestamp, "Synchronize read message. Count: " + readMessages.size() + ", Timestamps: " + Stream.of(readMessages).map(ReadMessage::getTimestamp).toList());
 
     Map<Long, Long> threadToLatestRead = new HashMap<>();
 
-    Collection<SyncMessageId> unhandled = SignalDatabase.mmsSms().setTimestampRead(senderRecipient, readMessages, envelopeTimestamp, threadToLatestRead);
+    Collection<SyncMessageId> unhandled = SignalDatabase.mmsSms().setTimestampReadFromSyncMessage(readMessages, envelopeTimestamp, threadToLatestRead);
 
     List<MessageDatabase.MarkedMessageInfo> markedMessages = SignalDatabase.threads().setReadSince(threadToLatestRead, false);
 
@@ -1750,7 +1691,7 @@ public final class MessageContentProcessor {
   {
     log(message.getTimestamp(), "Gift message.");
 
-    if (!FeatureFlags.giftBadges()) {
+    if (!FeatureFlags.giftBadgeReceiveSupport()) {
       warn(message.getTimestamp(), "Dropping unsupported gift badge message.");
       return null;
     }
@@ -2579,10 +2520,14 @@ public final class MessageContentProcessor {
 
     SignalDatabase.mmsSms().updateViewedStories(handled);
 
-    for (SyncMessageId id : unhandled) {
-      warn(String.valueOf(content.getTimestamp()), "[handleViewedReceipt] Could not find matching message! timestamp: " + id.getTimetamp() + "  author: " + id.getRecipientId());
-      if (!processingEarlyContent) {
-        ApplicationDependencies.getEarlyMessageCache().store(id.getRecipientId(), id.getTimetamp(), content);
+    if (unhandled.size() > 0) {
+      RecipientId selfId = Recipient.self().getId();
+
+      for (SyncMessageId id : unhandled) {
+        warn(String.valueOf(content.getTimestamp()), "[handleViewedReceipt] Could not find matching message! timestamp: " + id.getTimetamp() + ", author: " + id.getRecipientId() + " | Receipt so associating with message from self (" + selfId + ")");
+        if (!processingEarlyContent) {
+          ApplicationDependencies.getEarlyMessageCache().store(selfId, id.getTimetamp(), content);
+        }
       }
     }
 
@@ -2634,10 +2579,14 @@ public final class MessageContentProcessor {
 
     Collection<SyncMessageId> unhandled = SignalDatabase.mmsSms().incrementReadReceiptCounts(ids, content.getTimestamp());
 
-    for (SyncMessageId id : unhandled) {
-      warn(String.valueOf(content.getTimestamp()), "[handleReadReceipt] Could not find matching message! timestamp: " + id.getTimetamp() + "  author: " + id.getRecipientId());
-      if (!processingEarlyContent) {
-        ApplicationDependencies.getEarlyMessageCache().store(id.getRecipientId(), id.getTimetamp(), content);
+    if (unhandled.size() > 0) {
+      RecipientId selfId = Recipient.self().getId();
+
+      for (SyncMessageId id : unhandled) {
+        warn(String.valueOf(content.getTimestamp()), "[handleReadReceipt] Could not find matching message! timestamp: " + id.getTimetamp() + ", author: " + id.getRecipientId() + " | Receipt, so associating with message from self (" + selfId + ")");
+        if (!processingEarlyContent) {
+          ApplicationDependencies.getEarlyMessageCache().store(selfId, id.getTimetamp(), content);
+        }
       }
     }
 
@@ -2752,6 +2701,7 @@ public final class MessageContentProcessor {
                                                                        messageLogEntry.getDateSent(),
                                                                        messageLogEntry.getContent(),
                                                                        messageLogEntry.getContentHint(),
+                                                                       messageLogEntry.isUrgent(),
                                                                        groupId,
                                                                        distributionId));
     } else {
@@ -2793,6 +2743,7 @@ public final class MessageContentProcessor {
                                                                        messageLogEntry.getDateSent(),
                                                                        messageLogEntry.getContent(),
                                                                        messageLogEntry.getContentHint(),
+                                                                       messageLogEntry.isUrgent(),
                                                                        null,
                                                                        null));
     } else if (archivedSession) {
@@ -3017,9 +2968,7 @@ public final class MessageContentProcessor {
     return database.insertMessageInbox(textMessage);
   }
 
-  private Recipient getSyncMessageDestination(@NonNull SentTranscriptMessage message)
-      throws BadGroupIdException
-  {
+  private Recipient getSyncMessageDestination(@NonNull SentTranscriptMessage message) {
     return getGroupRecipient(message.getDataMessage().get().getGroupContext()).orElseGet(() -> Recipient.externalPush(message.getDestination().get()));
   }
 
@@ -3028,13 +2977,12 @@ public final class MessageContentProcessor {
     return getGroupRecipient(message != null ? message.getGroupContext() : Optional.empty()).orElseGet(() -> Recipient.externalPush(content.getSender()));
   }
 
-  private Optional<Recipient> getGroupRecipient(Optional<SignalServiceGroupContext> message)
-      throws BadGroupIdException
-  {
+  private Optional<Recipient> getGroupRecipient(Optional<SignalServiceGroupV2> message) {
     if (message.isPresent()) {
-      return Optional.of(Recipient.externalPossiblyMigratedGroup(GroupUtil.idFromGroupContext(message.get())));
+      return Optional.of(Recipient.externalPossiblyMigratedGroup(GroupId.v2(message.get().getMasterKey())));
+    } else {
+      return Optional.empty();
     }
-    return Optional.empty();
   }
 
   private void notifyTypingStoppedFromIncomingMessage(@NonNull Recipient senderRecipient, @NonNull Recipient conversationRecipient, int device) {
@@ -3058,15 +3006,6 @@ public final class MessageContentProcessor {
         GroupDatabase     groupDatabase = SignalDatabase.groups();
         Optional<GroupId> groupId       = GroupUtil.idFromGroupContext(message.getGroupContext());
 
-        if (groupId.isPresent()       &&
-            groupId.get().isV1()      &&
-            message.isGroupV1Update() &&
-            groupDatabase.groupExists(groupId.get().requireV1().deriveV2MigrationGroupId()))
-        {
-          warn(String.valueOf(content.getTimestamp()), "Ignoring V1 update for a group we've already migrated to V2.");
-          return true;
-        }
-
         if (groupId.isPresent() && groupDatabase.isUnknownGroup(groupId.get())) {
           return sender.isBlocked();
         }
@@ -3075,11 +3014,10 @@ public final class MessageContentProcessor {
         boolean isMediaMessage   = message.getAttachments().isPresent() || message.getQuote().isPresent() || message.getSharedContacts().isPresent() || message.getSticker().isPresent();
         boolean isExpireMessage  = message.isExpirationUpdate();
         boolean isGv2Update      = message.isGroupV2Update();
-        boolean isContentMessage = !message.isGroupV1Update() && !isGv2Update && !isExpireMessage && (isTextMessage || isMediaMessage);
+        boolean isContentMessage = !isGv2Update && !isExpireMessage && (isTextMessage || isMediaMessage);
         boolean isGroupActive    = groupId.isPresent() && groupDatabase.isActive(groupId.get());
-        boolean isLeaveMessage   = message.getGroupContext().isPresent() && message.getGroupContext().get().getGroupV1Type() == SignalServiceGroup.Type.QUIT;
 
-        return (isContentMessage && !isGroupActive) || (sender.isBlocked() && !isLeaveMessage && !isGv2Update);
+        return (isContentMessage && !isGroupActive) || (sender.isBlocked() && !isGv2Update);
       } else {
         return sender.isBlocked();
       }

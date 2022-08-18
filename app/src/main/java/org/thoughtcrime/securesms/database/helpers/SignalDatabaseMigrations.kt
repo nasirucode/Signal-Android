@@ -17,6 +17,7 @@ import net.zetetic.database.sqlcipher.SQLiteDatabase
 import org.signal.core.util.CursorUtil
 import org.signal.core.util.Hex
 import org.signal.core.util.SqlUtil
+import org.signal.core.util.Stopwatch
 import org.signal.core.util.logging.Log
 import org.signal.core.util.requireString
 import org.thoughtcrime.securesms.color.MaterialColor
@@ -26,6 +27,8 @@ import org.thoughtcrime.securesms.conversation.colors.ChatColors
 import org.thoughtcrime.securesms.conversation.colors.ChatColorsMapper.entrySet
 import org.thoughtcrime.securesms.database.KeyValueDatabase
 import org.thoughtcrime.securesms.database.RecipientDatabase
+import org.thoughtcrime.securesms.database.helpers.migration.MyStoryMigration
+import org.thoughtcrime.securesms.database.helpers.migration.UrgentMslFlagMigration
 import org.thoughtcrime.securesms.database.model.databaseprotos.ReactionList
 import org.thoughtcrime.securesms.dependencies.ApplicationDependencies
 import org.thoughtcrime.securesms.groups.GroupId
@@ -38,7 +41,6 @@ import org.thoughtcrime.securesms.storage.StorageSyncHelper
 import org.thoughtcrime.securesms.util.Base64
 import org.thoughtcrime.securesms.util.FileUtils
 import org.thoughtcrime.securesms.util.ServiceUtil
-import org.thoughtcrime.securesms.util.Stopwatch
 import org.thoughtcrime.securesms.util.Triple
 import org.thoughtcrime.securesms.util.Util
 import org.whispersystems.signalservice.api.push.ACI
@@ -202,8 +204,13 @@ object SignalDatabaseMigrations {
   private const val REMOTE_MEGAPHONE = 146
   private const val QUOTE_INDEX = 147
   private const val MY_STORY_PRIVACY_MODE = 148
+  private const val EXPIRING_PROFILE_CREDENTIALS = 149
+  private const val URGENT_FLAG = 150
+  private const val MY_STORY_MIGRATION = 151
+  private const val STORY_GROUP_TYPES = 152
+  private const val MY_STORY_MIGRATION_2 = 153
 
-  const val DATABASE_VERSION = 148
+  const val DATABASE_VERSION = 153
 
   @JvmStatic
   fun migrate(context: Application, db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
@@ -2657,6 +2664,32 @@ object SignalDatabaseMigrations {
       db.execSQL("UPDATE distribution_list_member SET privacy_mode = 1 WHERE list_id = 1")
 
       db.execSQL("CREATE UNIQUE INDEX distribution_list_member_list_id_recipient_id_privacy_mode_index ON distribution_list_member (list_id, recipient_id, privacy_mode)")
+    }
+
+    if (oldVersion < EXPIRING_PROFILE_CREDENTIALS) {
+      db.execSQL("UPDATE recipient SET profile_key_credential = NULL")
+    }
+
+    if (oldVersion < URGENT_FLAG) {
+      UrgentMslFlagMigration.migrate(context, db, oldVersion, newVersion)
+    }
+
+    if (oldVersion < MY_STORY_MIGRATION) {
+      MyStoryMigration.migrate(context, db, oldVersion, newVersion)
+    }
+
+    if (oldVersion < STORY_GROUP_TYPES) {
+      db.execSQL(
+        """
+        UPDATE recipient
+        SET group_type = 4
+        WHERE distribution_list_id IS NOT NULL
+        """.trimIndent()
+      )
+    }
+
+    if (oldVersion < MY_STORY_MIGRATION_2) {
+      MyStoryMigration.migrate(context, db, oldVersion, newVersion)
     }
   }
 

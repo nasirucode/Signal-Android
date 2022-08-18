@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Enregistrer une phrase de récupération des paiements</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Enregistrez la phrase</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Avant de pouvoir désactiver votre NIP, vous devez enregistrer votre phrase de récupération des paiements pour vous permettre de récupérer votre compte de paiements.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Retour en arrière</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d minute</item>
@@ -174,17 +177,25 @@
   <string name="ContactsDatabase_message_s">Message %s</string>
   <string name="ContactsDatabase_signal_call_s">Appel Signal %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Modifier le nom</string>
   <string name="ContactNameEditActivity_given_name">Prénom</string>
   <string name="ContactNameEditActivity_family_name">Nom de famille</string>
   <string name="ContactNameEditActivity_prefix">Titre</string>
   <string name="ContactNameEditActivity_suffix">Suffixe</string>
   <string name="ContactNameEditActivity_middle_name">Deuxième prénom</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Envoyer le contact</string>
   <string name="ContactShareEditActivity_type_home">Domicile</string>
   <string name="ContactShareEditActivity_type_mobile">Mobile</string>
   <string name="ContactShareEditActivity_type_work">Travail</string>
   <string name="ContactShareEditActivity_type_missing">Autre</string>
   <string name="ContactShareEditActivity_invalid_contact">Le contact sélectionné était invalide</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Modifier le nom</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Avatar</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">N’a pas été envoyé, toucher pour obtenir des détails</string>
   <string name="ConversationItem_error_partially_not_delivered">Envoyé partiellement, toucher pour obtenir des détails</string>
@@ -473,6 +484,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Pour restaurer une sauvegarde, installez un nouvel exemplaire de Signal. Ouvrez l’appli, touchez « Restaurer la sauvegarde », puis trouvez un fichier de sauvegarde. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">En apprendre davantage</string>
   <string name="BackupsPreferenceFragment__in_progress">En cours…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Vérification de la sauvegarde…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d jusqu’à présent…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% jusqu’à présent…</string>
@@ -1575,6 +1588,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Modifier</string>
   <string name="SubmitDebugLogActivity_done">Terminé</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Enregistrer</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Échec de la sauvegarde</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Sauvegarde terminée</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Toucher une ligne pour la supprimer</string>
   <string name="SubmitDebugLogActivity_submit">Envoyer</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Échec d’envoi des journaux</string>
@@ -1628,6 +1647,10 @@
   <string name="ThreadRecord__you_sent_a_gift">Vous avez envoyé un cadeau</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Vous avez utilisé un macaron cadeau</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">%1$sutilisateurs ont réagi à votre Story</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">%1$sutilisateurs ont réagi à votre Story</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Mise à jour de Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Une nouvelle version de Signal est proposée, touchez pour lancer la mise à jour</string>
@@ -2798,10 +2821,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Vous avez saisi avec succès la phrase de passe de votre sauvegarde</string>
   <string name="BackupDialog_passphrase_was_not_correct">La phrase de passe était erronée</string>
   <string name="LocalBackupJob_creating_signal_backup">Création de la sauvegarde de Signal…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Vérification de la sauvegarde Signal…</string>
   <string name="LocalBackupJobApi29_backup_failed">La sauvegarde a échoué</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Votre répertoire de sauvegarde a été supprimé ou déplacé.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Votre fichier de sauvegarde est trop gros pour être enregistré sur ce volume.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Il manque d’espace pour enregistrer votre sauvegarde.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">La création et la vérification de votre dernière sauvegarde ont échoué. Veuillez réessayer.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Votre sauvegarde contient un fichier trop volumineux. Veuillez le supprimer et créer une nouvelle sauvegarde.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Toucher pour gérer les sauvegardes</string>
   <string name="ProgressPreference_d_messages_so_far">%d messages jusqu’à présent</string>
   <string name="RegistrationActivity_wrong_number">Mauvais numéro</string>
@@ -3059,6 +3088,9 @@
   <string name="CallParticipant__you">Vous</string>
   <string name="CallParticipant__you_on_another_device">Vous (sur un autre appareil)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (sur un autre appareil)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Connexion Wi-Fi faible. Choisir un réseau cellulaire.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Supprimer votre compte implique :</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Saisir votre numéro de téléphone</string>
@@ -3965,6 +3997,8 @@ Nouvelle tentative…</string>
   <string name="StoriesLandingItem__share">Partager…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Accéder à la conversation</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Info</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Envoi…</string>
   <!--Label when multiple stories are pending sending-->
@@ -4028,9 +4062,17 @@ Nouvelle tentative…</string>
   <!--Displayed when a story has no views-->
   <string name="StoryViewsFragment__no_views_yet">Aucune vue pour le moment</string>
   <!--Displayed when user has disabled receipts-->
-  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Activer les accusés de réception pour savoir qui a consulté vos stories.</string>
+  <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Activer les accusés de lecture pour savoir qui a consulté vos Stories.</string>
   <!--Button label displayed when user has disabled receipts-->
-  <string name="StoryViewsFragment__go_to_settings">Aller dans Réglages</string>
+  <string name="StoryViewsFragment__go_to_settings">Rendez-vous dans les Paramètres</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Supprimer</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Retirer le spectateur ?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s pourra voir ce post mais ne pourra pas voir vos prochains posts publiés sur %2$s</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Retirer le spectateur </string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Aucune réponse pour le moment</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4245,11 +4287,11 @@ Nouvelle tentative…</string>
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">En afficher plus</string>
   <string name="StoriesLinkPopup__visit_link">Visitez le lien</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
-    <item quantity="one">Durée de %1$sà %2$d jours</item>
-    <item quantity="many">Durée de %1$s à %2$d jours</item>
-    <item quantity="other">Durée de %1$s à %2$d jours</item>
+    <item quantity="one">%1$s · %2$d jour</item>
+    <item quantity="many">%1$s · %2$d jours</item>
+    <item quantity="other">%1$s · %2$d jours</item>
   </plurals>
   <!--Tagline for gift row items-->
   <string name="GiftRowItem__send_a_gift_badge">Envoyer un macaron cadeau</string>
@@ -4370,13 +4412,15 @@ Nouvelle tentative…</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Modification du numéro de sécurité</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__the_following_people">Les contacts suivants ont peut-être réinstallé Signal ou changé de périphérique. Appuyez sur le contact pour confirmer le nouveau numéro de sécurité. Facultatif.</string>
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">Les contacts suivants ont peut-être réinstallé Signal ou changé d\'appareils. Appuyez sur le contact pour confirmer le nouveau numéro de sécurité. Cette étape est facultative.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Vérification du numéro de sécurité</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Vérification du numéro de sécurité terminée</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Toutes les connexions ont été revues, appuyez sur envoyer pour continuer.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">%1$dde vos contacts a sûrement réinstallé Signal ou changé de périphérique. Avant de partager votre Story avec ces personnes, vérifiez leurs numéros de sécurité ou excluez-le de votre partage.</string>
+  <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">%1$dde vos contacts ont sûrement réinstallé Signal ou changé d\'appareils. Avant de partager votre Story avec ces personnes, vérifiez leurs numéros de sécurité ou excluez-les de votre partage.</string>
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Confirmer le numéro de sécurité</string>
   <!--Menu action to remove user from story-->
@@ -4392,7 +4436,11 @@ Nouvelle tentative…</string>
   <!--Title of safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Modification du numéro de sécurité</string>
   <!--Message of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">%1$d de vos contacts ont sûrement réinstallé Signal ou changé de périphérique. Appuyez sur le contact pour confirmer le nouveau numéro de sécurité. Facultatif.</string>
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$d de vos contacts a sûrement réinstallé Signal ou changé d\'appareils. Appuyez sur le contact pour confirmer le nouveau numéro de sécurité. Cette étape est facultative.</item>
+    <item quantity="many">%1$d de vos contacts ont sûrement réinstallé Signal ou changé d\'appareils. Appuyez sur le contact pour confirmer le nouveau numéro de sécurité. Cette étape est facultative.</item>
+    <item quantity="other">%1$d de vos contacts ont sûrement réinstallé Signal ou changé d\'appareil. Appuyez sur le contact pour confirmer le nouveau numéro de sécurité. Cette étape est facultative.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Contacts</string>
   <!--Context menu label for distribution list headers in review fragment-->
@@ -4402,12 +4450,24 @@ Nouvelle tentative…</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Confidentialité de ma Story</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Choisissez les contacts autorisés à voir votre Story. Vous pouvez modifier ces préférences à tout moment dans Réglages.</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Choisissez les contacts autorisés à voir votre Story. Vous pouvez modifier ces préférences à tout moment dans les Paramètres.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Toutes les relations Signal</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Toutes les relations Signal sauf…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Partager uniquement avec…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Envoyé</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Reçu</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Taille du fichier</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Envoyé à</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Envoyé de</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Info</string>
   <!--EOF-->
 </resources>

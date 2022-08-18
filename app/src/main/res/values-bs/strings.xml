@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Snimi frazu za obnavljanje plaćanja</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Snimi frazu</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Prije nego što isključite PIN, morate snimiti frazu za obnavljanje plaćanja kako biste bili sigurni da ćete moći vratiti svoj račun.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d minuta</item>
@@ -174,17 +177,25 @@
   <string name="ContactsDatabase_message_s">Poruka %s</string>
   <string name="ContactsDatabase_signal_call_s">Signal poziv %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">Uredi ime</string>
   <string name="ContactNameEditActivity_given_name">Ime</string>
   <string name="ContactNameEditActivity_family_name">Prezime</string>
   <string name="ContactNameEditActivity_prefix">Prefiks</string>
   <string name="ContactNameEditActivity_suffix">Sufiks</string>
   <string name="ContactNameEditActivity_middle_name">Drugo ime</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">Pošalji kontakt</string>
   <string name="ContactShareEditActivity_type_home">Kućni</string>
   <string name="ContactShareEditActivity_type_mobile">Mobilni</string>
   <string name="ContactShareEditActivity_type_work">Poslovni</string>
   <string name="ContactShareEditActivity_type_missing">Ostalo</string>
   <string name="ContactShareEditActivity_invalid_contact">Označeni kontakt nije valjan</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">Uredi ime</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Slika profila</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Nije poslano, dodirnite za detalje</string>
   <string name="ConversationItem_error_partially_not_delivered">Djelimično poslano, dodirnite za detalje</string>
@@ -473,6 +484,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">Da biste vratili podatke, instalirajte Signal iznova. Otvorite aplikaciju i odaberite \"Vrati podatke\", a potom pronađite rezervnu kopiju. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Saznajte više</string>
   <string name="BackupsPreferenceFragment__in_progress">U toku…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">Provjera sigurnosne kopije…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$d do sada…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% do sada…</string>
@@ -1584,6 +1597,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Uredi</string>
   <string name="SubmitDebugLogActivity_done">Uredu</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Pohrani</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">Pohranjivanje nije uspjelo</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">Pohranjivanje je završeno</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Dotaknite red da ga izbrišete</string>
   <string name="SubmitDebugLogActivity_submit">Šalji</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Neuspjelo slanje izvještaja</string>
@@ -1637,6 +1656,10 @@
   <string name="ThreadRecord__you_sent_a_gift">Poslali ste poklon</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Prihvatili ste značku na poklon</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">Reagirao/la %1$s je na vašu priču</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">Reagirali ste %1$s na priču korisnika</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Nova verzija Signala</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Dostupna je nova verzija Signala, pritisnite da ažurirate</string>
@@ -2807,10 +2830,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Uspješno ste unijeli svoju lozinku za rezervne kopije</string>
   <string name="BackupDialog_passphrase_was_not_correct">Lozinka nije tačna</string>
   <string name="LocalBackupJob_creating_signal_backup">Kreiram rezervnu kopiju Signalovih podataka…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Provjera sigurnosne kopije Signala…</string>
   <string name="LocalBackupJobApi29_backup_failed">Neuspjelo kreiranje rezervne kopije</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Direktorij sa rezervnim kopijama izbrisan je ili premješten.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Vaša rezervna kopija prevelika je za pohranjivanje na ovoj lokaciji.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Nema dovoljno prostora za pohranjivanje rezervne kopije.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">Kreiranje i provjera vaše nedavne sigurnosne kopije nije uspjelo. Kreirajte novu.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">Vaša sigurnosna kopija sadrži veoma veliku datoteku za koju nije moguće kreirati sigurnosnu kopiju. Izbrišite je i kreirajte novu sigurnosnu kopiju.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Pritisnite da rasporedite rezervne kopije.</string>
   <string name="ProgressPreference_d_messages_so_far">%d poruka do sada</string>
   <string name="RegistrationActivity_wrong_number">Pogrešan broj</string>
@@ -3073,6 +3102,9 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <string name="CallParticipant__you">Vi</string>
   <string name="CallParticipant__you_on_another_device">Vi (na drugom uređaju)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (na drugom uređaju)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">Slaba Wi-Fi mreža. Prebačeno na mobilnu mrežu.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Brisanjem računa Vi ćete:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Unesite svoj broj telefona</string>
@@ -3975,6 +4007,8 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <string name="StoriesLandingItem__share">Podijeli…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Pređi na konverzaciju</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Informacije</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Šaljem…</string>
   <!--Label when multiple stories are pending sending-->
@@ -4041,6 +4075,14 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">Omogućite potvrde o čitanju da vidite ko je pregledao vaše priče.</string>
   <!--Button label displayed when user has disabled receipts-->
   <string name="StoryViewsFragment__go_to_settings">Idi u postavke</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Ukloni</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">Ukloni gledaoca?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s će i dalje moći vidjeti ovu objavu, ali neće moći vidjeti nikakve buduće objave koje podijelite na %2$s.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">Ukloni gledaoca</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Još nema odgovora</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4255,7 +4297,7 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Više</string>
   <string name="StoriesLinkPopup__visit_link">Posjeti link</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="one">%1$s · trajanje od %2$d dan</item>
     <item quantity="few">%1$s · trajanje od %2$d dana</item>
@@ -4380,11 +4422,13 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <!--Title of safety number changes bottom sheet when showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Promjene sigurnosnog broja</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
-  <string name="SafetyNumberBottomSheetFragment__the_following_people">Sljedeće osobe su možda ponovo instalirale Signal ili su promijenili uređaje. DOdirnite primaoca da potvrdite novi sigurnosni broj. Ta radnja nije obavezna.</string>
+  <string name="SafetyNumberBottomSheetFragment__the_following_people">Sljedeće osobe su možda ponovo instalirale Signal ili su promijenili uređaje. Dodirnite primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</string>
   <!--Title of safety number changes bottom sheet when not showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Provjera sigurnosnog broja</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">Provjera sigurnosnog broja je završena</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Sve veze su pregledane, dodirnite \"Pošalji\" da nastavite.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Imate veze (njih %1$d) koje su možda ponovo instalirale Signal ili su promijenile uređaje. Prije nego podijelite priču s tim osobama, pregledajte njihove sigurnosne brojeve ili razmotrite opciju da ih uklonite iz svoje priče. </string>
   <!--Menu action to launch safety number verification screen-->
@@ -4402,7 +4446,11 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <!--Title of safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Promjene sigurnosnog broja</string>
   <!--Message of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">Primaoci (njih %1$d) su možda ponovo instalirali Signal ili su promijenili uređaje. DOdirnite primaoca da potvrdite novi sigurnosni broj. Ta radnja nije obavezna.</string>
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$d primaoc je ponovo instalirao Signal ili je promijenio uređaj. Dodirnite primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+    <item quantity="few">%1$d primaoca su ponovo instalirala Signal ili su promijenili uređaje. Dodirnite primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+    <item quantity="other"> %1$d primaoca je ponovo instaliralo Signal ili su promijenili uređaje. Dodirnite primaoca primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">Kontakti</string>
   <!--Context menu label for distribution list headers in review fragment-->
@@ -4410,7 +4458,7 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <!--Context menu label for 1:1 contacts to remove from send-->
   <string name="SafetyNumberReviewConnectionsFragment__remove">Ukloni</string>
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Privatnost priče</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">Privatnost priča</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Odaberite ko može vidjeti objave u Mojim pričama. Promjene uvijek možete izvršiti u postavkama.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
@@ -4419,5 +4467,17 @@ prenijeli račun na svoj novi Android uređaj.</string>
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">Sve Signal veze izuzev…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">Dijeli samo sa…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Poslano</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Primljeno</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">Veličina datoteke</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Poslano za</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Poslano od</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Informacije</string>
   <!--EOF-->
 </resources>

@@ -51,6 +51,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import org.signal.core.util.logging.Log;
 import org.thoughtcrime.securesms.animation.DepthPageTransformer;
 import org.thoughtcrime.securesms.attachments.DatabaseAttachment;
@@ -397,6 +399,7 @@ public final class MediaPreviewActivity extends PassphraseRequiredActivity
     if (mediaItem != null) {
       MultiselectForwardFragmentArgs.create(
           this,
+          threadId,
           mediaItem.uri,
           mediaItem.type,
           args -> MultiselectForwardFragment.showBottomSheet(getSupportFragmentManager(), args)
@@ -463,7 +466,7 @@ public final class MediaPreviewActivity extends PassphraseRequiredActivity
       return;
     }
 
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    AlertDialog.Builder builder = new MaterialAlertDialogBuilder(this);
     builder.setIcon(R.drawable.ic_warning);
     builder.setTitle(R.string.MediaPreviewActivity_media_delete_confirmation_title);
     builder.setMessage(R.string.MediaPreviewActivity_media_delete_confirmation_message);

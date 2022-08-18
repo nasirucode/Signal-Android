@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">د پرداختونو د بیرته تر لاسه کولو عبارت ثبت کړئ</string>
   <string name="ApplicationPreferencesActivity_record_phrase">د عبارت ثبتول</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">وړاندې تر دې چې خپل PIN غیرفعال کړئ، نو باید تاسې خپل د پرداختونو د بیرته تر لاسه کولو عبارت ثبت کړئ تر څو ډاډ تر لاسه کړئ چې کولای شئ خپل د پرداختونو اکاونټ تر لاسه کولای شئ.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d دقیقه</item>
@@ -165,17 +168,21 @@
   <string name="ContactsDatabase_message_s">پیغام %s</string>
   <string name="ContactsDatabase_signal_call_s">د Signal اړیکه%s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
   <string name="ContactNameEditActivity_given_name">نوم</string>
   <string name="ContactNameEditActivity_family_name">کورنی نوم</string>
   <string name="ContactNameEditActivity_prefix">مختاړی</string>
   <string name="ContactNameEditActivity_suffix">وروستاړی</string>
   <string name="ContactNameEditActivity_middle_name">منځنی نوم</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
   <string name="ContactShareEditActivity_type_home">کور </string>
   <string name="ContactShareEditActivity_type_mobile">موبایل</string>
   <string name="ContactShareEditActivity_type_work">کار</string>
   <string name="ContactShareEditActivity_type_missing">نور</string>
   <string name="ContactShareEditActivity_invalid_contact">ټاکل شوی مخاطب ناسم دی</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <!--Content description for user avatar in edit activity-->
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">و نه لیږل شو، د جزئیاتو لپاره کلیک وکړئ</string>
   <string name="ConversationItem_error_partially_not_delivered">یوه برخه یې ولیږل شوه، د جزئیاتو لپاره کلیک وکړئ</string>
@@ -391,6 +398,7 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">د بک اپ د بیرته را ګرځولو لپاره، د Signal نوې کاپي انسټال کړئ. اپلیکیشن پرانیزئ او پر \"بک اپ تر لاسه کول\" باندې کلیک وکړئ، وروسته د بک اپ فایل ته ځای وټاکئ. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">لا زیات زده کړئ </string>
   <string name="BackupsPreferenceFragment__in_progress">د پرمختګ په حال کې ده…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
   <string name="BackupsPreferenceFragment__d_so_far">%1$d تر اوسه پورې…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment_signal_requires_external_storage_permission_in_order_to_create_backups">د بک اپونو د رامنځته کولو لپاره Signal د بهرنۍ زیرمې اجازې ته اړتیا لري، خو هغه د تل لپاره رد شوې ده.، نو مهرباني وکړئ د اپلیکیشن تنظیماتو ته ورشئ، \"اجازې\" وټاکئ او \"زیرمه\" فعاله کړئ.</string>
@@ -1391,6 +1399,10 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">تصحیح</string>
   <string name="SubmitDebugLogActivity_done">تر سره شو</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">ثبت</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">پر هغې کرښې چې غواړئ پاکه یې کړئ کلیک وکړئ</string>
   <string name="SubmitDebugLogActivity_submit">تسلیمول</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">د رپوټونو تسلیمول ناکام شو</string>
@@ -1441,6 +1453,8 @@
   <!--Displayed in the notification when the user is sent a gift-->
   <!--Displayed in the notification when the user sends a gift-->
   <!--Displayed in the notification when the user has opened a received gift-->
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">د Signal اپډیټ کول</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">د Signal نوې نسخه د لاسرسي وړ ده، د اپډیټ کولو لپاره کلیک وکړئ</string>
@@ -2549,10 +2563,13 @@
   <string name="BackupDialog_verify">تایید </string>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">تاسې په بریا سره خپل د بک اپ پټ عبارت دننه کړ</string>
   <string name="BackupDialog_passphrase_was_not_correct">پټ عبارت سم نه و</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
   <string name="LocalBackupJobApi29_backup_failed">بک اپ تر سره نشو</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">ستاسې د بک اپ ډایریکټوري له منځه تللي یا هم انتقال شوې ده.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">ستاسې د بک اپ فایل ډېر زیات ستر دی چې په دې حجم کې یې زیرمه کړو.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">ستاسې د بک اپ د زیرمه کولو لپاره کافي ځای نشته.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
   <string name="LocalBackupJobApi29_tap_to_manage_backups">د بک اپونو د مدیریت لپاره کلیک وکړئ.</string>
   <string name="ProgressPreference_d_messages_so_far">تر اوسه پورې %d پیغامونه</string>
   <string name="RegistrationActivity_wrong_number">غلطه شمېره</string>
@@ -2805,6 +2822,8 @@
   <string name="CallParticipant__you">تاسې</string>
   <string name="CallParticipant__you_on_another_device">تاسې (په بله وسیله کې)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (په بله وسیله کې)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">د خپل اکاونټ په له منځه وړلو سره به تاسې:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">خپله د ټلیفون شمېره دننه کړئ</string>
@@ -3524,6 +3543,8 @@
   <string name="StoriesLandingItem__forward">فاروارډ</string>
   <!--Context menu option to share a story-->
   <!--Context menu option to go to story chat-->
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">معلومات</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">د لیږلو په حال کې ده…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3559,6 +3580,11 @@
   <!--Displayed when a story has no views-->
   <!--Displayed when user has disabled receipts-->
   <!--Button label displayed when user has disabled receipts-->
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">ایسته کول</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <!--Dialog message when removing a viewer from a story-->
+  <!--Story View context menu action to remove them from a story-->
   <!--Displayed when a story has no replies yet-->
   <!--Displayed for each user that reacted to a story when viewing replies-->
   <!--Label for story views tab-->
@@ -3676,7 +3702,7 @@
   <!--Conversation Item label for reactions to an unavailable story-->
   <!--endregion-->
   <!--Content description for expand contacts chevron-->
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <!--Tagline for gift row items-->
   <!--Headline text on start fragment for gifting a badge-->
   <!--Description text on start fragment for gifting a badge-->
@@ -3738,6 +3764,7 @@
   <!--Message of safety number changes bottom sheet when showing individual records-->
   <!--Title of safety number changes bottom sheet when not showing individual records-->
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">د خوندیتوب د شمېرې تایید</string>
@@ -3760,5 +3787,16 @@
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">لیږل شوی</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">تر لاسه شو</string>
+  <!--Story info header file size heading-->
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">ته لیږل شوی</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">له خوا لیږل شوی</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">معلومات</string>
   <!--EOF-->
 </resources>

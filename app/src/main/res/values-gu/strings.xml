@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">પેમેન્ટ રિકવરી કરવા માટે વાક્ય રૅકોર્ડ કરો</string>
   <string name="ApplicationPreferencesActivity_record_phrase">વાક્ય રૅકોર્ડ કરો</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">તમે તમારો પિન અક્ષમ કરી શકો તે પહેલાં, તમે તમારા પેમેન્ટ એકાઉન્ટને રિકવરી કરી શકો છો તેની ખાતરી કરવા માટે તમારે તમારા પેમેન્ટ રિકવરી વાક્યને રેકોર્ડ કરવું આવશ્યક છે.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">બેકસ્પેસ</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d મિનિટ</item>
@@ -173,17 +176,25 @@
   <string name="ContactsDatabase_message_s">મેસેજ %s</string>
   <string name="ContactsDatabase_signal_call_s">Signal કૉલ %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
+  <string name="ContactNameEditActivity__edit_name">નામમાં ફેરફાર કરો</string>
   <string name="ContactNameEditActivity_given_name">આપેલા નામ</string>
   <string name="ContactNameEditActivity_family_name">અટક</string>
   <string name="ContactNameEditActivity_prefix">પ્રિફિક્સ</string>
   <string name="ContactNameEditActivity_suffix">સફિક્સ</string>
   <string name="ContactNameEditActivity_middle_name">પિતાનું નામ</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
+  <string name="ContactShareEditActivity__send_contact">સંપર્ક મોકલો</string>
   <string name="ContactShareEditActivity_type_home">ઘર</string>
   <string name="ContactShareEditActivity_type_mobile">મોબાઇલ</string>
   <string name="ContactShareEditActivity_type_work">કામ</string>
   <string name="ContactShareEditActivity_type_missing">અન્ય</string>
   <string name="ContactShareEditActivity_invalid_contact">પસંદ કરેલો સંપર્ક અમાન્ય હતો</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <string name="ContactShareEditActivity__edit_name">નામમાં ફેરફાર કરો</string>
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">અવતાર</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">મોકલ્યો નથી, વિગતો માટે ટેપ કરો</string>
   <string name="ConversationItem_error_partially_not_delivered">આંશિક રીતે મોકલેલ, વિગતો માટે ટેપ કરો</string>
@@ -452,6 +463,8 @@
   <string name="BackupsPreferenceFragment__to_restore_a_backup">બૅકઅપ રિસ્ટોર કરવા માટે, Signal ની નવી કૉપી ઇન્સ્ટોલ કરો. એપ્લિકેશન ખોલો અને \"રિસ્ટોર બૅકઅપ\" ટેપ કરો, પછી બૅકઅપ ફાઇલ શોધો. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">વધુ શીખો</string>
   <string name="BackupsPreferenceFragment__in_progress">થાય છે…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
+  <string name="BackupsPreferenceFragment__verifying_backup">બૅકઅપ ચકાસી રહ્યા છીએ…</string>
   <string name="BackupsPreferenceFragment__d_so_far">%1$dઅત્યાર સુધી…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% અત્યાર સુધી…</string>
@@ -1505,6 +1518,12 @@
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">ફેરફાર કરો</string>
   <string name="SubmitDebugLogActivity_done">થઈ ગયું</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">સેવ કરો</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_failed_to_save">સેવ કરવામાં નિષ્ફળ</string>
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save_complete">સેવ કરવાનું પૂર્ણ</string>
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">તેને કાઢી નાખવા માટે એક લાઇન ટેપ કરો</string>
   <string name="SubmitDebugLogActivity_submit">સબમિટ કરો</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">લોગ સબમિટ કરવામાં નિષ્ફળ</string>
@@ -1558,6 +1577,10 @@
   <string name="ThreadRecord__you_sent_a_gift">તમે એક ગિફ્ટ મોકલી</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">તમે એક ગિફ્ટ બૅજ રિડિમ કર્યું</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <string name="ThreadRecord__reacted_s_to_your_story">તમારી સ્ટોરી પર %1$s પ્રતિક્રિયા આપી</string>
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
+  <string name="ThreadRecord__reacted_s_to_their_story">તેમની સ્ટોરી પર %1$s પ્રતિક્રિયા આપી</string>
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Signal અપડેટ</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Signalનું નવું વર્ઝન ઉપલબ્ધ છે, અપડેટ કરવા માટે ટેપ કરો</string>
@@ -2060,7 +2083,7 @@
   <string name="HelpFragment__please_be_as_descriptive_as_possible">કૃપા કરીને સમસ્યાને સમજવામાં અમારી સહાય માટે શક્ય તેટલું વર્ણનાત્મક બનો.</string>
   <string-array name="HelpFragment__categories_4">
     <item>\-\- કૃપા કરીને એક વિકલ્પ પસંદ કરો \-\-</item>
-    <item>કશુંક કામ નથી આપી રહ્યું</item>
+    <item>કશું કામ નથી આપી રહ્યું</item>
     <item>સુવિધા વિનંતી</item>
     <item>પ્રશ્ન</item>
     <item>પ્રતિસાદ</item>
@@ -2707,10 +2730,16 @@
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">તમે સફળતાપૂર્વક તમારો બૅકઅપ પાસફ્રેઝ દાખલ કર્યો</string>
   <string name="BackupDialog_passphrase_was_not_correct">પાસફ્રેઝ સાચો ન હતો</string>
   <string name="LocalBackupJob_creating_signal_backup">Signal બૅકઅપ બની રહ્યું છે…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
+  <string name="LocalBackupJob_verifying_signal_backup">Signal બૅકઅપ ચકાસી રહ્યા છીએ…</string>
   <string name="LocalBackupJobApi29_backup_failed">બૅકઅપ નિષ્ફળ</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">તમારી બૅકઅપ ડિરેક્ટરી કાઢી નાખવામાં આવી છે અથવા ખસેડવામાં આવી છે.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">આ વોલ્યુમ પર સ્ટોર કરવા માટે તમારી બૅકઅપ ફાઇલ ખૂબ મોટી છે.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">તમારા બૅકઅપને સ્ટોર કરવા માટે પૂરતી જગ્યા નથી.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <string name="LocalBackupJobApi29_your_backup_could_not_be_verified">તમારું તાજેતરનું બૅકઅપ બનાવી અને ચકાસી શક્યા નહીં. કૃપા કરીને નવું બનાવો.</string>
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
+  <string name="LocalBackupJobApi29_your_backup_contains_a_very_large_file">તમારા બૅકઅપમાં એક બહુ મોટી ફાઇલ છે જેનું બૅકઅપ લઈ શકાતું નથી. કૃપા કરીને તેને ડિલીટ કરો અને નવું બૅકઅપ બનાવો.</string>
   <string name="LocalBackupJobApi29_tap_to_manage_backups">બેકઅપ મેનેજ કરવા માટે ટેપ કરો.</string>
   <string name="ProgressPreference_d_messages_so_far">%d મેસેજ અત્યાર સુધી</string>
   <string name="RegistrationActivity_wrong_number">ખોટો નંબર</string>
@@ -2966,6 +2995,9 @@
   <string name="CallParticipant__you">તમે</string>
   <string name="CallParticipant__you_on_another_device">તમે (બીજા ડિવાઇસ પર)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (બીજા ડિવાઇસ પર)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
+  <string name="WifiToCellularPopupWindow__weak_wifi_switched_to_cellular">નબળું વાઇ-ફાઇ. સેલ્યુલર પર સ્વિચ કર્યું.</string>
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">તમારું એકાઉન્ટ કાઢી નાખવાથી:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">તમારો ફોન નંબર દાખલ કરો</string>
@@ -3860,6 +3892,8 @@
   <string name="StoriesLandingItem__share">શેર કરો…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">ચેટ પર જાઓ</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">માહિતી</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">મોકલી રહ્યો છે…</string>
   <!--Label when multiple stories are pending sending-->
@@ -3923,6 +3957,14 @@
   <string name="StoryViewsFragment__enable_read_receipts_to_see_whos_viewed_your_story">તમારી સ્ટોરી કોણે જોઈ છે તે જોવા પ્રાપ્ત કર્યાની રસીદ સક્ષમ કરો.</string>
   <!--Button label displayed when user has disabled receipts-->
   <string name="StoryViewsFragment__go_to_settings">સેટિંગ્સ પર જાઓ</string>
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">દૂર કરો</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <string name="StoryViewsFragment__remove_viewer">દર્શકને દૂર કરવો છે?</string>
+  <!--Dialog message when removing a viewer from a story-->
+  <string name="StoryViewsFragment__s_will_still_be_able">%1$s હજી પણ આ પોસ્ટ જોવામાં સમર્થ હશે, પરંતુ તમે %2$s શેર કરો છો તેવી કોઈ પણ ભાવિ પોસ્ટ જોઈ શકશે નહીં.</string>
+  <!--Story View context menu action to remove them from a story-->
+  <string name="StoryViewItem__remove_viewer">દર્શકને દૂર કરો</string>
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">હજી કોઈ જવાબો નથી</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4134,7 +4176,7 @@
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">વધુ જુઓ</string>
   <string name="StoriesLinkPopup__visit_link">લિંકની મુલાકાત લો</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <plurals name="GiftRowItem_s_dot_d_day_duration">
     <item quantity="one">%1$s · %2$d દિવસોની અવધિ</item>
     <item quantity="other">%1$s · %2$d દિવસની અવધિ</item>
@@ -4258,6 +4300,8 @@
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">સલામતી નંબર તપાસ</string>
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <string name="SafetyNumberBottomSheetFragment__safety_number_checkup_complete">સલામતી નંબર તપાસ પૂર્ણ</string>
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">બધા જ કનેક્શનની સમીક્ષા થઈ ચૂકી છે, ચાલુ રાખવા માટે મોકલો પર ટૅપ કરો.</string>
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">તમારા %1$d કનેક્શન એવા છે જેમણે Signal ફરીથી ઇન્સ્ટોલ કરેલ અથવા તેમના ડિવાઇસ બદલેલ હોઈ શકે છે. તેમની સાથે તમારી સ્ટોરી શેર કરતાં પહેલાં તેમના સલામતી નંબરની સમીક્ષા કરો અથવા તેમને તમારી સ્ટોરીમાંથી દૂર કરવાનું વિચારો.</string>
   <!--Menu action to launch safety number verification screen-->
@@ -4275,7 +4319,10 @@
   <!--Title of safety number review fragment-->
   <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">સલામતી નંબરના ફેરફારો</string>
   <!--Message of safety number review fragment-->
-  <string name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">%1$d પ્રાપ્તકર્તાઓએ Signal ફરીથી ઇન્સ્ટોલ કરેલ અથવા ડિવાઇસ બદલેલ હોઈ શકે છે. નવા સલામતી નંબરની પુષ્ટિ કરવા પ્રાપ્તકર્તા પર ટૅપ કરો. આ વૈકલ્પિક છે.</string>
+  <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
+    <item quantity="one">%1$d પ્રાપ્તકર્તાએ Signal ફરીથી ઇન્સ્ટોલ કરેલ અથવા ડિવાઇસ બદલેલ હોઈ શકે છે. નવા સલામતી નંબરની પુષ્ટિ કરવા પ્રાપ્તકર્તા પર ટૅપ કરો. આ વૈકલ્પિક છે.</item>
+    <item quantity="other">%1$d પ્રાપ્તકર્તાઓએ Signal ફરીથી ઇન્સ્ટોલ કરેલ અથવા ડિવાઇસ બદલેલ હોઈ શકે છે. નવા સલામતી નંબરની પુષ્ટિ કરવા પ્રાપ્તકર્તા પર ટૅપ કરો. આ વૈકલ્પિક છે.</item>
+  </plurals>
   <!--Section header for 1:1 contacts in review fragment-->
   <string name="SafetyNumberBucketRowItem__contacts">સંપર્કો</string>
   <!--Context menu label for distribution list headers in review fragment-->
@@ -4285,12 +4332,24 @@
   <!--Title of initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__my_story_privacy">મારી સ્ટોરીની પ્રાઇવસી</string>
   <!--Subtitle of initial My Story settings configuration shown when sending to My Story for the first time-->
-  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">મારી સ્ટોરી પરની પોસ્ટ કોણ જોઈ શકે તે પસંદ કરો. તમે સેટિંગ્સમાંથી ગમે ત્યારે ફેરફારો કરી શકો છો.</string>
+  <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">મારી સ્ટોરી પરની પોસ્ટ કોણ જોઈ શકે તે પસંદ કરો. તમે સેટિંગ્સમાંથી ગમે ત્યારે ફેરફાર કરી શકો છો.</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">બધા Signal સંપર્કો</string>
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections_except">બધા Signal કનેક્શન, સિવાય કે…</string>
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <string name="ChooseInitialMyStoryMembershipFragment__only_share_with">ફક્ત આમની સાથે શેર કરો…</string>
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">મોકલ્યો</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">મળી ગયા</string>
+  <!--Story info header file size heading-->
+  <string name="StoryInfoHeader__file_size">ફાઇલ સાઇઝ</string>
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">આને મોકલવામાં આવેલ છે</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">તરફથી મોકલવામાં આવેલ છે</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">માહિતી</string>
   <!--EOF-->
 </resources>

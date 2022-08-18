@@ -41,6 +41,9 @@
   <string name="ApplicationPreferencesActivity_record_payments_recovery_phrase">Cofnodi ymadrodd adfer taliadau</string>
   <string name="ApplicationPreferencesActivity_record_phrase">Recordio ymadrodd</string>
   <string name="ApplicationPreferencesActivity_before_you_can_disable_your_pin">Cyn y gallwch analluogi eich PIN, rhaid i chi gofnodi eich ymadrodd adfer taliadau i sicrhau y gallwch adfer eich cyfrif taliadau.</string>
+  <!--NumericKeyboardView-->
+  <!--Back button on numeric keyboard-->
+  <string name="NumericKeyboardView__backspace">Backspace</string>
   <!--AppProtectionPreferenceFragment-->
   <plurals name="AppProtectionPreferenceFragment_minutes">
     <item quantity="one">%d munud</item>
@@ -175,17 +178,22 @@
   <string name="ContactsDatabase_message_s">Neges %s</string>
   <string name="ContactsDatabase_signal_call_s">Galwad Signal %s</string>
   <!--ContactNameEditActivity-->
+  <!--Toolbar title for contact name edit activity-->
   <string name="ContactNameEditActivity_given_name">Enw</string>
   <string name="ContactNameEditActivity_family_name">Enw teuluol</string>
   <string name="ContactNameEditActivity_prefix">Rhagddodiad</string>
   <string name="ContactNameEditActivity_suffix">Ôl-ddodiad</string>
   <string name="ContactNameEditActivity_middle_name">Enw canol</string>
   <!--ContactShareEditActivity-->
+  <!--ContactShareEditActivity toolbar title-->
   <string name="ContactShareEditActivity_type_home">Cartref</string>
   <string name="ContactShareEditActivity_type_mobile">Symudol</string>
   <string name="ContactShareEditActivity_type_work">Gwaith</string>
   <string name="ContactShareEditActivity_type_missing">Arall</string>
   <string name="ContactShareEditActivity_invalid_contact">Roedd y cyswllt hwn yn annilys</string>
+  <!--Content descrption for name edit button on contact share edit activity-->
+  <!--Content description for user avatar in edit activity-->
+  <string name="ContactShareEditActivity__avatar">Rhithffurf</string>
   <!--ConversationItem-->
   <string name="ConversationItem_error_not_sent_tap_for_details">Heb ei hanfon, tapiwch am fanylion</string>
   <string name="ConversationItem_error_partially_not_delivered">Wedi\'i hanfon yn rhannol, tapiwch am fanylion</string>
@@ -493,6 +501,7 @@ Anfon neges heb ei diogelu?</string>
   <string name="BackupsPreferenceFragment__to_restore_a_backup">I adfer copi wrth gefn, gosodwch gopi newydd o Signal. Agorwch yr app a thapio \"Adfer copi wrth gefn\", yna canfod y ffeil wrth gefn. %1$s</string>
   <string name="BackupsPreferenceFragment__learn_more">Dysgu rhagor</string>
   <string name="BackupsPreferenceFragment__in_progress">Cynnydd…</string>
+  <!--Status text shown in backup preferences when verifying a backup-->
   <string name="BackupsPreferenceFragment__d_so_far">%1$d hyd yn hyn…</string>
   <!--Show percentage of completion of backup-->
   <string name="BackupsPreferenceFragment__s_so_far">%1$s%% hyd yn hyn…</string>
@@ -1653,6 +1662,10 @@ Anfon neges heb ei diogelu?</string>
   <!--SubmitDebugLogActivity-->
   <string name="SubmitDebugLogActivity_edit">Golygu</string>
   <string name="SubmitDebugLogActivity_done">Wedi Gorffen</string>
+  <!--Menu option to save a debug log file to disk.-->
+  <string name="SubmitDebugLogActivity_save">Cadw</string>
+  <!--Error that is show in a toast when we fail to save a debug log file to disk.-->
+  <!--Toast that is show to notify that we have saved the debug log file to disk.-->
   <string name="SubmitDebugLogActivity_tap_a_line_to_delete_it">Tapio llinell i\'w dileu</string>
   <string name="SubmitDebugLogActivity_submit">Cyflwyno</string>
   <string name="SubmitDebugLogActivity_failed_to_submit_logs">Wedi methu cyflwyno cofnodion</string>
@@ -1706,6 +1719,8 @@ Anfon neges heb ei diogelu?</string>
   <string name="ThreadRecord__you_sent_a_gift">Rydych wedi anfon anrheg</string>
   <!--Displayed in the notification when the user has opened a received gift-->
   <string name="ThreadRecord__you_redeemed_a_gift_badge">Rydych wedi adbrynu bathodyn anrheg</string>
+  <!--Displayed in the conversation list when someone reacted to your story-->
+  <!--Displayed in the conversation list when you reacted to someone\'s story-->
   <!--UpdateApkReadyListener-->
   <string name="UpdateApkReadyListener_Signal_update">Diweddariad Signal</string>
   <string name="UpdateApkReadyListener_a_new_version_of_signal_is_available_tap_to_update">Mae fersiwn newydd o Signal ar gael. Tapiwch i ddiweddaru</string>
@@ -2887,10 +2902,13 @@ Anfon neges heb ei diogelu?</string>
   <string name="BackupDialog_you_successfully_entered_your_backup_passphrase">Rydych wedi cyflwyno eich cyfrinymadrodd wrth gefn yn llwyddiannus</string>
   <string name="BackupDialog_passphrase_was_not_correct">Nid oedd y cyfrinymadrodd yn gywir</string>
   <string name="LocalBackupJob_creating_signal_backup">Creu copi wrth gefn o Signal…</string>
+  <!--Title for progress notification shown in a system notification while verifying a recent backup.-->
   <string name="LocalBackupJobApi29_backup_failed">Methodd y copïo wrth gefn</string>
   <string name="LocalBackupJobApi29_your_backup_directory_has_been_deleted_or_moved">Mae eich cyfeiriadur wrth gefn wedi\'i ddileu neu ei symud.</string>
   <string name="LocalBackupJobApi29_your_backup_file_is_too_large">Mae\'ch ffeil wrth gefn yn rhy fawr i\'w storio ar y gyfrol hon.</string>
   <string name="LocalBackupJobApi29_there_is_not_enough_space">Nid oes digon o le i storio\'ch copi wrth gefn.</string>
+  <!--Error message shown if a newly created backup could not be verified as accurate-->
+  <!--Error message shown if a very large attachment is encountered during the backup creation and causes the backup to fail-->
   <string name="LocalBackupJobApi29_tap_to_manage_backups">Tapiwch i reoli copïau wrth gefn.</string>
   <string name="ProgressPreference_d_messages_so_far">%d neges hyd yn hyn</string>
   <string name="RegistrationActivity_wrong_number">Rhif anghywir</string>
@@ -3150,6 +3168,8 @@ Anfon neges heb ei diogelu?</string>
   <string name="CallParticipant__you">Chi</string>
   <string name="CallParticipant__you_on_another_device">Chi (ar ddyfais arall)</string>
   <string name="CallParticipant__s_on_another_device">%1$s (ar ddyfais arall)</string>
+  <!--WifiToCellularPopupWindow-->
+  <!--Message shown during a call when the WiFi network is unusable, and cellular data starts to be used for the call instead.-->
   <!--DeleteAccountFragment-->
   <string name="DeleteAccountFragment__deleting_your_account_will">Bydd dileu eich cyfrif yn:</string>
   <string name="DeleteAccountFragment__enter_your_phone_number">Rhowch eich rhif ffôn</string>
@@ -4057,6 +4077,8 @@ Anfon neges heb ei diogelu?</string>
   <string name="StoriesLandingItem__share">Rhannu…</string>
   <!--Context menu option to go to story chat-->
   <string name="StoriesLandingItem__go_to_chat">Ewch i\'r sgwrs</string>
+  <!--Context menu option to go to story info-->
+  <string name="StoriesLandingItem__info">Gwyb</string>
   <!--Label when a story is pending sending-->
   <string name="StoriesLandingItem__sending">Yn anfon…</string>
   <!--Label when multiple stories are pending sending-->
@@ -4121,6 +4143,11 @@ Anfon neges heb ei diogelu?</string>
   <string name="StoryViewsFragment__no_views_yet">Neb wedi\'i darllen eto</string>
   <!--Displayed when user has disabled receipts-->
   <!--Button label displayed when user has disabled receipts-->
+  <!--Dialog action to remove viewer from a story-->
+  <string name="StoryViewsFragment__remove">Tynnu</string>
+  <!--Dialog title when removing a viewer from a story-->
+  <!--Dialog message when removing a viewer from a story-->
+  <!--Story View context menu action to remove them from a story-->
   <!--Displayed when a story has no replies yet-->
   <string name="StoryGroupReplyFragment__no_replies_yet">Dim atebion eto</string>
   <!--Displayed for each user that reacted to a story when viewing replies-->
@@ -4320,7 +4347,7 @@ Anfon neges heb ei diogelu?</string>
   <!--Content description for expand contacts chevron-->
   <string name="ExpandModel__view_more">Gweld rhagor</string>
   <string name="StoriesLinkPopup__visit_link">Ymweld â\'r ddolen</string>
-  <!--Duration and price information-->
+  <!--Gift price and duration, formatted as: {price} dot {n} day duration-->
   <!--Tagline for gift row items-->
   <string name="GiftRowItem__send_a_gift_badge">Anfon bathodyn rhodd</string>
   <!--Headline text on start fragment for gifting a badge-->
@@ -4435,6 +4462,7 @@ Anfon neges heb ei diogelu?</string>
   <!--Message of safety number changes bottom sheet when showing individual records-->
   <!--Title of safety number changes bottom sheet when not showing individual records-->
   <!--Title of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
+  <!--Message of safety number changes bottom sheet when not showing individual records and user has seen review screen-->
   <!--Message of safety number changes bottom sheet when not showing individual records-->
   <!--Menu action to launch safety number verification screen-->
   <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Gwirio\'r rhif diogelwch</string>
@@ -4457,5 +4485,16 @@ Anfon neges heb ei diogelu?</string>
   <!--All connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <!--All connections except option for initial My Story settings configuration shown when sending to My Story for the first time-->
   <!--Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time-->
+  <!--Story info header sent heading-->
+  <string name="StoryInfoHeader__sent">Anfonwyd</string>
+  <!--Story info header received heading-->
+  <string name="StoryInfoHeader__received">Derbyniwyd</string>
+  <!--Story info header file size heading-->
+  <!--Story info "Sent to" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_to">Anfonwyd at</string>
+  <!--Story info "Sent from" header-->
+  <string name="StoryInfoBottomSheetDialogFragment__sent_from">Anfonwyd gan</string>
+  <!--Story Info context menu label-->
+  <string name="StoryInfoBottomSheetDialogFragment__info">Gwyb</string>
   <!--EOF-->
 </resources>

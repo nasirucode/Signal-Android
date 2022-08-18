@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -25,12 +24,8 @@ import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.PassphraseRequiredActivity
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.components.emoji.EmojiEventListener
-import org.thoughtcrime.securesms.contacts.paged.ContactSearchConfiguration
 import org.thoughtcrime.securesms.contacts.paged.ContactSearchKey
-import org.thoughtcrime.securesms.contacts.paged.ContactSearchState
 import org.thoughtcrime.securesms.conversation.MessageSendType
-import org.thoughtcrime.securesms.conversation.mutiselect.forward.MultiselectForwardFullScreenDialogFragment
-import org.thoughtcrime.securesms.conversation.mutiselect.forward.SearchConfigurationProvider
 import org.thoughtcrime.securesms.keyboard.emoji.EmojiKeyboardPageFragment
 import org.thoughtcrime.securesms.keyboard.emoji.search.EmojiSearchFragment
 import org.thoughtcrime.securesms.linkpreview.LinkPreviewUtil
@@ -50,9 +45,7 @@ class MediaSelectionActivity :
   MediaReviewFragment.Callback,
   EmojiKeyboardPageFragment.Callback,
   EmojiEventListener,
-  EmojiSearchFragment.Callback,
-  SearchConfigurationProvider,
-  MultiselectForwardFullScreenDialogFragment.Callback {
+  EmojiSearchFragment.Callback {
 
   private var animateInShadowLayerValueAnimator: ValueAnimator? = null
   private var animateInTextColorValueAnimator: ValueAnimator? = null
@@ -311,28 +304,6 @@ class MediaSelectionActivity :
 
   override fun closeEmojiSearch() {
     viewModel.sendCommand(HudCommand.CloseEmojiSearch)
-  }
-
-  override fun getSearchConfiguration(fragmentManager: FragmentManager, contactSearchState: ContactSearchState): ContactSearchConfiguration? {
-    return if (isStory) {
-      ContactSearchConfiguration.build {
-        query = contactSearchState.query
-
-        addSection(
-          ContactSearchConfiguration.Section.Stories(
-            groupStories = contactSearchState.groupStories,
-            includeHeader = true,
-            headerAction = Stories.getHeaderAction(fragmentManager)
-          )
-        )
-      }
-    } else {
-      null
-    }
-  }
-
-  override fun getStorySendRequirements(): Stories.MediaTransform.SendRequirements {
-    return viewModel.getStorySendRequirements()
   }
 
   private inner class OnBackPressed : OnBackPressedCallback(true) {

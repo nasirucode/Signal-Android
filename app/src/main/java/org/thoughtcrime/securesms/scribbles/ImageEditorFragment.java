@@ -17,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.load.DataSource;
@@ -218,6 +220,7 @@ public final class ImageEditorFragment extends Fragment implements ImageEditorHu
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+    controller.restoreState();
 
     Mode mode = Mode.getByCode(requireArguments().getString(KEY_MODE));
 
@@ -249,16 +252,17 @@ public final class ImageEditorFragment extends Fragment implements ImageEditorHu
       restoredModel = null;
     }
 
+    @ColorInt int blackoutColor = ContextCompat.getColor(requireContext(), R.color.signal_colorBackground);
     if (editorModel == null) {
       switch (mode) {
         case AVATAR_EDIT:
-          editorModel = EditorModel.createForAvatarEdit();
+          editorModel = EditorModel.createForAvatarEdit(blackoutColor);
           break;
         case AVATAR_CAPTURE:
-          editorModel = EditorModel.createForAvatarCapture();
+          editorModel = EditorModel.createForAvatarCapture(blackoutColor);
           break;
         default:
-          editorModel = EditorModel.create();
+          editorModel = EditorModel.create(blackoutColor);
           break;
       }
 
@@ -585,8 +589,10 @@ public final class ImageEditorFragment extends Fragment implements ImageEditorHu
 
   @Override
   public void onClearAll() {
-    imageEditorView.getModel().clearUndoStack();
-    updateHudDialRotation();
+    if (imageEditorView != null) {
+      imageEditorView.getModel().clearUndoStack();
+      updateHudDialRotation();
+    }
   }
 
   @Override
@@ -1047,6 +1053,8 @@ public final class ImageEditorFragment extends Fragment implements ImageEditorHu
     void onMainImageLoaded();
 
     void onMainImageFailedToLoad();
+
+    void restoreState();
   }
 
   private static class FaceDetectionResult {

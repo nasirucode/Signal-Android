@@ -22,6 +22,7 @@ import org.signal.libsignal.protocol.state.SignedPreKeyRecord;
 import org.signal.libsignal.protocol.util.Pair;
 import org.signal.libsignal.zkgroup.VerificationFailedException;
 import org.signal.libsignal.zkgroup.profiles.ClientZkProfileOperations;
+import org.signal.libsignal.zkgroup.profiles.ExpiringProfileKeyCredential;
 import org.signal.libsignal.zkgroup.profiles.ProfileKey;
 import org.signal.libsignal.zkgroup.profiles.ProfileKeyCredential;
 import org.signal.libsignal.zkgroup.profiles.ProfileKeyCredentialRequest;
@@ -211,7 +212,7 @@ public class PushServiceSocket {
 
   private static final String DIRECTORY_AUTH_PATH       = "/v1/directory/auth";
   private static final String MESSAGE_PATH              = "/v1/messages/%s";
-  private static final String GROUP_MESSAGE_PATH        = "/v1/messages/multi_recipient?ts=%s&online=%s";
+  private static final String GROUP_MESSAGE_PATH        = "/v1/messages/multi_recipient?ts=%s&online=%s&urgent=%s";
   private static final String SENDER_ACK_MESSAGE_PATH   = "/v1/messages/%s/%d";
   private static final String UUID_ACK_MESSAGE_PATH     = "/v1/messages/uuid/%s";
   private static final String ATTACHMENT_V2_PATH        = "/v2/attachments/form/upload";
@@ -236,7 +237,7 @@ public class PushServiceSocket {
   private static final String STICKER_MANIFEST_PATH          = "stickers/%s/manifest.proto";
   private static final String STICKER_PATH                   = "stickers/%s/full/%d";
 
-  private static final String GROUPSV2_CREDENTIAL       = "/v1/certificate/group/%d/%d?identity=%s";
+  private static final String GROUPSV2_CREDENTIAL       = "/v1/certificate/auth/group?redemptionStartSeconds=%d&redemptionEndSeconds=%d";
   private static final String GROUPSV2_GROUP            = "/v1/groups/";
   private static final String GROUPSV2_GROUP_PASSWORD   = "/v1/groups/?inviteLinkPassword=%s";
   private static final String GROUPSV2_GROUP_CHANGES    = "/v1/groups/logs/%s?maxSupportedChangeEpoch=%d&includeFirstState=%s&includeLastState=false";
@@ -353,26 +354,31 @@ public class PushServiceSocket {
     return JsonUtil.fromJsonResponse(body, CdsiAuthResponse.class);
   }
 
-  public VerifyAccountResponse verifyAccountCode(String verificationCode, String signalingKey, int registrationId, boolean fetchesMessages,
-                                                 String pin, String registrationLock,
-                                                 byte[] unidentifiedAccessKey, boolean unrestrictedUnidentifiedAccess,
+  public VerifyAccountResponse verifyAccountCode(String verificationCode,
+                                                 String signalingKey,
+                                                 int registrationId,
+                                                 boolean fetchesMessages,
+                                                 String pin,
+                                                 String registrationLock,
+                                                 byte[] unidentifiedAccessKey,
+                                                 boolean unrestrictedUnidentifiedAccess,
                                                  AccountAttributes.Capabilities capabilities,
-                                                 boolean discoverableByPhoneNumber)
+                                                 boolean discoverableByPhoneNumber,
+                                                 int pniRegistrationId)
       throws IOException
   {
-    AccountAttributes signalingKeyEntity = new AccountAttributes(signalingKey, registrationId, fetchesMessages, pin, registrationLock, unidentifiedAccessKey, unrestrictedUnidentifiedAccess, capabilities, discoverableByPhoneNumber, null);
+    AccountAttributes signalingKeyEntity = new AccountAttributes(signalingKey, registrationId, fetchesMessages, pin, registrationLock, unidentifiedAccessKey, unrestrictedUnidentifiedAccess, capabilities, discoverableByPhoneNumber, null, pniRegistrationId);
     String            requestBody        = JsonUtil.toJson(signalingKeyEntity);
     String            responseBody       = makeServiceRequest(String.format(VERIFY_ACCOUNT_CODE_PATH, verificationCode), "PUT", requestBody);
 
     return JsonUtil.fromJson(responseBody, VerifyAccountResponse.class);
   }
 
-  public VerifyAccountResponse changeNumber(String code, String e164NewNumber, String registrationLock)
+  public VerifyAccountResponse changeNumber(@Nonnull ChangePhoneNumberRequest changePhoneNumberRequest)
       throws IOException
   {
-    ChangePhoneNumberRequest changePhoneNumberRequest = new ChangePhoneNumberRequest(e164NewNumber, code, registrationLock);
-    String                   requestBody              = JsonUtil.toJson(changePhoneNumberRequest);
-    String                   responseBody             = makeServiceRequest(CHANGE_NUMBER_PATH, "PUT", requestBody);
+    String requestBody  = JsonUtil.toJson(changePhoneNumberRequest);
+    String responseBody = makeServiceRequest(CHANGE_NUMBER_PATH, "PUT", requestBody);
 
     return JsonUtil.fromJson(responseBody, VerifyAccountResponse.class);
   }
@@ -386,7 +392,8 @@ public class PushServiceSocket {
                                    boolean unrestrictedUnidentifiedAccess,
                                    AccountAttributes.Capabilities capabilities,
                                    boolean discoverableByPhoneNumber,
-                                   byte[] encryptedDeviceName)
+                                   byte[] encryptedDeviceName,
+                                   int pniRegistrationId)
       throws IOException
   {
     if (registrationLock != null && pin != null) {
@@ -395,9 +402,18 @@ public class PushServiceSocket {
 
     String name = (encryptedDeviceName == null) ? null :  Base64.encodeBytes(encryptedDeviceName);
 
-    AccountAttributes accountAttributes = new AccountAttributes(signalingKey, registrationId, fetchesMessages, pin, registrationLock,
-                                                                unidentifiedAccessKey, unrestrictedUnidentifiedAccess, capabilities,
-                                                                discoverableByPhoneNumber, name);
+    AccountAttributes accountAttributes = new AccountAttributes(signalingKey,
+                                                                registrationId,
+                                                                fetchesMessages,
+                                                                pin,
+                                                                registrationLock,
+                                                                unidentifiedAccessKey,
+                                                                unrestrictedUnidentifiedAccess,
+                                                                capabilities,
+                                                                discoverableByPhoneNumber,
+                                                                name,
+                                                                pniRegistrationId);
+
     makeServiceRequest(SET_ACCOUNT_ATTRIBUTES, "PUT", JsonUtil.toJson(accountAttributes));
   }
 
@@ -462,12 +478,12 @@ public class PushServiceSocket {
     return JsonUtil.fromJson(responseText, SenderCertificate.class).getCertificate();
   }
 
-  public SendGroupMessageResponse sendGroupMessage(byte[] body, byte[] joinedUnidentifiedAccess, long timestamp, boolean online)
+  public SendGroupMessageResponse sendGroupMessage(byte[] body, byte[] joinedUnidentifiedAccess, long timestamp, boolean online, boolean urgent)
       throws IOException
   {
     ServiceConnectionHolder connectionHolder = (ServiceConnectionHolder) getRandom(serviceClients, random);
 
-    String path = String.format(Locale.US, GROUP_MESSAGE_PATH, timestamp, online);
+    String path = String.format(Locale.US, GROUP_MESSAGE_PATH, timestamp, online, urgent);
 
     Request.Builder requestBuilder = new Request.Builder();
     requestBuilder.url(String.format("%s%s", connectionHolder.getUrl(), path));
@@ -774,7 +790,7 @@ public class PushServiceSocket {
 
     String version           = profileKeyIdentifier.serialize();
     String credentialRequest = Hex.toStringCondensed(request.serialize());
-    String subPath           = String.format("%s/%s/%s", target, version, credentialRequest);
+    String subPath           = String.format("%s/%s/%s?credentialType=expiringProfileKey", target, version, credentialRequest);
 
 
     ListenableFuture<String> response = submitServiceRequest(String.format(PROFILE_PATH, subPath), "GET", null, AcceptLanguagesUtil.getHeadersWithAcceptLanguage(locale), unidentifiedAccess);
@@ -789,10 +805,10 @@ public class PushServiceSocket {
       SignalServiceProfile signalServiceProfile = JsonUtil.fromJson(body, SignalServiceProfile.class);
 
       try {
-        ProfileKeyCredential profileKeyCredential = signalServiceProfile.getProfileKeyCredentialResponse() != null
-                                                      ? clientZkProfileOperations.receiveProfileKeyCredential(requestContext, signalServiceProfile.getProfileKeyCredentialResponse())
-                                                      : null;
-        return new ProfileAndCredential(signalServiceProfile, SignalServiceProfile.RequestType.PROFILE_AND_CREDENTIAL, Optional.ofNullable(profileKeyCredential));
+        ExpiringProfileKeyCredential expiringProfileKeyCredential = signalServiceProfile.getExpiringProfileKeyCredentialResponse() != null
+                                                                    ? clientZkProfileOperations.receiveExpiringProfileKeyCredential(requestContext, signalServiceProfile.getExpiringProfileKeyCredentialResponse())
+                                                                    : null;
+        return new ProfileAndCredential(signalServiceProfile, SignalServiceProfile.RequestType.PROFILE_AND_CREDENTIAL, Optional.ofNullable(expiringProfileKeyCredential));
       } catch (VerificationFailedException e) {
         Log.w(TAG, "Failed to verify credential.", e);
         return new ProfileAndCredential(signalServiceProfile, SignalServiceProfile.RequestType.PROFILE_AND_CREDENTIAL, Optional.empty());
@@ -1449,17 +1465,11 @@ public class PushServiceSocket {
       connections.add(call);
     }
 
-    try {
-      Response response;
-
-      try {
-        response = call.execute();
-      } catch (IOException e) {
-        throw new PushNetworkException(e);
-      }
-
+    try (Response response = call.execute()) {
       if (response.isSuccessful()) return file.getTransmittedDigest();
       else                         throw new NonSuccessfulResponseCodeException(response.code(), "Response: " + response);
+    } catch (IOException e) {
+      throw new PushNetworkException(e);
     } finally {
       synchronized (connections) {
         connections.remove(call);
@@ -2339,15 +2349,15 @@ public class PushServiceSocket {
 
   public enum ClientSet { ContactDiscovery, KeyBackup }
 
-  public CredentialResponse retrieveGroupsV2Credentials(int today, boolean isAci)
+  public CredentialResponse retrieveGroupsV2Credentials(long todaySeconds)
       throws IOException
   {
-    int    todayPlus7 = today + 7;
-    String response   = makeServiceRequest(String.format(Locale.US, GROUPSV2_CREDENTIAL, today, todayPlus7, isAci ? "aci" : "pni"),
-                                           "GET",
-                                           null,
-                                           NO_HEADERS,
-                                           Optional.empty());
+    long todayPlus7 = todaySeconds + TimeUnit.DAYS.toSeconds(7);
+    String response = makeServiceRequest(String.format(Locale.US, GROUPSV2_CREDENTIAL, todaySeconds, todayPlus7),
+                                         "GET",
+                                         null,
+                                         NO_HEADERS,
+                                         Optional.empty());
 
     return JsonUtil.fromJson(response, CredentialResponse.class);
   }
